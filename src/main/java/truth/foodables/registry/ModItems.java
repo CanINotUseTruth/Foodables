@@ -25,7 +25,7 @@ public class ModItems {
     public static final Item COOKED_BACON = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(12f).build()));
     public static final Item SLICED_BREAD = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(0.4f).build()));
     public static final Item TOAST = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(6f).build()));
-    public static final Item BLT_SANDWICH = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(8).saturationModifier(12f).build()));
+    public static final Item BLT_SANDWICH = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(8).saturationModifier(14f).build()));
 
     // Crop Drops
     public static final Item LETTUCE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(0.4f).build()));
