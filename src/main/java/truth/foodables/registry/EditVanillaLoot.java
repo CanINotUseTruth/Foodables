@@ -9,6 +9,8 @@ import net.minecraft.util.Identifier;
 public class EditVanillaLoot {
     private static final Identifier SQUID_LOOT_TABLE_ID = new Identifier("minecraft", "entities/squid");
     private static final Identifier MOD_SQUID_LOOT_TABLE_ID = new Identifier("fab", "entities/squid");
+    private static final Identifier GRASS_LOOT_TABLE_ID = new Identifier("minecraft", "blocks/grass");
+    private static final Identifier MOD_GRASS_LOOT_TABLE_ID = new Identifier("fab", "blocks/grass");
 
     public static void modifyLootTables() {
         LootTableLoadingCallback.EVENT.register(((resourceManager, lootManager, id, table, setter) -> {
@@ -16,6 +18,12 @@ public class EditVanillaLoot {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .with(LootTableEntry.builder(MOD_SQUID_LOOT_TABLE_ID));
+                table.withPool(poolBuilder.build());
+            }
+            if (GRASS_LOOT_TABLE_ID.equals(id)) {
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .with(LootTableEntry.builder(MOD_GRASS_LOOT_TABLE_ID));
                 table.withPool(poolBuilder.build());
             }
         }));
