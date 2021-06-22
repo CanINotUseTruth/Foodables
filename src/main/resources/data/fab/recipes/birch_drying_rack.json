@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:birch_slab"
+        }
+    },
+    "result": {
+        "item": "fab:birch_drying_rack",
+        "count": 1
+    }
+}

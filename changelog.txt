@@ -1,0 +1,86 @@
+=======================================================
+                  Foodables Changelog
+		Current Version: 1.0.2
+		   Mod Author: TRUTH
+=======================================================
+
+-----------------------V 1.0.2-------------------------
+- Added Item - Food - Sliced Bread
+- Added Item - Food - Toast
+- Added Item - Ingredient - Raw Bacon
+- Added Item - Food - Crispy Bacon
+- Added Item - Food - Lettuce
+- Added Item - Seeds - Lettuce Seeds
+- Added Item - Food - Tomato
+- Added Item - Seeds - Tomato Seeds
+- Added Item - Food - BLT Sandwich
+- Added Item - Tool - Knife
+
+- Added Block - Crop - Lettuce
+- Added Block - Crop - Tomato
+
+- Added All Wood Type Variants for Drying Rack
+
+- Implemented Compostable Items
+	- Lettuce 
+	- Lettuce Seeds
+	- Tomato
+	- Tomato Seeds
+	- Sliced Bread
+	- Peppercorn
+	- Peppercorn Sapling
+
+- Implemented Crops
+	- Lettuce
+	- Tomato
+
+- Implemented Recipes - Crafting
+	- Sliced Bread
+	- Raw Bacon
+	- BLT Sandwich
+	- Knife
+
+- Implemented Recipes - Furnace
+	- Toast
+	- Crispy Bacon
+
+-----------------------V 1.0.1-------------------------
+- Added Item - Raw Material - Squid
+- Added Item - Ingredient - Battered Squid
+- Added Item - Food - Salt & Pepper Squid
+- Added Item - Ingredient - Wheat Flour
+- Added Item - Tool - Mortar & Pestle
+
+- Added Block - Ore - Salt Ore
+- Added Block - Leaves - Peppercorn Leaves
+
+- Implemented Drops
+	- Squid
+	- Salt
+	- Peppercorn
+
+- Implemented Features
+	- Salt Ore
+	- Peppercorn Trees
+
+- Implemented Recipes - Crafting
+	- Battered Squid
+	- Ground Salt
+	- Ground Pepper
+	- Wheat Flour
+	- Mortar & Pestle
+
+- Implemented Recipes - Furnace
+	- Salt & Pepper Squid
+
+- Implemented Recipes - Drying Rack
+	- Dried Peppercorn
+
+-----------------------V 1.0.0-------------------------
+- Added Item - Raw Material - Peppercorn
+- Added Item - Raw Material - Dried Peppercorn
+- Added Item - Ingredient - Ground Peppercorn
+- Added Item - Raw Material - Salt
+- Added Item - Ingredient - Ground Salt
+
+- Added Block & Entity - Drying Rack

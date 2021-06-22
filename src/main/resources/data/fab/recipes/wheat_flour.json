@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "minecraft:wheat"
+        },
+        {
+            "item": "fab:mortar_and_pestle"
+        }
+    ],
+    "result": {
+        "item": "fab:wheat_flour",
+        "count": 2
+    }
+}

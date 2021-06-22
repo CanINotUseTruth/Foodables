@@ -1,0 +1,14 @@
+{
+    "required": true,
+    "package": "truth.foodables.mixin",
+    "compatibilityLevel": "JAVA_16",
+    "mixins": [
+        "ItemAccessor",
+        "ComposterBlockAccessor"
+    ],
+    "client": [],
+    "server": [],
+    "injectors": {
+      "defaultRequire": 1
+    }
+}
