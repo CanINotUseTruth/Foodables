@@ -75,22 +75,16 @@ public class ModGeneration {
 
     public static void registerTrees() {
         // Peppercorn Tree
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_PEPPERCORN_SAPLING, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PEPPERCORN_SAPLING, RenderLayer.getCutout());
         RegistryKey<ConfiguredFeature<?, ?>> peppercornTrees = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier("fab", "peppercorn_trees"));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, peppercornTrees.getValue(), PEPPERCORN_TREES);
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.PLAINS), GenerationStep.Feature.VEGETAL_DECORATION, peppercornTrees);
 
         // Lemon Tree
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_LEMON_SAPLING, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LEMON_SAPLING, RenderLayer.getCutout());
         RegistryKey<ConfiguredFeature<?, ?>> lemonTrees = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier("fab", "lemon_trees"));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, lemonTrees.getValue(), LEMON_TREES);
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.PLAINS), GenerationStep.Feature.VEGETAL_DECORATION, lemonTrees);
 
         // Lime Tree
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_LIME_SAPLING, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LIME_SAPLING, RenderLayer.getCutout());
         RegistryKey<ConfiguredFeature<?, ?>> limeTrees = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier("fab", "lime_trees"));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, limeTrees.getValue(), LIME_TREES);
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.PLAINS), GenerationStep.Feature.VEGETAL_DECORATION, limeTrees);

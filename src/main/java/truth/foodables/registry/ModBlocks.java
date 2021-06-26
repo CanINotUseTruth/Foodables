@@ -129,6 +129,7 @@ public class ModBlocks {
     }
 
     public static void registerRenderers() {
+        // Racks
         BlockEntityRendererRegistry.INSTANCE.register(OAK_DRYING_RACK_ENTITY, OakDryingRackRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(SPRUCE_DRYING_RACK_ENTITY, SpruceDryingRackRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(BIRCH_DRYING_RACK_ENTITY, BirchDryingRackRenderer::new);
@@ -137,10 +138,18 @@ public class ModBlocks {
         BlockEntityRendererRegistry.INSTANCE.register(ACACIA_DRYING_RACK_ENTITY, AcaciaDryingRackRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(CRIMSON_DRYING_RACK_ENTITY, CrimsonDryingRackRenderer::new);
         BlockEntityRendererRegistry.INSTANCE.register(WARPED_DRYING_RACK_ENTITY, WarpedDryingRackRenderer::new);
+        //Crops
         BlockRenderLayerMap.INSTANCE.putBlock(LETTUCE_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(TOMATO_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BROWN_ONION_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(RED_ONION_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(GARLIC_CROP, RenderLayer.getCutout());
+        // Trees
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_PEPPERCORN_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PEPPERCORN_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_LEMON_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LEMON_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_LIME_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LIME_SAPLING, RenderLayer.getCutout());
     }
 }
