@@ -4,6 +4,102 @@
 		   Mod Author: TRUTH
 =======================================================
 
+-----------------------V 1.0.3-------------------------
+Items Added:
+- Brown Onion
+	- Seeds
+	- Sliced
+- Red Onion
+	- Seeds
+	- Sliced
+- Cooked Onion
+- Caramelized Onion
+- Battered Onion
+- Onion Rings
+- Wet Carton
+- Carton
+- Fries
+	- Uncooked
+- Nuggets
+	- Uncooked
+	- Battered
+- Garlic
+	- Seeds
+- Crusher
+- Whisk
+- Juicer
+- Sunflower Oil
+- Lemon
+	- Juice
+- Lime
+	- Juice
+- Mayonnaise
+- Aioli
+- Steak Sandwich
+
+Blocks Added:
+- Red Onion Crop
+- Brown Onion Crop
+- Lemon
+	- Sapling
+	- Leaves
+- Lime 
+	- Sapling
+	- Leaves
+
+Compostable Items Added:
+- Brown Onion
+	- Seeds
+- Red Onion
+	- Seeds
+- Toast
+- Lemon
+- Lime
+- Garlic
+	- Seeds
+
+
+Crafting Recipes Added:
+- Sliced Onion
+	- Red
+	- Brown
+- Battered Onion
+- Wet Carton
+- Uncooked Fries
+- Nuggets
+	- Raw
+	- Battered
+- Crusher
+- Whisk
+- Juicer
+- Sunflower Oil
+- Lemon
+	- Juice
+- Lime
+	- Juice
+- Mayonnaise
+- Aioli
+- Steak Sandwich
+
+Drying Rack Recips Added:
+- Carton
+
+Features Added:
+- Lemon Trees
+- Lime Trees
+
+Furnace Recipes Added:
+- Cooked Onion
+- Caramelized Onion
+- Onion Rings
+- Fries
+- Nuggets
+
+Texture Edits:
+- Peppercorn
+	- Dried
+
+
 -----------------------V 1.0.2-------------------------
 - Added Item - Food - Sliced Bread
 - Added Item - Food - Toast
@@ -33,6 +129,10 @@
 - Implemented Crops
 	- Lettuce
 	- Tomato
+
+- Implemented Drops
+	- Lettuce Seeds
+	- Tomato Seeds
 
 - Implemented Recipes - Crafting
 	- Sliced Bread

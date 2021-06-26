@@ -56,15 +56,6 @@
                     }
                 }
             ]
-        },
-        {
-            "rolls": 1.0,
-            "entries":[
-                {
-                    "type": "minecraft:item",
-                    "name": "fab:lettuce_seeds"
-                }
-            ]
         }
     ],
     "functions": [

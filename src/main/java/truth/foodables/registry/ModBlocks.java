@@ -24,7 +24,6 @@ import truth.foodables.blocks.DarkOakDryingRack;
 import truth.foodables.blocks.FabCropBlock;
 import truth.foodables.blocks.JungleDryingRack;
 import truth.foodables.blocks.OakDryingRack;
-import truth.foodables.blocks.PeppercornSapling;
 import truth.foodables.blocks.SpruceDryingRack;
 import truth.foodables.blocks.WarpedDryingRack;
 import truth.foodables.blocks.blockentities.AcaciaDryingRackEntity;
@@ -43,6 +42,9 @@ import truth.foodables.blocks.blockentityrenderers.JungleDryingRackRenderer;
 import truth.foodables.blocks.blockentityrenderers.OakDryingRackRenderer;
 import truth.foodables.blocks.blockentityrenderers.SpruceDryingRackRenderer;
 import truth.foodables.blocks.blockentityrenderers.WarpedDryingRackRenderer;
+import truth.foodables.blocks.saplings.LemonSapling;
+import truth.foodables.blocks.saplings.LimeSapling;
+import truth.foodables.blocks.saplings.PeppercornSapling;
 
 public class ModBlocks {
     
@@ -66,13 +68,24 @@ public class ModBlocks {
 
     // Generated Blocks
     public static final Block SALT_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool().strength(3f, 3f).sounds(BlockSoundGroup.STONE));
+
+    // Tree Blocks
     public static final Block PEPPERCORN_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
     public static final Block PEPPERCORN_SAPLING = new PeppercornSapling();
     public static final Block POTTED_PEPPERCORN_SAPLING = new FlowerPotBlock(PEPPERCORN_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_SPRUCE_SAPLING));
+    public static final Block LEMON_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block LEMON_SAPLING = new LemonSapling();
+    public static final Block POTTED_LEMON_SAPLING = new FlowerPotBlock(LEMON_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
+    public static final Block LIME_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block LIME_SAPLING = new LimeSapling();
+    public static final Block POTTED_LIME_SAPLING = new FlowerPotBlock(LIME_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
 
     // Crop Blocks
     public static final Block LETTUCE_CROP = new FabCropBlock();
     public static final Block TOMATO_CROP = new FabCropBlock();
+    public static final Block BROWN_ONION_CROP = new FabCropBlock();
+    public static final Block RED_ONION_CROP = new FabCropBlock();
+    public static final Block GARLIC_CROP = new FabCropBlock();
 
     public static void registerBlocks() {
         // Functional Blocks
@@ -95,13 +108,24 @@ public class ModBlocks {
 
         // Generated Blocks
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "salt_ore"), SALT_ORE);
+
+        // Tree Blocks
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "peppercorn_leaves"), PEPPERCORN_LEAVES);
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "peppercorn_sapling"), PEPPERCORN_SAPLING);
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "potted_peppercorn_sapling"), POTTED_PEPPERCORN_SAPLING);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "lemon_leaves"), LEMON_LEAVES);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "lemon_sapling"), LEMON_SAPLING);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "potted_lemon_sapling"), POTTED_LEMON_SAPLING);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "lime_leaves"), LIME_LEAVES);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "lime_sapling"), LIME_SAPLING);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "potted_lime_sapling"), POTTED_LIME_SAPLING);
 
         // Crop Blocks
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "lettuce_crop"), LETTUCE_CROP);
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "tomato_crop"), TOMATO_CROP);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "brown_onion_crop"), BROWN_ONION_CROP);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "red_onion_crop"), RED_ONION_CROP);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "garlic_crop"), GARLIC_CROP);
     }
 
     public static void registerRenderers() {
@@ -115,5 +139,8 @@ public class ModBlocks {
         BlockEntityRendererRegistry.INSTANCE.register(WARPED_DRYING_RACK_ENTITY, WarpedDryingRackRenderer::new);
         BlockRenderLayerMap.INSTANCE.putBlock(LETTUCE_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(TOMATO_CROP, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BROWN_ONION_CROP, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(RED_ONION_CROP, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(GARLIC_CROP, RenderLayer.getCutout());
     }
 }

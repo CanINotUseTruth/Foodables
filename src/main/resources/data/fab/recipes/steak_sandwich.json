@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " # ",
+        "$%^",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "fab:sliced_bread"
+        },
+        "$": {
+            "item": "fab:aioli"
+        },
+        "%": {
+            "item": "minecraft:cooked_beef"
+        },
+        "^": {
+            "item": "fab:caramelized_onion"
+        }
+    },
+    "result": {
+        "item": "fab:steak_sandwich",
+        "count": 1
+    }
+}

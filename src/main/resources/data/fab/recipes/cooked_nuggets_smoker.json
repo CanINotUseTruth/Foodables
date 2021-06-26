@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:smoking",
+    "ingredient": {
+      "item": "fab:battered_nuggets"
+    },
+    "result": "fab:cooked_nuggets",
+    "experience": 0.35,
+    "cookingtime": 100
+  }

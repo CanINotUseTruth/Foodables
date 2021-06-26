@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "fab:ground_salt"
+        },
+        {
+            "item": "fab:ground_pepper"
+        },
+        {
+            "item": "fab:wheat_flour"
+        },
+        {
+            "item": "fab:raw_nuggets"
+        }
+    ],
+    "result": {
+        "item": "fab:battered_nuggets",
+        "count": 1
+    }
+}

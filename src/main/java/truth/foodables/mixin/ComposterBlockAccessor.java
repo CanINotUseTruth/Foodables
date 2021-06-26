@@ -27,10 +27,17 @@ public class ComposterBlockAccessor extends Block {
     private static void injectRegisterDefaultCompostableItem(CallbackInfo info) {
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.LETTUCE_SEEDS);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.TOMATO_SEEDS);
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.BROWN_ONION_SEEDS);
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.RED_ONION_SEEDS);
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.GARLIC_SEEDS);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.PEPPERCORN_SAPLING);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.PEPPERCORN_ITEM);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.LETTUCE);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.TOMATO);
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.GARLIC);
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.BROWN_ONION);
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.RED_ONION);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.SLICED_BREAD);
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.TOAST);
     }
 }

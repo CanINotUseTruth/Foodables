@@ -43,6 +43,28 @@ public class ModGeneration {
     public static final ConfiguredFeature<TreeFeatureConfig, ?> PEPPERCORN_TREE = Feature.TREE.configure(ModGeneration.PEPPERCORN_TREE_CONFIG);
     public static final ConfiguredFeature<?, ?> PEPPERCORN_TREES = PEPPERCORN_TREE.decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(250)));
 
+    // Lemon Tree
+    public static final TreeFeatureConfig LEMON_TREE_CONFIG = new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()),
+            new StraightTrunkPlacer(4,3,0),
+            new SimpleBlockStateProvider(ModBlocks.LEMON_LEAVES.getDefaultState()),
+            new SimpleBlockStateProvider(ModBlocks.LEMON_SAPLING.getDefaultState()),
+            new BlobFoliagePlacer(UniformIntProvider.create(2,2), UniformIntProvider.create(0,0), 3),
+            new TwoLayersFeatureSize(0, 0, 0)).dirtProvider(new SimpleBlockStateProvider(Blocks.GRASS_BLOCK.getDefaultState())).build();
+
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> LEMON_TREE = Feature.TREE.configure(ModGeneration.LEMON_TREE_CONFIG);
+    public static final ConfiguredFeature<?, ?> LEMON_TREES = LEMON_TREE.decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(350)));
+
+    // Lime Tree
+    public static final TreeFeatureConfig LIME_TREE_CONFIG = new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()),
+            new StraightTrunkPlacer(4,3,0),
+            new SimpleBlockStateProvider(ModBlocks.LIME_LEAVES.getDefaultState()),
+            new SimpleBlockStateProvider(ModBlocks.LIME_SAPLING.getDefaultState()),
+            new BlobFoliagePlacer(UniformIntProvider.create(2,2), UniformIntProvider.create(0,0), 3),
+            new TwoLayersFeatureSize(0, 0, 0)).dirtProvider(new SimpleBlockStateProvider(Blocks.GRASS_BLOCK.getDefaultState())).build();
+
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> LIME_TREE = Feature.TREE.configure(ModGeneration.LIME_TREE_CONFIG);
+    public static final ConfiguredFeature<?, ?> LIME_TREES = LIME_TREE.decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(300)));
+
 
     public static void registerOreGen() {
         //Salt Ore
@@ -58,6 +80,21 @@ public class ModGeneration {
         RegistryKey<ConfiguredFeature<?, ?>> peppercornTrees = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier("fab", "peppercorn_trees"));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, peppercornTrees.getValue(), PEPPERCORN_TREES);
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.PLAINS), GenerationStep.Feature.VEGETAL_DECORATION, peppercornTrees);
+
+        // Lemon Tree
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_LEMON_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LEMON_SAPLING, RenderLayer.getCutout());
+        RegistryKey<ConfiguredFeature<?, ?>> lemonTrees = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier("fab", "lemon_trees"));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, lemonTrees.getValue(), LEMON_TREES);
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.PLAINS), GenerationStep.Feature.VEGETAL_DECORATION, lemonTrees);
+
+        // Lime Tree
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_LIME_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LIME_SAPLING, RenderLayer.getCutout());
+        RegistryKey<ConfiguredFeature<?, ?>> limeTrees = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier("fab", "lime_trees"));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, limeTrees.getValue(), LIME_TREES);
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeKeys.PLAINS), GenerationStep.Feature.VEGETAL_DECORATION, limeTrees);
+
     }
 
 }

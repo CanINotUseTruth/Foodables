@@ -10,6 +10,11 @@ public class RecipeRemainder extends Item {
         ((ItemAccessor) this).clothesline$setRecipeRemainder(this);
     }
 
+    public RecipeRemainder(Settings settings, Item item) {
+        super(settings);
+        ((ItemAccessor) this).clothesline$setRecipeRemainder(item);
+    }
+
     @Override
 	public boolean hasRecipeRemainder() {
         return true;

@@ -33,18 +33,18 @@ public class BirchDryingRackRenderer implements BlockEntityRenderer<BirchDryingR
             matrixStack.push();
             switch(dir) {
                 case NORTH:
-                    matrixStack.translate(0.5F, 0.3125F, 0.96875F);
+                    matrixStack.translate(0.5F, 0.4375F, 0.96875F);
                     break;
                 case SOUTH:
-                    matrixStack.translate(0.5F, 0.3125F, 0.03125F);
+                    matrixStack.translate(0.5F, 0.4375F, 0.03125F);
                     matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180F));
                     break;
                 case EAST:
-                    matrixStack.translate(0.03125F, 0.3125F, 0.5F);
+                    matrixStack.translate(0.03125F, 0.4375F, 0.5F);
                     matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(270F));
                     break;
                 case WEST:
-                    matrixStack.translate(0.96875F, 0.3125F, 0.5F);
+                    matrixStack.translate(0.96875F, 0.4375F, 0.5F);
                     matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(90F));
                     break;
                 default:
