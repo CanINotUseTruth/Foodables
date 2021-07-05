@@ -80,5 +80,13 @@
     "item.fab.salted_rabbit_strips": "Salted Rabbit Strip",
     "item.fab.rabbit_jerky": "Rabbit Jerky",
     "item.fab.salted_zombie_flesh": "Salted Rotten Flesh",
-    "item.fab.zombie_jerky": "Zombie Jerky"
+    "item.fab.zombie_jerky": "Zombie Jerky",
+    "block.fab.lettuce_crop": "Lettuce Crop",
+    "block.fab.tomato_crop": "Tomato Crop",
+    "block.fab.brown_onion_crop": "Brown Onion Crop",
+    "block.fab.red_onion_crop": "Red Onion Crop",
+    "block.fab.garlic_crop": "Garlic Crop",
+    "block.fab.potted_peppercorn_sapling": "Potted Peppercorn Sapling",
+    "block.fab.potted_lemon_sapling": "Potted Lemon Sapling",
+    "block.fab.potted_lime_sapling": "Potted Lime Sapling"
 }
