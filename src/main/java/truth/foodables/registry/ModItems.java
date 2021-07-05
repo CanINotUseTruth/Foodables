@@ -7,6 +7,7 @@ import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import truth.foodables.Foodables;
+import truth.foodables.items.Drink;
 import truth.foodables.items.RecipeRemainder;
 import truth.foodables.items.SeedItem;
 
@@ -34,14 +35,30 @@ public class ModItems {
     public static final Item SQUID = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
     public static final Item BATTERED_SQUID = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
     public static final Item SALT_AND_PEPPER_SQUID = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(8).saturationModifier(14f).build()));
-    public static final Item RAW_BACON = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
-    public static final Item COOKED_BACON = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(12f).build()));
     public static final Item RAW_NUGGETS = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
     public static final Item BATTERED_NUGGETS = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
     public static final Item COOKED_NUGGETS = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(14f).build()));
+    public static final Item RAW_BACON = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
+    public static final Item SALTED_BACON_STRIPS = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
+    public static final Item BACON_JERKY = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(8).saturationModifier(14f).build()));
+    public static final Item COOKED_BACON = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(12f).build()));
+    public static final Item CHICKEN_STRIPS = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
+    public static final Item SALTED_CHICKEN_STRIPS = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
+    public static final Item CHICKEN_JERKY = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(7).saturationModifier(10f).build()));
+    public static final Item BEEF_STRIPS = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
+    public static final Item SALTED_BEEF_STRIPS = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
+    public static final Item BEEF_JERKY = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(8).saturationModifier(14f).build()));
+    public static final Item LAMB_STRIPS = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
+    public static final Item SALTED_LAMB_STRIPS = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
+    public static final Item LAMB_JERKY = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(7).saturationModifier(10f).build()));
+    public static final Item RABBIT_STRIPS = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
+    public static final Item SALTED_RABBIT_STRIPS = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
+    public static final Item RABBIT_JERKY = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(7).saturationModifier(10f).build()));
+    public static final Item SALTED_ZOMBIE_FLESH = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
+    public static final Item ZOMBIE_JERKY = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(6f).build()));
     // Juices
-    public static Item LEMON_JUICE = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(1.4f).build()), Items.GLASS_BOTTLE);
-    public static Item LIME_JUICE = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(1.4f).build()), Items.GLASS_BOTTLE);
+    public static Item LEMON_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(1.4f).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE));
+    public static Item LIME_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(1.4f).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE));
     // Oils
     public static Item SUNFLOWER_OIL = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP), Items.GLASS_BOTTLE);
     // Sauces
@@ -49,7 +66,7 @@ public class ModItems {
     public static Item AIOLI = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP), Items.GLASS_BOTTLE);
     // Sandwich Stuff
     public static final Item SLICED_BREAD = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(0.4f).build()));
-    public static final Item TOAST = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(6f).build()));
+    public static final Item TOAST = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(6f).build()));
     public static final Item BLT_SANDWICH = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(8).saturationModifier(14f).build()));
     public static final Item STEAK_SANDWICH = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(14).saturationModifier(20.6f).build()));
     // Miscellaneous
@@ -66,8 +83,8 @@ public class ModItems {
     public static Item CRUSHER = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
     public static Item WHISK = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
     public static Item JUICER = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
-    public static Item CARTON = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
     public static Item WET_CARTON = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
+    public static Item CARTON = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
 
     // Seed Items
     public static Item LETTUCE_SEEDS = new SeedItem(ModBlocks.LETTUCE_CROP, new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
@@ -120,11 +137,27 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "squid"), SQUID);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "battered_squid"), BATTERED_SQUID);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salt_and_pepper_squid"), SALT_AND_PEPPER_SQUID);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "raw_bacon"), RAW_BACON);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "cooked_bacon"), COOKED_BACON);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "raw_nuggets"), RAW_NUGGETS);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "battered_nuggets"), BATTERED_NUGGETS);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "cooked_nuggets"), COOKED_NUGGETS);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "raw_bacon"), RAW_BACON);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_bacon_strips"), SALTED_BACON_STRIPS);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "bacon_jerky"), BACON_JERKY);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "cooked_bacon"), COOKED_BACON);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "chicken_strips"), CHICKEN_STRIPS);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_chicken_strips"), SALTED_CHICKEN_STRIPS);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "chicken_jerky"), CHICKEN_JERKY);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "beef_strips"), BEEF_STRIPS);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_beef_strips"), SALTED_BEEF_STRIPS);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "beef_jerky"), BEEF_JERKY);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "lamb_strips"), LAMB_STRIPS);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_lamb_strips"), SALTED_LAMB_STRIPS);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "lamb_jerky"), LAMB_JERKY);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "rabbit_strips"), RABBIT_STRIPS);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_rabbit_strips"), SALTED_RABBIT_STRIPS);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "rabbit_jerky"), RABBIT_JERKY);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_zombie_flesh"), SALTED_ZOMBIE_FLESH);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "zombie_jerky"), ZOMBIE_JERKY);
         // Juices
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "lemon_juice"), LEMON_JUICE);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "lime_juice"), LIME_JUICE);
@@ -152,8 +185,8 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "crusher"), CRUSHER);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "whisk"), WHISK);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "juicer"), JUICER);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "carton"), CARTON);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "wet_carton"), WET_CARTON);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "carton"), CARTON);
 
         // Seed Items
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "lettuce_seeds"), LETTUCE_SEEDS);
