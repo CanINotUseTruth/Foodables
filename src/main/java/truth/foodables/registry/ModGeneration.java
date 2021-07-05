@@ -2,9 +2,7 @@ package truth.foodables.registry;
 
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -38,10 +36,12 @@ public class ModGeneration {
             new SimpleBlockStateProvider(ModBlocks.PEPPERCORN_LEAVES.getDefaultState()),
             new SimpleBlockStateProvider(ModBlocks.PEPPERCORN_SAPLING.getDefaultState()),
             new BlobFoliagePlacer(UniformIntProvider.create(2,2), UniformIntProvider.create(0,0), 3),
-            new TwoLayersFeatureSize(0, 0, 0)).dirtProvider(new SimpleBlockStateProvider(Blocks.GRASS_BLOCK.getDefaultState())).build();
+            new TwoLayersFeatureSize(1, 0, 1)).dirtProvider(new SimpleBlockStateProvider(Blocks.GRASS_BLOCK.getDefaultState())).build();
 
     public static final ConfiguredFeature<TreeFeatureConfig, ?> PEPPERCORN_TREE = Feature.TREE.configure(ModGeneration.PEPPERCORN_TREE_CONFIG);
-    public static final ConfiguredFeature<?, ?> PEPPERCORN_TREES = PEPPERCORN_TREE.decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(250)));
+    public static final ConfiguredFeature<?, ?> PEPPERCORN_TREES = PEPPERCORN_TREE.decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(300))
+    .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(1)))
+    .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(1))));
 
     // Lemon Tree
     public static final TreeFeatureConfig LEMON_TREE_CONFIG = new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()),
@@ -49,10 +49,12 @@ public class ModGeneration {
             new SimpleBlockStateProvider(ModBlocks.LEMON_LEAVES.getDefaultState()),
             new SimpleBlockStateProvider(ModBlocks.LEMON_SAPLING.getDefaultState()),
             new BlobFoliagePlacer(UniformIntProvider.create(2,2), UniformIntProvider.create(0,0), 3),
-            new TwoLayersFeatureSize(0, 0, 0)).dirtProvider(new SimpleBlockStateProvider(Blocks.GRASS_BLOCK.getDefaultState())).build();
+            new TwoLayersFeatureSize(1, 0, 1)).dirtProvider(new SimpleBlockStateProvider(Blocks.GRASS_BLOCK.getDefaultState())).build();
 
     public static final ConfiguredFeature<TreeFeatureConfig, ?> LEMON_TREE = Feature.TREE.configure(ModGeneration.LEMON_TREE_CONFIG);
-    public static final ConfiguredFeature<?, ?> LEMON_TREES = LEMON_TREE.decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(350)));
+    public static final ConfiguredFeature<?, ?> LEMON_TREES = LEMON_TREE.decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(300))
+        .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(1)))
+        .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(1))));
 
     // Lime Tree
     public static final TreeFeatureConfig LIME_TREE_CONFIG = new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OAK_LOG.getDefaultState()),
@@ -60,10 +62,12 @@ public class ModGeneration {
             new SimpleBlockStateProvider(ModBlocks.LIME_LEAVES.getDefaultState()),
             new SimpleBlockStateProvider(ModBlocks.LIME_SAPLING.getDefaultState()),
             new BlobFoliagePlacer(UniformIntProvider.create(2,2), UniformIntProvider.create(0,0), 3),
-            new TwoLayersFeatureSize(0, 0, 0)).dirtProvider(new SimpleBlockStateProvider(Blocks.GRASS_BLOCK.getDefaultState())).build();
-
+            new TwoLayersFeatureSize(1, 0, 1)).dirtProvider(new SimpleBlockStateProvider(Blocks.GRASS_BLOCK.getDefaultState())).build();
+    
     public static final ConfiguredFeature<TreeFeatureConfig, ?> LIME_TREE = Feature.TREE.configure(ModGeneration.LIME_TREE_CONFIG);
-    public static final ConfiguredFeature<?, ?> LIME_TREES = LIME_TREE.decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(300)));
+    public static final ConfiguredFeature<?, ?> LIME_TREES = LIME_TREE.decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(300))
+        .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(1)))
+        .decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(1))));
 
 
     public static void registerOreGen() {
