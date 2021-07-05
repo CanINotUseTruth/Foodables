@@ -64,5 +64,21 @@
     "item.fab.mayonnaise": "Mayonnaise",
     "item.fab.aioli": "Aioli",
     "item.fab.steak_sandwich": "Steak Sandwich",
-    "item.fab.juicer": "Juicer"
+    "item.fab.juicer": "Juicer",
+    "item.fab.chicken_strips": "Chicken Strips",
+    "item.fab.salted_chicken_strips": "Salted Chicken Strip",
+    "item.fab.chicken_jerky": "Chicken Jerky",
+    "item.fab.beef_strips": "Beef Strips",
+    "item.fab.salted_beef_strips": "Salted Beef Strip",
+    "item.fab.beef_jerky": "Beef Jerky",
+    "item.fab.salted_bacon_strips": "Salted Bacon Strip",
+    "item.fab.bacon_jerky": "Bacon Jerky",
+    "item.fab.lamb_strips": "Lamb Strips",
+    "item.fab.salted_lamb_strips": "Salted Lamb Strip",
+    "item.fab.lamb_jerky": "Lamb Jerky",
+    "item.fab.rabbit_strips": "Rabbit Strips",
+    "item.fab.salted_rabbit_strips": "Salted Rabbit Strip",
+    "item.fab.rabbit_jerky": "Rabbit Jerky",
+    "item.fab.salted_zombie_flesh": "Salted Rotten Flesh",
+    "item.fab.zombie_jerky": "Zombie Jerky"
 }
