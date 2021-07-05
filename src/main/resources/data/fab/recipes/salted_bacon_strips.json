@@ -1,0 +1,15 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "fab:raw_bacon"
+        },
+        {
+            "item": "fab:ground_salt"
+        }
+    ],
+    "result": {
+        "item": "fab:salted_bacon_strips",
+        "count": 2
+    }
+}
