@@ -4,6 +4,58 @@
 		   Mod Author: TRUTH
 =======================================================
 
+-----------------------V 1.0.5-------------------------
+Items Added:
+- Strips
+	- Chicken
+	- Beef
+	- Lamb/Mouton
+	- Rabbit
+- Salted Strips
+	- Bacon
+	- Chicken
+	- Beef
+	- Lamb/Mouton
+	- Rabbit
+	- Rotten Flesh
+- Jerky
+	- Bacon
+	- Chicken
+	- Beef
+	- Lamb/Mouton
+	- Rabbit
+	- Zombie
+
+Compostable Items Added:
+- Rotten Flesh
+
+Crafting Recipes Added:
+- Strips
+	- Chicken
+	- Beef
+	- Lamb/Mouton
+	- Rabbit
+- Salted Strips
+	- Bacon
+	- Chicken
+	- Beef
+	- Lamb/Mouton
+	- Rabbit
+	- Rotten Flesh
+
+Drying Rack Recipes:
+- Jerky
+	- Bacon
+	- Chicken
+	- Beef
+	- Lamb/Mouton
+	- Rabbit
+	- Zombie
+
+-----------------------V 1.0.4-------------------------
+- Fixed Server Side Crash Issue
+	Render maps were being loaded on server and client.
+
 -----------------------V 1.0.3-------------------------
 Items Added:
 - Brown Onion
