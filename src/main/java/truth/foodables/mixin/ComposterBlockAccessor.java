@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.block.Block;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.Items;
 import truth.foodables.registry.ModItems;
 
 @Mixin(ComposterBlock.class)
@@ -25,6 +26,7 @@ public class ComposterBlockAccessor extends Block {
 
     @Inject(at = @At("HEAD"), method = "registerDefaultCompostableItems()V")
     private static void injectRegisterDefaultCompostableItem(CallbackInfo info) {
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, Items.ROTTEN_FLESH);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.LETTUCE_SEEDS);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.TOMATO_SEEDS);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.BROWN_ONION_SEEDS);
