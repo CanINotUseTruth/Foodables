@@ -3,6 +3,93 @@
 		Current Version: 1.0.2
 		   Mod Author: TRUTH
 =======================================================
+-----------------------V 1.0.7-------------------------
+Items Added:
+- Pumpkin Slices
+- Steak Strips
+- Dough
+- Fruit Salad
+- Fried Egg
+- Bacon and Eggs
+- Lemonade
+- Baked
+	- Pumpkin Slices
+	- Carrot
+	- Beetroot
+	- Apple
+- Fruits
+	- Orange
+	- Mango
+	- Banana
+- Juices
+	- Apple
+	- Orange
+	- Carrot
+	- Pumpkin
+	- Mango
+	- Tomato
+	- Sweet Berry
+	- Melon
+- Saplings
+	- Apple
+	- Mango
+	- Orange
+	- Banana
+- Leaves
+	- Apple
+	- Mango
+	- Orange
+	- Banana	
+
+Crafting Recipes Added:
+- Pumpkin Slices
+- Dough
+- Fruit Salad
+- Bacon and Eggs
+- Lemonade
+- Juices
+	- Apple
+	- Orange
+	- Carrot
+	- Pumpkin
+	- Mango
+	- Tomato
+	- Sweet Berry
+	- Melon
+- Saplings
+	- Apple
+	- Mango
+	- Orange
+	- Banana
+
+Smelting/Campfire/Smoker Recipes Added:
+- Steak Strips
+- Fried Egg
+- Baked
+	- Pumpkin Slices
+	- Carrot
+	- Beetroot
+	- Apple
+
+Features Added:
+- Trees
+	- Mango
+	- Apple
+	- Orange
+	- Banana
+
+Compostable Items Added:
+- Orange
+- Lemon
+- Lime
+- Mango
+- Banana
+
+Changes:
+- Balanced all saturation and hunger amounts for all food items.
+- Added XP to Salt Ore and decreased drop and spawn chance of Ore.
+- Fixed Fruit tree drop chances for Fruit.
+- Nerfed Jerky Recipes
 
 -----------------------V 1.0.5-------------------------
 Items Added:
