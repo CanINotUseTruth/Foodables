@@ -41,5 +41,10 @@ public class ComposterBlockAccessor extends Block {
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.RED_ONION);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.SLICED_BREAD);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.TOAST);
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.LEMON);
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.LIME);
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.ORANGE);
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.MANGO);
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.BANANA);
     }
 }

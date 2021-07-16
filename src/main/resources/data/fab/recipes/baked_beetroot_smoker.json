@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:smoking",
+    "ingredient": {
+      "item": "minecraft:beetroot"
+    },
+    "result": "fab:baked_beetroot",
+    "experience": 0.35,
+    "cookingtime": 100
+  }

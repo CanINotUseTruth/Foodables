@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:smoking",
+    "ingredient": {
+      "item": "fab:beef_strips"
+    },
+    "result": "fab:cooked_beef_strips",
+    "experience": 0.35,
+    "cookingtime": 100
+  }

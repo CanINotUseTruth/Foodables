@@ -10,11 +10,11 @@
     "TRUTH"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/foodables-fabric",
+    "sources": "https://github.com/CanINotUseTruth/Foodables"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/fab/icon.png",
 
   "environment": "*",

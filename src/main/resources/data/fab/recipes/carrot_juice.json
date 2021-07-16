@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "fab:juicer"
+        },
+        {
+            "item": "fab:carrot"
+        },
+        {
+            "item": "minecraft:glass_bottle"
+        }
+    ],
+    "result": {
+        "item": "fab:carrot_juice",
+        "count": 1
+    }
+}

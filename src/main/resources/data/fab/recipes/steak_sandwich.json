@@ -13,7 +13,7 @@
             "item": "fab:aioli"
         },
         "%": {
-            "item": "minecraft:cooked_beef"
+            "item": "fab:cooked_beef_strips"
         },
         "^": {
             "item": "fab:caramelized_onion"

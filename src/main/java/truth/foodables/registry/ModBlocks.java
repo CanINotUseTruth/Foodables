@@ -15,6 +15,7 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import truth.foodables.Foodables;
 import truth.foodables.blocks.AcaciaDryingRack;
@@ -42,8 +43,12 @@ import truth.foodables.blocks.blockentityrenderers.JungleDryingRackRenderer;
 import truth.foodables.blocks.blockentityrenderers.OakDryingRackRenderer;
 import truth.foodables.blocks.blockentityrenderers.SpruceDryingRackRenderer;
 import truth.foodables.blocks.blockentityrenderers.WarpedDryingRackRenderer;
+import truth.foodables.blocks.saplings.AppleSapling;
+import truth.foodables.blocks.saplings.BananaSapling;
 import truth.foodables.blocks.saplings.LemonSapling;
 import truth.foodables.blocks.saplings.LimeSapling;
+import truth.foodables.blocks.saplings.MangoSapling;
+import truth.foodables.blocks.saplings.OrangeSapling;
 import truth.foodables.blocks.saplings.PeppercornSapling;
 
 public class ModBlocks {
@@ -67,18 +72,30 @@ public class ModBlocks {
     public static BlockEntityType<WarpedDryingRackEntity> WARPED_DRYING_RACK_ENTITY;
 
     // Generated Blocks
-    public static final Block SALT_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool().strength(3f, 3f).sounds(BlockSoundGroup.STONE));
+    public static final Block SALT_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool().strength(3f, 3f).sounds(BlockSoundGroup.STONE), UniformIntProvider.create(2, 5));
 
     // Tree Blocks
-    public static final Block PEPPERCORN_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block PEPPERCORN_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
     public static final Block PEPPERCORN_SAPLING = new PeppercornSapling();
     public static final Block POTTED_PEPPERCORN_SAPLING = new FlowerPotBlock(PEPPERCORN_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_SPRUCE_SAPLING));
-    public static final Block LEMON_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block LEMON_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
     public static final Block LEMON_SAPLING = new LemonSapling();
     public static final Block POTTED_LEMON_SAPLING = new FlowerPotBlock(LEMON_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
-    public static final Block LIME_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block LIME_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
     public static final Block LIME_SAPLING = new LimeSapling();
     public static final Block POTTED_LIME_SAPLING = new FlowerPotBlock(LIME_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
+    public static final Block ORANGE_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block ORANGE_SAPLING = new OrangeSapling();
+    public static final Block POTTED_ORANGE_SAPLING = new FlowerPotBlock(ORANGE_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
+    public static final Block APPLE_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block APPLE_SAPLING = new AppleSapling();
+    public static final Block POTTED_APPLE_SAPLING = new FlowerPotBlock(APPLE_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
+    public static final Block MANGO_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block MANGO_SAPLING = new MangoSapling();
+    public static final Block POTTED_MANGO_SAPLING = new FlowerPotBlock(MANGO_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
+    public static final Block BANANA_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block BANANA_SAPLING = new BananaSapling();
+    public static final Block POTTED_BANANA_SAPLING = new FlowerPotBlock(BANANA_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
 
     // Crop Blocks
     public static final Block LETTUCE_CROP = new FabCropBlock();
@@ -119,6 +136,18 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "lime_leaves"), LIME_LEAVES);
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "lime_sapling"), LIME_SAPLING);
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "potted_lime_sapling"), POTTED_LIME_SAPLING);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "orange_leaves"), ORANGE_LEAVES);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "orange_sapling"), ORANGE_SAPLING);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "potted_orange_sapling"), POTTED_ORANGE_SAPLING);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "apple_leaves"), APPLE_LEAVES);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "apple_sapling"), APPLE_SAPLING);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "potted_apple_sapling"), POTTED_APPLE_SAPLING);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "mango_leaves"), MANGO_LEAVES);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "mango_sapling"), MANGO_SAPLING);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "potted_mango_sapling"), POTTED_MANGO_SAPLING);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "banana_leaves"), BANANA_LEAVES);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "banana_sapling"), BANANA_SAPLING);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "potted_banana_sapling"), POTTED_BANANA_SAPLING);
 
         // Crop Blocks
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "lettuce_crop"), LETTUCE_CROP);
@@ -151,5 +180,13 @@ public class ModBlocks {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LEMON_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_LIME_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LIME_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_ORANGE_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ORANGE_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_APPLE_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPLE_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_MANGO_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MANGO_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_BANANA_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BANANA_SAPLING, RenderLayer.getCutout());
     }
 }

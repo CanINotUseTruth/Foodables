@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "$$$",
+        " # "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:bowl"
+        },
+        "$": {
+            "tag": "fab:fruit"
+        }
+    },
+    "result": {
+        "item": "fab:fruit_salad",
+        "count": 1
+    }
+}
