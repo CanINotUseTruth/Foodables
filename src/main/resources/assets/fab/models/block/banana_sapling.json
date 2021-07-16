@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+      "cross": "fab:blocks/banana_sapling"
+    }
+  }

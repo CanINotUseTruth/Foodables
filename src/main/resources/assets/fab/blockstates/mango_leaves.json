@@ -1,0 +1,8 @@
+{
+    "variants": {
+      "": [   
+        { "model": "fab:block/mango_leaves", "weight": 30 },     
+        { "model": "fab:block/jungle_fruit_leaves", "weight": 70 }     
+      ]
+    }
+  }

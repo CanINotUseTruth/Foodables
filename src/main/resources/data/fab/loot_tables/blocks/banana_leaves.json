@@ -38,7 +38,7 @@
                     ]
                   }
                 ],
-                "name": "fab:lime_leaves"
+                "name": "fab:lemon_leaves"
               },
               {
                 "type": "minecraft:item",
@@ -57,7 +57,7 @@
                     ]
                   }
                 ],
-                "name": "fab:lime_sapling"
+                "name": "fab:banana_sapling"
               }
             ]
           }
@@ -152,7 +152,7 @@
                 ]
               }
             ],
-            "name": "fab:lime"
+            "name": "fab:banana"
           }
         ],
         "conditions": [

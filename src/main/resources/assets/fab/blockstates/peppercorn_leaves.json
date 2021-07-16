@@ -2,7 +2,7 @@
   "variants": {
     "": [   
       { "model": "fab:block/peppercorn_leaves", "weight": 40 },     
-      { "model": "fab:block/peppercorn_leaves2", "weight": 60 }     
+      { "model": "fab:block/pepper_leaves", "weight": 60 }     
     ]
   }
 }
