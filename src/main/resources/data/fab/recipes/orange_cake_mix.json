@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " % ",
+        "###",
+        " $ "
+    ],
+    "key": {
+        "#": {
+            "item": "fab:orange"
+        },
+        "$": {
+            "item": "fab:plain_cake_mix"
+        },
+        "%": {
+            "item": "fab:knife"
+        }
+    },
+    "result": {
+        "item": "fab:orange_cake_mix",
+        "count": 1
+    }
+}

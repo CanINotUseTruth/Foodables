@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "fab:baked_chocolate_cake"
+        }
+    ],
+    "result": {
+        "item": "fab:chocolate_cake",
+        "count": 1
+    }
+}

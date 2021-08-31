@@ -1,5 +1,6 @@
 package truth.foodables.registry;
 
+import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
@@ -12,6 +13,17 @@ import truth.foodables.items.RecipeRemainder;
 import truth.foodables.items.SeedItem;
 
 public class ModItems {
+
+    // Tool Items
+    public static Item MORTAR_AND_PESTLE = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(1));
+    public static Item KNIFE = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(1));
+    public static Item CRUSHER = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(1));
+    public static Item WHISK = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(1));
+    public static Item JUICER = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(1));
+    public static Item WET_CARTON = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    public static Item CARTON = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    public static Item CAKE_TIN = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    // public static Item PIE_TIN = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
 
     // Food Items
     // Veggies
@@ -37,6 +49,9 @@ public class ModItems {
     public static final Item MANGO = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6f).build()));
     public static final Item BANANA = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6f).build()));
     public static final Item FRUIT_SALAD = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8f).build()));
+    // Berries
+    public static final Item BLUEBERRIES = new AliasedBlockItem(ModBlocks.BLUEBERRY_BUSH, new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(0.5f).build()));
+    public static final Item BLACKBERRIES = new AliasedBlockItem(ModBlocks.BLACKBERRY_BUSH, new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(0.5f).build()));
     // Baked Goods
     public static final Item BAKED_APPLE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(6).saturationModifier(0.5f).build()));
     public static final Item BAKED_PUMPKIN = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6F).build()));
@@ -68,7 +83,7 @@ public class ModItems {
     public static final Item RABBIT_JERKY = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(7).saturationModifier(0.75f).build()));
     public static final Item SALTED_ZOMBIE_FLESH = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
     public static final Item ZOMBIE_JERKY = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.5f).build()));
-    // Other Stuff
+    // Meat Adjacent Stuff
     public static final Item FRIED_EGG = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.8f).build()));
     public static final Item BACON_AND_EGGS = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8f).build()));
     // Juices
@@ -89,6 +104,43 @@ public class ModItems {
     // Sauces
     public static Item MAYONNAISE = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP), Items.GLASS_BOTTLE);
     public static Item AIOLI = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP), Items.GLASS_BOTTLE);
+    // Cake Stuff
+    public static final Item PLAIN_CAKE_MIX = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    public static final Item HONEY_CAKE_MIX = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    public static final Item APPLE_CAKE_MIX = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    public static final Item BERRY_CAKE_MIX = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    public static final Item ORANGE_CAKE_MIX = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    public static final Item BANANA_CAKE_MIX = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    public static final Item CHOCOLATE_CAKE_MIX = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    public static final Item BAKED_PLAIN_CAKE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).recipeRemainder(CAKE_TIN).maxCount(16));
+    public static final Item BAKED_HONEY_CAKE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).recipeRemainder(CAKE_TIN).maxCount(16));
+    public static final Item BAKED_APPLE_CAKE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).recipeRemainder(CAKE_TIN).maxCount(16));
+    public static final Item BAKED_BERRY_CAKE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).recipeRemainder(CAKE_TIN).maxCount(16));
+    public static final Item BAKED_ORANGE_CAKE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).recipeRemainder(CAKE_TIN).maxCount(16));
+    public static final Item BAKED_BANANA_CAKE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).recipeRemainder(CAKE_TIN).maxCount(16));
+    public static final Item BAKED_CHOCOLATE_CAKE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).recipeRemainder(CAKE_TIN).maxCount(16));
+    public static final BlockItem HONEY_CAKE = new BlockItem(ModBlocks.HONEY_CAKE, new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    public static final BlockItem APPLE_CAKE = new BlockItem(ModBlocks.APPLE_CAKE, new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    public static final BlockItem BERRY_CAKE = new BlockItem(ModBlocks.BERRY_CAKE, new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    public static final BlockItem ORANGE_CAKE = new BlockItem(ModBlocks.ORANGE_CAKE, new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    public static final BlockItem BANANA_CAKE = new BlockItem(ModBlocks.BANANA_CAKE, new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    public static final BlockItem CHOCOLATE_CAKE = new BlockItem(ModBlocks.CHOCOLATE_CAKE, new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    // Pie Stuff
+    // public static final Item LINED_PIE_TIN = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    // public static final Item PUMPKIN_PIE_TIN = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    // public static final Item APPLE_PIE_TIN = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    // public static final Item SWEETBERRY_PIE_TIN = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    // public static final Item BLUEBERRY_PIE_TIN = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    // public static final Item BLACKBERRY_PIE_TIN = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    // public static final Item BAKED_PUMPKIN_PIE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    // public static final Item BAKED_APPLE_PIE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    // public static final Item BAKED_SWEETBERRY_PIE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    // public static final Item BAKED_BLUEBERRY_PIE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    // public static final Item BAKED_BLACKBERRY_PIE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(16));
+    // public static final Item APPLE_PIE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.8f).build()).maxCount(16));
+    // public static final Item SWEETBERRY_PIE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.8f).build()).maxCount(16));
+    // public static final Item BLUEBERRY_PIE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.8f).build()).maxCount(16));
+    // public static final Item BLACKBERRY_PIE = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.8f).build()).maxCount(16));
     // Sandwich Stuff
     public static final Item DOUGH = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
     public static final Item SLICED_BREAD = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(2).saturationModifier(0.4f).build()));
@@ -98,19 +150,11 @@ public class ModItems {
     // Miscellaneous
     public static final Item PEPPERCORN_ITEM = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
     public static final Item DRIED_PEPPERCORN = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
-    public static final Item GROUND_PEPPER = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
     public static final Item SALT = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
+    public static final Item GROUND_PEPPER = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
     public static final Item GROUND_SALT = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
     public static final Item WHEAT_FLOUR = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
-
-    // Tool Items
-    public static Item MORTAR_AND_PESTLE = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(1));
-    public static Item KNIFE = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(1));
-    public static Item CRUSHER = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(1));
-    public static Item WHISK = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(1));
-    public static Item JUICER = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).maxCount(1));
-    public static Item WET_CARTON = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
-    public static Item CARTON = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
+    public static final Item GROUND_COCOA = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
 
     // Seed Items
     public static Item LETTUCE_SEEDS = new SeedItem(ModBlocks.LETTUCE_CROP, new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP));
@@ -174,6 +218,9 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "mango"), MANGO);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "banana"), BANANA);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "fruit_salad"), FRUIT_SALAD);
+        // Berries
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "blueberries"), BLUEBERRIES);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "blackberries"), BLACKBERRIES);
         // Baked Goods
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "baked_apple"), BAKED_APPLE);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "baked_pumpkin"), BAKED_PUMPKIN);
@@ -187,25 +234,25 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "battered_nuggets"), BATTERED_NUGGETS);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "cooked_nuggets"), COOKED_NUGGETS);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "raw_bacon"), RAW_BACON);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_bacon_strips"), SALTED_BACON_STRIPS);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "bacon_jerky"), BACON_JERKY);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "cooked_bacon"), COOKED_BACON);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "chicken_strips"), CHICKEN_STRIPS);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_chicken_strips"), SALTED_CHICKEN_STRIPS);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "chicken_jerky"), CHICKEN_JERKY);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "beef_strips"), BEEF_STRIPS);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_beef_strips"), SALTED_BEEF_STRIPS);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "beef_jerky"), BEEF_JERKY);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "cooked_beef_strips"), COOKED_BEEF_STRIPS);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "lamb_strips"), LAMB_STRIPS);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_lamb_strips"), SALTED_LAMB_STRIPS);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "lamb_jerky"), LAMB_JERKY);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "rabbit_strips"), RABBIT_STRIPS);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_bacon_strips"), SALTED_BACON_STRIPS);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_chicken_strips"), SALTED_CHICKEN_STRIPS);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_beef_strips"), SALTED_BEEF_STRIPS);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_lamb_strips"), SALTED_LAMB_STRIPS);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_rabbit_strips"), SALTED_RABBIT_STRIPS);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "rabbit_jerky"), RABBIT_JERKY);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salted_zombie_flesh"), SALTED_ZOMBIE_FLESH);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "bacon_jerky"), BACON_JERKY);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "chicken_jerky"), CHICKEN_JERKY);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "beef_jerky"), BEEF_JERKY);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "lamb_jerky"), LAMB_JERKY);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "rabbit_jerky"), RABBIT_JERKY);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "zombie_jerky"), ZOMBIE_JERKY);
-        // Other Stuff
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "cooked_bacon"), COOKED_BACON);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "cooked_beef_strips"), COOKED_BEEF_STRIPS);
+        // Meat Adjacent Stuff
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "fried_egg"), FRIED_EGG);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "bacon_and_eggs"), BACON_AND_EGGS);
         // Juices
@@ -226,6 +273,43 @@ public class ModItems {
         // Sauces
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "mayonnaise"), MAYONNAISE);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "aioli"), AIOLI);
+        // Pie Stuff
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "lined_pie_tin"), LINED_PIE_TIN);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "pumpkin_pie_tin"), PUMPKIN_PIE_TIN);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "apple_pie_tin"), APPLE_PIE_TIN);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "sweetberry_pie_tin"), SWEETBERRY_PIE_TIN);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "blueberry_pie_tin"), BLUEBERRY_PIE_TIN);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "blackberry_pie_tin"), BLACKBERRY_PIE_TIN);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "baked_pumpkin_pie"), BAKED_PUMPKIN_PIE);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "baked_apple_pie"), BAKED_APPLE_PIE);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "baked_sweetberry_pie"), BAKED_SWEETBERRY_PIE);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "baked_blueberry_pie"), BAKED_BLUEBERRY_PIE);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "baked_blackberry_pie"), BAKED_BLACKBERRY_PIE);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "apple_pie"), APPLE_PIE);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "sweetberry_pie"), SWEETBERRY_PIE);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "blueberry_pie"), BLUEBERRY_PIE);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "blackberry_pie"), BLACKBERRY_PIE);
+        // Cake Stuff
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "plain_cake_mix"), PLAIN_CAKE_MIX);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "honey_cake_mix"), HONEY_CAKE_MIX);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "apple_cake_mix"), APPLE_CAKE_MIX);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "berry_cake_mix"), BERRY_CAKE_MIX);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "orange_cake_mix"), ORANGE_CAKE_MIX);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "banana_cake_mix"), BANANA_CAKE_MIX);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "chocolate_cake_mix"), CHOCOLATE_CAKE_MIX);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "baked_plain_cake"), BAKED_PLAIN_CAKE);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "baked_honey_cake"), BAKED_HONEY_CAKE);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "baked_apple_cake"), BAKED_APPLE_CAKE);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "baked_berry_cake"), BAKED_BERRY_CAKE);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "baked_orange_cake"), BAKED_ORANGE_CAKE);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "baked_banana_cake"), BAKED_BANANA_CAKE);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "baked_chocolate_cake"), BAKED_CHOCOLATE_CAKE);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "honey_cake"), HONEY_CAKE);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "apple_cake"), APPLE_CAKE);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "berry_cake"), BERRY_CAKE);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "orange_cake"), ORANGE_CAKE);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "banana_cake"), BANANA_CAKE);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "chocolate_cake"), CHOCOLATE_CAKE);
         // Sandwich Stuff
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "dough"), DOUGH);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "sliced_bread"), SLICED_BREAD);
@@ -235,10 +319,11 @@ public class ModItems {
         // Miscellaneous
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "peppercorn_item"), PEPPERCORN_ITEM);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "dried_peppercorn"), DRIED_PEPPERCORN);
-        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "ground_pepper"), GROUND_PEPPER);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "salt"), SALT);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "ground_pepper"), GROUND_PEPPER);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "ground_salt"), GROUND_SALT);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "wheat_flour"), WHEAT_FLOUR);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "ground_cocoa"), GROUND_COCOA);
 
         // Items
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "mortar_and_pestle"), MORTAR_AND_PESTLE);
@@ -248,6 +333,8 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "juicer"), JUICER);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "wet_carton"), WET_CARTON);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "carton"), CARTON);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "cake_tin"), CAKE_TIN);
+        // Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "pie_tin"), PIE_TIN);
 
         // Seed Items
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "lettuce_seeds"), LETTUCE_SEEDS);

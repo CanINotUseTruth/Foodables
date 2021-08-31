@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "fab:items/blackberry_pie_tin"
+    }
+}

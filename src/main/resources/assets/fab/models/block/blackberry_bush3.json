@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cross",
+    "textures": {
+      "cross": "fab:blocks/blackberry_bush3"
+    }
+  }

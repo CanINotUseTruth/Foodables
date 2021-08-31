@@ -1,16 +1,19 @@
 {
-    "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        {
-            "item": "fab:ground_salt"
-        },
-        {
-            "item": "minecraft:water_bottle"
-        },
-        {
-            "item": "fab:wheat_flour"
-        }
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#$%"
     ],
+    "key": {
+        "#": {
+            "item": "fab:wheat_flour"
+        },
+        "$": {
+            "item": "minecraft:water_bucket"
+        },
+        "%": {
+            "item": "fab:ground_salt"
+        }
+    },
     "result": {
         "item": "fab:dough",
         "count": 1

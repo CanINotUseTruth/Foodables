@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " % ",
+        "###",
+        " $ "
+    ],
+    "key": {
+        "#": {
+            "tag": "fab:berries"
+        },
+        "$": {
+            "item": "fab:plain_cake_mix"
+        },
+        "%": {
+            "item": "fab:knife"
+        }
+    },
+    "result": {
+        "item": "fab:berry_cake_mix",
+        "count": 1
+    }
+}

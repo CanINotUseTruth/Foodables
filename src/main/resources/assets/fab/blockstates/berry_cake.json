@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "bites=0": { "model": "fab:block/berry_cake" },
+        "bites=1": { "model": "fab:block/berry_cake1" },
+        "bites=2": { "model": "fab:block/berry_cake2" },
+        "bites=3": { "model": "fab:block/berry_cake3" },
+        "bites=4": { "model": "fab:block/berry_cake4" },
+        "bites=5": { "model": "fab:block/berry_cake5" },
+        "bites=6": { "model": "fab:block/berry_cake6" }
+    }
+}

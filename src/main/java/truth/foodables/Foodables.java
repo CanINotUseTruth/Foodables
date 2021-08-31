@@ -17,6 +17,7 @@ public class Foodables implements ModInitializer {
         ModBlocks.registerBlocks();
         ModGeneration.registerOreGen();
         ModGeneration.registerTrees();
+        ModGeneration.registerBushes();
         ModRecipes.registerRecipes();
         EditVanillaLoot.modifyLootTables();
     }

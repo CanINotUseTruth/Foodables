@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "fab:baked_orange_cake"
+        }
+    ],
+    "result": {
+        "item": "fab:orange_cake",
+        "count": 1
+    }
+}

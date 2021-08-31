@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:smoking",
+    "ingredient": {
+      "item": "fab:berry_cake_mix"
+    },
+    "result": "fab:baked_berry_cake",
+    "experience": 0.35,
+    "cookingtime": 100
+  }

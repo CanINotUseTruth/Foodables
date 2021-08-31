@@ -3,6 +3,29 @@
 		Current Version: 1.0.2
 		   Mod Author: TRUTH
 =======================================================
+-----------------------V 1.0.8-------------------------
+Added 6 Varieties of Cake
+- Honey
+- Apple
+- Berry
+- Orange
+- Banana
+- Chocolate
+Added new crafting process for Cakes
+Added Cake Tin
+
+Added 2 new berry bushes
+- Blueberry
+- Blackberry
+
+Added Fruit Salad
+Added Ground Cocoa
+
+Fixed ongoing issue with server/client desync for Drying Racks
+Fixed issue with banana trees spawn biomes
+
+Added new biomes to all trees for more well rounded spawning
+Adjusted feature spawn rates of trees and ores
 -----------------------V 1.0.7-------------------------
 Items Added:
 - Pumpkin Slices

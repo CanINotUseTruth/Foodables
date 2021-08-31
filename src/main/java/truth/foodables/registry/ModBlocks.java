@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegi
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerPotBlock;
@@ -18,31 +19,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import truth.foodables.Foodables;
-import truth.foodables.blocks.AcaciaDryingRack;
-import truth.foodables.blocks.BirchDryingRack;
-import truth.foodables.blocks.CrimsonDryingRack;
-import truth.foodables.blocks.DarkOakDryingRack;
+import truth.foodables.blocks.DryingRack;
+import truth.foodables.blocks.FabCakeBlock;
 import truth.foodables.blocks.FabCropBlock;
-import truth.foodables.blocks.JungleDryingRack;
-import truth.foodables.blocks.OakDryingRack;
-import truth.foodables.blocks.SpruceDryingRack;
-import truth.foodables.blocks.WarpedDryingRack;
-import truth.foodables.blocks.blockentities.AcaciaDryingRackEntity;
-import truth.foodables.blocks.blockentities.BirchDryingRackEntity;
-import truth.foodables.blocks.blockentities.CrimsonDryingRackEntity;
-import truth.foodables.blocks.blockentities.DarkOakDryingRackEntity;
-import truth.foodables.blocks.blockentities.JungleDryingRackEntity;
-import truth.foodables.blocks.blockentities.OakDryingRackEntity;
-import truth.foodables.blocks.blockentities.SpruceDryingRackEntity;
-import truth.foodables.blocks.blockentities.WarpedDryingRackEntity;
-import truth.foodables.blocks.blockentityrenderers.AcaciaDryingRackRenderer;
-import truth.foodables.blocks.blockentityrenderers.BirchDryingRackRenderer;
-import truth.foodables.blocks.blockentityrenderers.CrimsonDryingRackRenderer;
-import truth.foodables.blocks.blockentityrenderers.DarkOakDryingRackRenderer;
-import truth.foodables.blocks.blockentityrenderers.JungleDryingRackRenderer;
-import truth.foodables.blocks.blockentityrenderers.OakDryingRackRenderer;
-import truth.foodables.blocks.blockentityrenderers.SpruceDryingRackRenderer;
-import truth.foodables.blocks.blockentityrenderers.WarpedDryingRackRenderer;
+import truth.foodables.blocks.berrybushes.BlackberryBush;
+import truth.foodables.blocks.berrybushes.BlueberryBush;
+import truth.foodables.blocks.blockentities.DryingRackEntity;
+import truth.foodables.blocks.blockentityrenderers.DryingRackRenderer;
+import truth.foodables.blocks.cakeblocks.HoneyCakeBlock;
 import truth.foodables.blocks.saplings.AppleSapling;
 import truth.foodables.blocks.saplings.BananaSapling;
 import truth.foodables.blocks.saplings.LemonSapling;
@@ -54,22 +38,23 @@ import truth.foodables.blocks.saplings.PeppercornSapling;
 public class ModBlocks {
     
     // Functional Blocks
-    public static final Block OAK_DRYING_RACK = new OakDryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).requiresTool().strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static BlockEntityType<OakDryingRackEntity> OAK_DRYING_RACK_ENTITY;
-    public static final Block SPRUCE_DRYING_RACK = new SpruceDryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).requiresTool().strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static BlockEntityType<SpruceDryingRackEntity> SPRUCE_DRYING_RACK_ENTITY;
-    public static final Block BIRCH_DRYING_RACK = new BirchDryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).requiresTool().strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static BlockEntityType<BirchDryingRackEntity> BIRCH_DRYING_RACK_ENTITY;
-    public static final Block JUNGLE_DRYING_RACK = new JungleDryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).requiresTool().strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static BlockEntityType<JungleDryingRackEntity> JUNGLE_DRYING_RACK_ENTITY;
-    public static final Block DARK_OAK_DRYING_RACK = new DarkOakDryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).requiresTool().strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static BlockEntityType<DarkOakDryingRackEntity> DARK_OAK_DRYING_RACK_ENTITY;
-    public static final Block ACACIA_DRYING_RACK = new AcaciaDryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).requiresTool().strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static BlockEntityType<AcaciaDryingRackEntity> ACACIA_DRYING_RACK_ENTITY;
-    public static final Block CRIMSON_DRYING_RACK = new CrimsonDryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).requiresTool().strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static BlockEntityType<CrimsonDryingRackEntity> CRIMSON_DRYING_RACK_ENTITY;
-    public static final Block WARPED_DRYING_RACK = new WarpedDryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).requiresTool().strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static BlockEntityType<WarpedDryingRackEntity> WARPED_DRYING_RACK_ENTITY;
+    public static BlockEntityType<DryingRackEntity> DRYING_RACK_ENTITY;
+    public static final Block OAK_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block SPRUCE_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block BIRCH_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block JUNGLE_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block DARK_OAK_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block ACACIA_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block CRIMSON_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block WARPED_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+
+    // Food Blocks
+    public static final Block HONEY_CAKE = new HoneyCakeBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5F).sounds(BlockSoundGroup.WOOL));
+    public static final Block APPLE_CAKE = new FabCakeBlock(FabricBlockSettings.of(Material.WOOL).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+    public static final Block BERRY_CAKE = new FabCakeBlock(FabricBlockSettings.of(Material.WOOL).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+    public static final Block ORANGE_CAKE = new FabCakeBlock(FabricBlockSettings.of(Material.WOOL).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+    public static final Block BANANA_CAKE = new FabCakeBlock(FabricBlockSettings.of(Material.WOOL).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+    public static final Block CHOCOLATE_CAKE = new FabCakeBlock(FabricBlockSettings.of(Material.WOOL).strength(0.5f).sounds(BlockSoundGroup.WOOL));
 
     // Generated Blocks
     public static final Block SALT_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool().strength(3f, 3f).sounds(BlockSoundGroup.STONE), UniformIntProvider.create(2, 5));
@@ -97,6 +82,10 @@ public class ModBlocks {
     public static final Block BANANA_SAPLING = new BananaSapling();
     public static final Block POTTED_BANANA_SAPLING = new FlowerPotBlock(BANANA_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
 
+    // Berry Blocks
+    public static final Block BLUEBERRY_BUSH = new BlueberryBush(AbstractBlock.Settings.of(Material.PLANT).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
+    public static final Block BLACKBERRY_BUSH = new BlackberryBush(AbstractBlock.Settings.of(Material.PLANT).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
+
     // Crop Blocks
     public static final Block LETTUCE_CROP = new FabCropBlock();
     public static final Block TOMATO_CROP = new FabCropBlock();
@@ -106,22 +95,23 @@ public class ModBlocks {
 
     public static void registerBlocks() {
         // Functional Blocks
+        DRYING_RACK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "fab:drying_rack", FabricBlockEntityTypeBuilder.create(DryingRackEntity::new, OAK_DRYING_RACK, SPRUCE_DRYING_RACK, BIRCH_DRYING_RACK, JUNGLE_DRYING_RACK, DARK_OAK_DRYING_RACK, ACACIA_DRYING_RACK, CRIMSON_DRYING_RACK, WARPED_DRYING_RACK).build(null));
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "oak_drying_rack"), OAK_DRYING_RACK);
-        OAK_DRYING_RACK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "fab:oak_drying_rack", FabricBlockEntityTypeBuilder.create(OakDryingRackEntity::new, OAK_DRYING_RACK).build(null));
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "spruce_drying_rack"), SPRUCE_DRYING_RACK);
-        SPRUCE_DRYING_RACK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "fab:spruce_drying_rack", FabricBlockEntityTypeBuilder.create(SpruceDryingRackEntity::new, SPRUCE_DRYING_RACK).build(null));
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "birch_drying_rack"), BIRCH_DRYING_RACK);
-        BIRCH_DRYING_RACK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "fab:birch_drying_rack", FabricBlockEntityTypeBuilder.create(BirchDryingRackEntity::new, BIRCH_DRYING_RACK).build(null));
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "jungle_drying_rack"), JUNGLE_DRYING_RACK);
-        JUNGLE_DRYING_RACK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "fab:jungle_drying_rack", FabricBlockEntityTypeBuilder.create(JungleDryingRackEntity::new, JUNGLE_DRYING_RACK).build(null));
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "dark_oak_drying_rack"), DARK_OAK_DRYING_RACK);
-        DARK_OAK_DRYING_RACK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "fab:dark_oak_drying_rack", FabricBlockEntityTypeBuilder.create(DarkOakDryingRackEntity::new, DARK_OAK_DRYING_RACK).build(null));
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "acacia_drying_rack"), ACACIA_DRYING_RACK);
-        ACACIA_DRYING_RACK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "fab:acacia_drying_rack", FabricBlockEntityTypeBuilder.create(AcaciaDryingRackEntity::new, ACACIA_DRYING_RACK).build(null));
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "crimson_drying_rack"), CRIMSON_DRYING_RACK);
-        CRIMSON_DRYING_RACK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "fab:crimson_drying_rack", FabricBlockEntityTypeBuilder.create(CrimsonDryingRackEntity::new, CRIMSON_DRYING_RACK).build(null));
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "warped_drying_rack"), WARPED_DRYING_RACK);
-        WARPED_DRYING_RACK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "fab:warped_drying_rack", FabricBlockEntityTypeBuilder.create(WarpedDryingRackEntity::new, WARPED_DRYING_RACK).build(null));
+
+        // Food Blocks
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "honey_cake"), HONEY_CAKE);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "apple_cake"), APPLE_CAKE);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "berry_cake"), BERRY_CAKE);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "orange_cake"), ORANGE_CAKE);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "banana_cake"), BANANA_CAKE);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "chocolate_cake"), CHOCOLATE_CAKE);
 
         // Generated Blocks
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "salt_ore"), SALT_ORE);
@@ -149,6 +139,10 @@ public class ModBlocks {
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "banana_sapling"), BANANA_SAPLING);
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "potted_banana_sapling"), POTTED_BANANA_SAPLING);
 
+        // Berry Blocks
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "blueberry_bush"), BLUEBERRY_BUSH);
+        Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "blackberry_bush"), BLACKBERRY_BUSH);
+
         // Crop Blocks
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "lettuce_crop"), LETTUCE_CROP);
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "tomato_crop"), TOMATO_CROP);
@@ -159,14 +153,7 @@ public class ModBlocks {
 
     public static void registerRenderers() {
         // Racks
-        BlockEntityRendererRegistry.INSTANCE.register(OAK_DRYING_RACK_ENTITY, OakDryingRackRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(SPRUCE_DRYING_RACK_ENTITY, SpruceDryingRackRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(BIRCH_DRYING_RACK_ENTITY, BirchDryingRackRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(JUNGLE_DRYING_RACK_ENTITY, JungleDryingRackRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(DARK_OAK_DRYING_RACK_ENTITY, DarkOakDryingRackRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(ACACIA_DRYING_RACK_ENTITY, AcaciaDryingRackRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(CRIMSON_DRYING_RACK_ENTITY, CrimsonDryingRackRenderer::new);
-        BlockEntityRendererRegistry.INSTANCE.register(WARPED_DRYING_RACK_ENTITY, WarpedDryingRackRenderer::new);
+        BlockEntityRendererRegistry.INSTANCE.register(DRYING_RACK_ENTITY, DryingRackRenderer::new);
         //Crops
         BlockRenderLayerMap.INSTANCE.putBlock(LETTUCE_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(TOMATO_CROP, RenderLayer.getCutout());
@@ -188,5 +175,9 @@ public class ModBlocks {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MANGO_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_BANANA_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BANANA_SAPLING, RenderLayer.getCutout());
+        // Berries
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLUEBERRY_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLACKBERRY_BUSH, RenderLayer.getCutout());
+
     }
 }
