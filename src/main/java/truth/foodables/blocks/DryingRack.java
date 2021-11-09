@@ -59,34 +59,32 @@ public class DryingRack extends HorizontalFacingBlock implements BlockEntityProv
     
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        DryingRackEntity dryingRackEntity = (DryingRackEntity) world.getBlockEntity(pos);
-        ItemStack stack = dryingRackEntity.getStack(0);
-        if (!stack.isEmpty()) {
-        // Remove hanging item
+        DryingRackEntity woodReckEntity = (DryingRackEntity) world.getBlockEntity(pos);
+        ItemStack stack = woodReckEntity.getStack(0);
+        if (stack.isEmpty()) {
+            // Hang item on rack
+            ItemStack heldItem = player.getMainHandStack();
+            if (!heldItem.isEmpty() && ModRecipes.RACK_ITEM_LIST.contains(heldItem.getItem())) {
+                if (!world.isClient) {
+                    int index = ModRecipes.RACK_ITEM_LIST.indexOf(heldItem.getItem());
+                    woodReckEntity.dryingTime = ModRecipes.RACK_RESULT_TIME_LIST.get(index);
+                    woodReckEntity.result = ModRecipes.RACK_RESULT_ITEM_LIST.get(index);
+                    woodReckEntity.index = index;
+                    if (player.isCreative()) {
+                        woodReckEntity.setStack(0, heldItem.copy());
+                    } else
+                        woodReckEntity.setStack(0, heldItem.split(1));
+                }
+                return ActionResult.success(world.isClient);
+            }
+            return ActionResult.CONSUME;
+        } else {
+            // Remove hanging item
             if (!world.isClient && !player.giveItemStack(stack.split(1))) {
                 player.dropItem(stack.split(1), false);
             }
-            dryingRackEntity.clear();
-            return ActionResult.SUCCESS;
-        } else {
-        // Hang item on rack
-        ItemStack heldItem = player.getMainHandStack();
-        if (!heldItem.isEmpty() && ModRecipes.RACK_ITEM_LIST.contains(heldItem.getItem())) {
-            if (!world.isClient) {
-                int index = ModRecipes.RACK_ITEM_LIST.indexOf(heldItem.getItem());
-                if (index >= 0) {
-                    dryingRackEntity.dryingTime = ModRecipes.RACK_RESULT_TIME_LIST.get(index);
-                    dryingRackEntity.result = ModRecipes.RACK_RESULT_ITEM_LIST.get(index);
-                    dryingRackEntity.index = index;
-                }
-                if (player.isCreative()) dryingRackEntity.setStack(0, heldItem.copy());
-                else {
-                    dryingRackEntity.setStack(0, heldItem.split(1));
-                }
-            }
-            return ActionResult.SUCCESS;
-        }
-        return ActionResult.FAIL;
+            woodReckEntity.clear();
+            return ActionResult.success(world.isClient);
         }
     }
 

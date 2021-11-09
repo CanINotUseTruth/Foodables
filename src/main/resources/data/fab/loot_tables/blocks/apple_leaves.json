@@ -38,7 +38,7 @@
                     ]
                   }
                 ],
-                "name": "fab:orange_leaves"
+                "name": "fab:apple_leaves"
               },
               {
                 "type": "minecraft:item",
@@ -57,7 +57,7 @@
                     ]
                   }
                 ],
-                "name": "fab:orange_sapling"
+                "name": "fab:apple_sapling"
               }
             ]
           }
@@ -152,7 +152,7 @@
                 ]
               }
             ],
-            "name": "fab:orange"
+            "name": "minecraft:apple"
           }
         ],
         "conditions": [

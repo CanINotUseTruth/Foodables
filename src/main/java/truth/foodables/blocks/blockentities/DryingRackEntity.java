@@ -47,10 +47,6 @@ public class DryingRackEntity extends BlockEntity implements Inventory, BlockEnt
         return nbt;
     }
 
-    public static void clientTick(World world, BlockPos pos, BlockState state, DryingRackEntity blockEntity) {
-        blockEntity.update();
-    }
-
     public static void serverTick(World world, BlockPos pos, BlockState state, DryingRackEntity blockEntity) {
         blockEntity.update();
     }
