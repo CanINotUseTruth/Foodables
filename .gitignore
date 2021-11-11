@@ -30,4 +30,12 @@ bin/
 
 # fabric
 
+.mixin.out/
+config/
 run/
+logs/
+mods/
+resourcepacks/
+saves/
+options.txt
+usercache.json

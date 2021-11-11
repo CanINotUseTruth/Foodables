@@ -87,18 +87,18 @@ public class ModItems {
     public static final Item FRIED_EGG = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(4).saturationModifier(0.8f).build()));
     public static final Item BACON_AND_EGGS = new Item(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8f).build()));
     // Juices
-    public static Item LEMON_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE));
-    public static Item LIME_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE));
-    public static Item ORANGE_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE));
-    public static Item APPLE_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE));
-    public static Item CARROT_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE));
-    public static Item PUMPKIN_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE));
-    public static Item TOMATO_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE));
-    public static Item MELON_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE));
-    public static Item SWEET_BERRY_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE));
-    public static Item MANGO_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE));
+    public static Item LEMON_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()));
+    public static Item LIME_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()));
+    public static Item ORANGE_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
+    public static Item APPLE_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
+    public static Item CARROT_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()));
+    public static Item PUMPKIN_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()));
+    public static Item TOMATO_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()));
+    public static Item MELON_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
+    public static Item SWEET_BERRY_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
+    public static Item MANGO_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
     // Other Drinks
-    public static Item LEMONADE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.7f).alwaysEdible().build()).recipeRemainder(Items.GLASS_BOTTLE));
+    public static Item LEMONADE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.7f).alwaysEdible().build()));
     // Oils
     public static Item SUNFLOWER_OIL = new RecipeRemainder(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP), Items.GLASS_BOTTLE);
     // Sauces
