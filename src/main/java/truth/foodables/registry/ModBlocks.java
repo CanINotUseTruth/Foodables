@@ -1,17 +1,10 @@
 package truth.foodables.registry;
 
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.FlowerPotBlock;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.block.Material;
-import net.minecraft.block.OreBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.sound.BlockSoundGroup;
@@ -27,26 +20,20 @@ import truth.foodables.blocks.berrybushes.BlueberryBush;
 import truth.foodables.blocks.blockentities.DryingRackEntity;
 import truth.foodables.blocks.blockentityrenderers.DryingRackRenderer;
 import truth.foodables.blocks.cakeblocks.HoneyCakeBlock;
-import truth.foodables.blocks.saplings.AppleSapling;
-import truth.foodables.blocks.saplings.BananaSapling;
-import truth.foodables.blocks.saplings.LemonSapling;
-import truth.foodables.blocks.saplings.LimeSapling;
-import truth.foodables.blocks.saplings.MangoSapling;
-import truth.foodables.blocks.saplings.OrangeSapling;
-import truth.foodables.blocks.saplings.PeppercornSapling;
+import truth.foodables.blocks.saplings.*;
 
 public class ModBlocks {
     
     // Functional Blocks
     public static BlockEntityType<DryingRackEntity> DRYING_RACK_ENTITY;
-    public static final Block OAK_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block SPRUCE_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block BIRCH_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block JUNGLE_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block DARK_OAK_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block ACACIA_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block CRIMSON_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block WARPED_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).breakByTool(FabricToolTags.AXES, 0).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block OAK_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block SPRUCE_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block BIRCH_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block JUNGLE_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block DARK_OAK_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block ACACIA_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block CRIMSON_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block WARPED_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
 
     // Food Blocks
     public static final Block HONEY_CAKE = new HoneyCakeBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5F).sounds(BlockSoundGroup.WOOL));
@@ -57,28 +44,28 @@ public class ModBlocks {
     public static final Block CHOCOLATE_CAKE = new FabCakeBlock(FabricBlockSettings.of(Material.WOOL).strength(0.5f).sounds(BlockSoundGroup.WOOL));
 
     // Generated Blocks
-    public static final Block SALT_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).breakByTool(FabricToolTags.PICKAXES, 0).requiresTool().strength(3f, 3f).sounds(BlockSoundGroup.STONE), UniformIntProvider.create(2, 5));
+    public static final Block SALT_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3f, 3f).sounds(BlockSoundGroup.STONE), UniformIntProvider.create(2, 5));
 
     // Tree Blocks
-    public static final Block PEPPERCORN_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block PEPPERCORN_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
     public static final Block PEPPERCORN_SAPLING = new PeppercornSapling();
     public static final Block POTTED_PEPPERCORN_SAPLING = new FlowerPotBlock(PEPPERCORN_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_SPRUCE_SAPLING));
-    public static final Block LEMON_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block LEMON_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
     public static final Block LEMON_SAPLING = new LemonSapling();
     public static final Block POTTED_LEMON_SAPLING = new FlowerPotBlock(LEMON_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
-    public static final Block LIME_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block LIME_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
     public static final Block LIME_SAPLING = new LimeSapling();
     public static final Block POTTED_LIME_SAPLING = new FlowerPotBlock(LIME_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
-    public static final Block ORANGE_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block ORANGE_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
     public static final Block ORANGE_SAPLING = new OrangeSapling();
     public static final Block POTTED_ORANGE_SAPLING = new FlowerPotBlock(ORANGE_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
-    public static final Block APPLE_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block APPLE_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
     public static final Block APPLE_SAPLING = new AppleSapling();
     public static final Block POTTED_APPLE_SAPLING = new FlowerPotBlock(APPLE_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
-    public static final Block MANGO_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block MANGO_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
     public static final Block MANGO_SAPLING = new MangoSapling();
     public static final Block POTTED_MANGO_SAPLING = new FlowerPotBlock(MANGO_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
-    public static final Block BANANA_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).breakByTool(FabricToolTags.HOES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
+    public static final Block BANANA_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
     public static final Block BANANA_SAPLING = new BananaSapling();
     public static final Block POTTED_BANANA_SAPLING = new FlowerPotBlock(BANANA_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
 
@@ -95,7 +82,21 @@ public class ModBlocks {
 
     public static void registerBlocks() {
         // Functional Blocks
-        DRYING_RACK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "fab:drying_rack", FabricBlockEntityTypeBuilder.create(DryingRackEntity::new, OAK_DRYING_RACK, SPRUCE_DRYING_RACK, BIRCH_DRYING_RACK, JUNGLE_DRYING_RACK, DARK_OAK_DRYING_RACK, ACACIA_DRYING_RACK, CRIMSON_DRYING_RACK, WARPED_DRYING_RACK).build(null));
+        DRYING_RACK_ENTITY = Registry.register(
+                Registry.BLOCK_ENTITY_TYPE,
+                "fab:drying_rack",
+                FabricBlockEntityTypeBuilder.create(
+                        DryingRackEntity::new,
+                        OAK_DRYING_RACK,
+                        SPRUCE_DRYING_RACK,
+                        BIRCH_DRYING_RACK,
+                        JUNGLE_DRYING_RACK,
+                        DARK_OAK_DRYING_RACK,
+                        ACACIA_DRYING_RACK,
+                        CRIMSON_DRYING_RACK,
+                        WARPED_DRYING_RACK
+                ).build(null)
+        );
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "oak_drying_rack"), OAK_DRYING_RACK);
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "spruce_drying_rack"), SPRUCE_DRYING_RACK);
         Registry.register(Registry.BLOCK, new Identifier(Foodables.MOD_ID, "birch_drying_rack"), BIRCH_DRYING_RACK);
@@ -153,7 +154,7 @@ public class ModBlocks {
 
     public static void registerRenderers() {
         // Racks
-        BlockEntityRendererRegistry.INSTANCE.register(DRYING_RACK_ENTITY, DryingRackRenderer::new);
+        BlockEntityRendererRegistry.register(DRYING_RACK_ENTITY, DryingRackRenderer::new);
         //Crops
         BlockRenderLayerMap.INSTANCE.putBlock(LETTUCE_CROP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(TOMATO_CROP, RenderLayer.getCutout());

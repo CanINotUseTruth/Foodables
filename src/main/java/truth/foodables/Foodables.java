@@ -1,11 +1,7 @@
 package truth.foodables;
 
 import net.fabricmc.api.ModInitializer;
-import truth.foodables.registry.EditVanillaLoot;
-import truth.foodables.registry.ModBlocks;
-import truth.foodables.registry.ModGeneration;
-import truth.foodables.registry.ModItems;
-import truth.foodables.registry.ModRecipes;
+import truth.foodables.registry.*;
 
 public class Foodables implements ModInitializer {
 
@@ -15,9 +11,8 @@ public class Foodables implements ModInitializer {
     public void onInitialize() {
         ModItems.registerItems();
         ModBlocks.registerBlocks();
-        ModGeneration.registerOreGen();
-        ModGeneration.registerTrees();
-        ModGeneration.registerBushes();
+        ModConfiguredFeatures.init();
+        ModPlacedFeatures.init();
         ModRecipes.registerRecipes();
         EditVanillaLoot.modifyLootTables();
     }
