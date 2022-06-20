@@ -1,20 +1,17 @@
 package truth.foodables.recipe;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
-import net.minecraft.item.Item;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import truth.foodables.registry.ModRecipes;
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class DryingRackRecipeLoader implements SimpleSynchronousResourceReloadListener {
     private static final Logger LOGGER = LogManager.getLogger();
@@ -30,8 +27,8 @@ public class DryingRackRecipeLoader implements SimpleSynchronousResourceReloadLi
             try {
                 InputStream stream = manager.getResource(id).getInputStream();
                 JsonObject data = new JsonParser().parse(new InputStreamReader(stream)).getAsJsonObject();
-                ModRecipes.RACK_ITEM_LIST.add((Item) Registry.ITEM.get(new Identifier(data.get("item").getAsString())));
-                ModRecipes.RACK_RESULT_ITEM_LIST.add((Item) Registry.ITEM.get(new Identifier(data.get("result").getAsString())));
+                ModRecipes.RACK_ITEM_LIST.add(Registry.ITEM.get(new Identifier(data.get("item").getAsString())));
+                ModRecipes.RACK_RESULT_ITEM_LIST.add(Registry.ITEM.get(new Identifier(data.get("result").getAsString())));
                 ModRecipes.RACK_RESULT_TIME_LIST.add(data.get("dryingtime").getAsInt());
                 stream.close();
             } catch (Exception e) {
