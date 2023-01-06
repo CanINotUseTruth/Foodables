@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Foodables",
-  "accessWidener": "fab.accesswidener",
+  "accessWidener": "",
   "description": "This Mod adds all your delicious favourites to minecraft!",
   "authors": [
     "TRUTH"

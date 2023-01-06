@@ -96,6 +96,8 @@ public class ModItems {
     public static Item TOMATO_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()));
     public static Item MELON_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
     public static Item SWEET_BERRY_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
+    public static Item BLUEBERRY_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
+    public static Item BLACKBERRY_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
     public static Item MANGO_JUICE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
     // Other Drinks
     public static Item LEMONADE = new Drink(new Item.Settings().group(ModGroups.FAB_FOODABLES_GROUP).food(new FoodComponent.Builder().hunger(5).saturationModifier(0.7f).alwaysEdible().build()));
@@ -265,6 +267,8 @@ public class ModItems {
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "tomato_juice"), TOMATO_JUICE);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "melon_juice"), MELON_JUICE);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "sweet_berry_juice"), SWEET_BERRY_JUICE);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "blueberry_juice"), BLUEBERRY_JUICE);
+        Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "blackberry_juice"), BLACKBERRY_JUICE);
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "mango_juice"), MANGO_JUICE);
         // Other Drinks
         Registry.register(Registry.ITEM, new Identifier(Foodables.MOD_ID, "lemonade"), LEMONADE);
