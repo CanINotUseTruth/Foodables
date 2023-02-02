@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-      "layer0": "fab:blocks/peppercorn_sapling"
+      "layer0": "fab:block/peppercorn_sapling"
     }
   }

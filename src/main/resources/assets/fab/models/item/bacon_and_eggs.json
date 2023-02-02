@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-      "layer0": "fab:items/bacon_and_eggs"
+      "layer0": "fab:item/bacon_and_eggs"
     }
   }

@@ -34,6 +34,8 @@ public class ComposterBlockAccessor extends Block {
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.GARLIC_SEEDS);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.PEPPERCORN_SAPLING);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.PEPPERCORN_ITEM);
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.BLUEBERRIES);
+        ComposterBlockAccessor.invokeRegisterCompostableItem(0.3F, ModItems.BLACKBERRIES);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.LETTUCE);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.TOMATO);
         ComposterBlockAccessor.invokeRegisterCompostableItem(0.65F, ModItems.GARLIC);

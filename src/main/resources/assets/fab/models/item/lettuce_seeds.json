@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/lettuce_seeds"
+        "layer0": "fab:item/lettuce_seeds"
     }
 }

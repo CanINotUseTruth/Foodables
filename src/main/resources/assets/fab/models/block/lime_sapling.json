@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-      "cross": "fab:blocks/lime_sapling"
+      "cross": "fab:block/lime_sapling"
     }
   }

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/tomato_seeds"
+        "layer0": "fab:item/tomato_seeds"
     }
 }

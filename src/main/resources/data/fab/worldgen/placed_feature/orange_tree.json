@@ -1,0 +1,17 @@
+{
+    "feature": "fab:orange_tree",
+    "placement": [
+      {
+        "type": "minecraft:block_predicate_filter",
+        "predicate": {
+          "type": "minecraft:would_survive",
+          "state": {
+            "Name": "fab:orange_sapling",
+            "Properties": {
+              "stage": "0"
+            }
+          }
+        }
+      }
+    ]
+  }

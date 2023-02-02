@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/wet_carton"
+        "layer0": "fab:item/wet_carton"
     }
 }

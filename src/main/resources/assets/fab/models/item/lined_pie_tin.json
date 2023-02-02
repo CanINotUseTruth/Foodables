@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/lined_pie_tin"
+        "layer0": "fab:item/lined_pie_tin"
     }
 }

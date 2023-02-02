@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/cake_tin"
+        "layer0": "fab:item/cake_tin"
     }
 }

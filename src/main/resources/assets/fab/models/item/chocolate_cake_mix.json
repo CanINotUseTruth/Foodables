@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/chocolate_cake_mix"
+        "layer0": "fab:item/chocolate_cake_mix"
     }
 }

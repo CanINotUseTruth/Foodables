@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/crusher"
+        "layer0": "fab:item/crusher"
     }
 }

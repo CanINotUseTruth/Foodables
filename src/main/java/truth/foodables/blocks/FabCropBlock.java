@@ -21,6 +21,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import truth.foodables.registry.ModItems;
 
+@SuppressWarnings("deprecation")
 public class FabCropBlock extends CropBlock {
 
     private Item seed;

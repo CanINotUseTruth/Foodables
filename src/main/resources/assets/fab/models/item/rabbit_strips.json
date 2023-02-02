@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/rabbit_strips"
+        "layer0": "fab:item/rabbit_strips"
     }
 }

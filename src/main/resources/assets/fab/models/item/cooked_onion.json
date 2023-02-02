@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/cooked_onion"
+        "layer0": "fab:item/cooked_onion"
     }
 }

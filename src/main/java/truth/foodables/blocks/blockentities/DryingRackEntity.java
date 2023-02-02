@@ -1,6 +1,5 @@
 package truth.foodables.blocks.blockentities;
 
-import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -9,42 +8,43 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import truth.foodables.registry.ModBlocks;
 import truth.foodables.registry.ModRecipes;
 
-public class DryingRackEntity extends BlockEntity implements Inventory, BlockEntityClientSerializable{
+public class DryingRackEntity extends BlockEntity implements Inventory{
 
     public Item result;
     public int index;
     public int dryingTime;
     private int processTime;
-    private DefaultedList<ItemStack> inventory;
+    private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
     public DryingRackEntity(BlockPos pos, BlockState state) {
         super(ModBlocks.DRYING_RACK_ENTITY, pos, state);
-        this.inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
-        dryingTime = nbt.getInt("Drying_Time");
-        index = nbt.getInt("Rack_Index");
-        result = ModRecipes.RACK_RESULT_ITEM_LIST.get(index);
-        inventory.clear();
+        this.dryingTime = nbt.getInt("Drying_Time");
+        this.index = nbt.getInt("Rack_Index");
+        this.result = ModRecipes.RACK_RESULT_ITEM_LIST.get(index);
+        this.inventory.clear();
         Inventories.readNbt(nbt, inventory);
+        if (!isEmpty() && !ModRecipes.RACK_RESULT_ITEM_LIST.isEmpty() && ModRecipes.RACK_RESULT_ITEM_LIST.size() > index)
+            this.result = ModRecipes.RACK_RESULT_ITEM_LIST.get(index);
     }
 
     @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
+    public void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
         nbt.putInt("Drying_Time", dryingTime);
         nbt.putInt("Rack_Index", index);
         Inventories.writeNbt(nbt, inventory);
-        return nbt;
     }
 
     public static void serverTick(World world, BlockPos pos, BlockState state, DryingRackEntity blockEntity) {
@@ -53,10 +53,10 @@ public class DryingRackEntity extends BlockEntity implements Inventory, BlockEnt
 
     private void update() {
         if (!this.world.isClient && !isEmpty() && ModRecipes.RACK_ITEM_LIST.contains(this.getStack(0).getItem())) {
-        ++processTime;
-            if (processTime >= dryingTime) {
+            ++this.processTime;
+            if (this.processTime >= this.dryingTime) {
                 this.setStack(0, new ItemStack(result));
-                processTime = 0;
+                this.processTime = 0;
             }
         }
     }
@@ -77,6 +77,7 @@ public class DryingRackEntity extends BlockEntity implements Inventory, BlockEnt
     @Override
     public void clear() {
         this.inventory.clear();
+        this.markDirty();
     }
 
     @Override
@@ -98,7 +99,7 @@ public class DryingRackEntity extends BlockEntity implements Inventory, BlockEnt
     public ItemStack removeStack(int slot, int amount) {
         ItemStack result = Inventories.splitStack(this.inventory, slot, 1);
         if (!result.isEmpty()) {
-        markDirty();
+            markDirty();
         }
         return result;
     }
@@ -122,15 +123,13 @@ public class DryingRackEntity extends BlockEntity implements Inventory, BlockEnt
     }
 
     @Override
-    public void fromClientTag(NbtCompound tag) {
-        inventory.clear();
-        Inventories.readNbt(tag, inventory);
+    public BlockEntityUpdateS2CPacket toUpdatePacket() {
+        return BlockEntityUpdateS2CPacket.create(this);
     }
 
     @Override
-    public NbtCompound toClientTag(NbtCompound tag) {
-        Inventories.writeNbt(tag, inventory);
-        return tag;
+    public NbtCompound toInitialChunkDataNbt() {
+        return this.createNbt();
     }
 
 }

@@ -1,9 +1,9 @@
 {
     "textures": {
-        "particle": "fab:blocks/orange_cake_side",
+        "particle": "fab:block/orange_cake_side",
         "bottom": "minecraft:block/cake_bottom",
-        "top": "fab:blocks/orange_cake_top",
-        "side": "fab:blocks/orange_cake_side"
+        "top": "fab:block/orange_cake_top",
+        "side": "fab:block/orange_cake_side"
     },
     "elements": [
         {   "from": [ 1, 0, 1 ],

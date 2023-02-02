@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-      "all": "fab:blocks/banana_leaves"
+      "all": "fab:block/banana_leaves"
     }
 }

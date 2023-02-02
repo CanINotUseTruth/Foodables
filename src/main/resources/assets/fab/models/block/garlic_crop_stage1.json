@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:block/crop",
     "textures": {
-      "crop": "fab:blocks/garlic_crop_stage1"
+      "crop": "fab:block/garlic_crop_stage1"
     }
 }

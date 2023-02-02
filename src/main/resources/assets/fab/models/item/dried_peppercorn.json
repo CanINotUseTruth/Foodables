@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/dried_peppercorn"
+        "layer0": "fab:item/dried_peppercorn"
     }
 }

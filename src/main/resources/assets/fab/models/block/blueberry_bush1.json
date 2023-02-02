@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:block/cross",
     "textures": {
-      "cross": "fab:blocks/blueberry_bush1"
+      "cross": "fab:block/blueberry_bush1"
     }
   }

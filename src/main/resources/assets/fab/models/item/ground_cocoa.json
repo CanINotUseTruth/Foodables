@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/ground_cocoa"
+        "layer0": "fab:item/ground_cocoa"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-      "cross": "fab:blocks/mango_sapling"
+      "cross": "fab:block/mango_sapling"
     }
   }

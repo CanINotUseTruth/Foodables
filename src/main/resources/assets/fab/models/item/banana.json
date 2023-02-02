@@ -1,6 +1,6 @@
 {
     "parent": "minecraft:item/generated",
     "textures": {
-      "layer0": "fab:items/banana"
+      "layer0": "fab:item/banana"
     }
   }

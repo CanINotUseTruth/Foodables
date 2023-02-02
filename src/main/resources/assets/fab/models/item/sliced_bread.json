@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/sliced_bread"
+        "layer0": "fab:item/sliced_bread"
     }
 }

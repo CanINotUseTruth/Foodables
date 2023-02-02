@@ -1,10 +1,10 @@
 {
     "textures": {
-        "particle": "fab:blocks/apple_cake_side",
+        "particle": "fab:block/apple_cake_side",
         "bottom": "minecraft:block/cake_bottom",
-        "top": "fab:blocks/apple_cake_top",
-        "side": "fab:blocks/apple_cake_side",
-        "inside": "fab:blocks/apple_cake_inner"
+        "top": "fab:block/apple_cake_top",
+        "side": "fab:block/apple_cake_side",
+        "inside": "fab:block/apple_cake_inner"
     },
     "elements": [
         {   "from": [ 13, 0, 1 ],

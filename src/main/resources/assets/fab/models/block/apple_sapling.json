@@ -1,6 +1,6 @@
 {
     "parent": "block/cross",
     "textures": {
-      "cross": "fab:blocks/apple_sapling"
+      "cross": "fab:block/apple_sapling"
     }
   }

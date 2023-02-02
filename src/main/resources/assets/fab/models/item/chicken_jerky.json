@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/chicken_jerky"
+        "layer0": "fab:item/chicken_jerky"
     }
 }

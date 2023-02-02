@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "fab:items/knife"
+        "layer0": "fab:item/knife"
     }
 }

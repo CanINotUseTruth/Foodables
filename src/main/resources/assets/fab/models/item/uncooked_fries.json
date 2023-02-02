@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/uncooked_fries"
+        "layer0": "fab:item/uncooked_fries"
     }
 }

@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "fab:items/honey_cake_mix"
+        "layer0": "fab:item/honey_cake_mix"
     }
 }

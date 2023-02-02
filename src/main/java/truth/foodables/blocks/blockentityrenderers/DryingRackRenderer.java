@@ -11,7 +11,7 @@ import net.minecraft.client.render.model.json.ModelTransformation;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.RotationAxis;
 import truth.foodables.blocks.DryingRack;
 import truth.foodables.blocks.blockentities.DryingRackEntity;
 
@@ -33,19 +33,19 @@ public class DryingRackRenderer implements BlockEntityRenderer<DryingRackEntity>
             matrixStack.push();
             switch(dir) {
                 case NORTH:
-                    matrixStack.translate(0.5F, 0.4375F, 0.96875F);
+                    matrixStack.translate(0.5F, 0.4375F, 0.90625F);
                     break;
                 case SOUTH:
-                    matrixStack.translate(0.5F, 0.4375F, 0.03125F);
-                    matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(180F));
+                    matrixStack.translate(0.5F, 0.4375F, 0.09500F);
+                    matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180F));
                     break;
                 case EAST:
-                    matrixStack.translate(0.03125F, 0.4375F, 0.5F);
-                    matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(270F));
+                    matrixStack.translate(0.09500F, 0.4375F, 0.5F);
+                    matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(270F));
                     break;
                 case WEST:
-                    matrixStack.translate(0.96875F, 0.4375F, 0.5F);
-                    matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(90F));
+                    matrixStack.translate(0.90625F, 0.4375F, 0.5F);
+                    matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(90F));
                     break;
                 default:
                     

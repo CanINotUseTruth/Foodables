@@ -1,6 +1,6 @@
 {
     "parent": "block/flower_pot_cross",
     "textures": {
-      "plant": "fab:blocks/peppercorn_sapling"
+      "plant": "fab:block/peppercorn_sapling"
     }
   }
