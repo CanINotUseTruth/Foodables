@@ -13,6 +13,9 @@ import truth.foodables.registry.ModRecipes;
 
 public class Foodables implements ModInitializer {
 
+    // TODO - Villager Trading
+    // TODO - REI Support for Drying Rack
+
     public static final String MOD_ID = "fab";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 

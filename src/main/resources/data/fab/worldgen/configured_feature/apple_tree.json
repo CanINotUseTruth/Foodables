@@ -37,7 +37,7 @@
       "trunk_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "minecraft:oak_log"
+          "Name": "minecraft:spruce_log"
         }
       }
     }

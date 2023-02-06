@@ -87,7 +87,7 @@ public class ModItems {
     public static final Item FRIED_EGG = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.8f).build()));
     public static final Item BACON_AND_EGGS = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8f).build()));
     // Juices
-    public static Item LEMON_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()));
+    public static Item LEMON_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()), Items.GLASS_BOTTLE);
     public static Item LIME_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()));
     public static Item ORANGE_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
     public static Item APPLE_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));

@@ -5,7 +5,6 @@ import org.jetbrains.annotations.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -37,14 +36,14 @@ import truth.foodables.blocks.blockentities.DryingRackEntity;
 import truth.foodables.registry.ModBlocks;
 import truth.foodables.registry.ModRecipes;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.block.Waterloggable;
 
 @SuppressWarnings("deprecation")
-public class DryingRack extends Block implements BlockEntityProvider {
+public class DryingRack extends Block implements BlockEntityProvider, Waterloggable {
 
     public static final VoxelShape NORTH_SHAPE, SOUTH_SHAPE, EAST_SHAPE, WEST_SHAPE;
     public static final DirectionProperty FACING;
     public static final BooleanProperty WATERLOGGED;
-
 
     public DryingRack(Settings settings) {
         super(settings);
@@ -64,21 +63,21 @@ public class DryingRack extends Block implements BlockEntityProvider {
     
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        DryingRackEntity woodReckEntity = (DryingRackEntity) world.getBlockEntity(pos);
-        ItemStack stack = woodReckEntity.getStack(0);
+        DryingRackEntity woodRackEntity = (DryingRackEntity) world.getBlockEntity(pos);
+        ItemStack stack = woodRackEntity.getStack(0);
         if (stack.isEmpty()) {
             // Hang item on rack
             ItemStack heldItem = player.getMainHandStack();
-            if (!heldItem.isEmpty() && ModRecipes.RACK_ITEM_LIST.contains(heldItem.getItem())) {
+            if (!heldItem.isEmpty() && ModRecipes.RACK_ITEM_LIST.contains(heldItem.getItem()) && !state.get(WATERLOGGED)) {
                 if (!world.isClient) {
                     int index = ModRecipes.RACK_ITEM_LIST.indexOf(heldItem.getItem());
-                    woodReckEntity.dryingTime = ModRecipes.RACK_RESULT_TIME_LIST.get(index);
-                    woodReckEntity.result = ModRecipes.RACK_RESULT_ITEM_LIST.get(index);
-                    woodReckEntity.index = index;
+                    woodRackEntity.dryingTime = ModRecipes.RACK_RESULT_TIME_LIST.get(index);
+                    woodRackEntity.result = ModRecipes.RACK_RESULT_ITEM_LIST.get(index);
+                    woodRackEntity.index = index;
                     if (player.isCreative()) {
-                        woodReckEntity.setStack(0, heldItem.copy());
+                        woodRackEntity.setStack(0, heldItem.copy());
                     } else
-                        woodReckEntity.setStack(0, heldItem.split(1));
+                        woodRackEntity.setStack(0, heldItem.split(1));
                 }
                 return ActionResult.success(world.isClient);
             }
@@ -88,7 +87,7 @@ public class DryingRack extends Block implements BlockEntityProvider {
             if (!world.isClient && !player.giveItemStack(stack.split(1))) {
                 player.dropItem(stack.split(1), false);
             }
-            woodReckEntity.clear();
+            woodRackEntity.clear();
             return ActionResult.success(world.isClient);
         }
     }
@@ -122,47 +121,20 @@ public class DryingRack extends Block implements BlockEntityProvider {
     }
     
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState,
-        WorldAccess world, BlockPos pos, BlockPos posFrom) {
-        if (direction.getOpposite() == state.get(FACING) && !state.canPlaceAt(world, pos)) {
-            return Blocks.AIR.getDefaultState();
-        } else {    
-            if ((Boolean) state.get(WATERLOGGED)) {
-                world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
-            }
-
-            return super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        if (state.get(WATERLOGGED)) {
+            // This is for 1.17 and below: world.getFluidTickScheduler().schedule(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
+ 
+        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
     
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        BlockState blockState2;
-        if (!ctx.canReplaceExisting()) {
-            blockState2 = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(ctx.getSide().getOpposite()));
-            if (blockState2.getBlock() == this && blockState2.get(FACING) == ctx.getSide()) {
-                return null;
-            }
-        }
-
-        blockState2 = this.getDefaultState();
-        WorldView worldView = ctx.getWorld();
-        BlockPos blockPos = ctx.getBlockPos();
-        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
-        Direction[] var6 = ctx.getPlacementDirections();
-        int var7 = var6.length;
-
-        for (int var8 = 0; var8 < var7; ++var8) {
-            Direction direction = var6[var8];
-            if (direction.getAxis().isHorizontal()) {
-                blockState2 = (BlockState) blockState2.with(FACING, direction.getOpposite());
-                if (blockState2.canPlaceAt(worldView, blockPos)) {
-                    return (BlockState) blockState2.with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
-                }
-            }
-        }
-
-        return null;
+        return (BlockState)this.getDefaultState()
+            .with(FACING, ctx.getPlayerFacing().getOpposite())
+            .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER);
     }
     
     @Override
@@ -180,10 +152,9 @@ public class DryingRack extends Block implements BlockEntityProvider {
         builder.add(FACING, WATERLOGGED);
     }
 
-    // TODO - Fix Waterlogging - Disable ticking when waterlogged
     @Override
     public FluidState getFluidState(BlockState state) {
-        return (Boolean) state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
     
     @Override
