@@ -32,7 +32,6 @@ public class DryingRackEntity extends BlockEntity implements Inventory{
         super.readNbt(nbt);
         this.dryingTime = nbt.getInt("Drying_Time");
         this.index = nbt.getInt("Rack_Index");
-        this.result = ModRecipes.RACK_RESULT_ITEM_LIST.get(index);
         this.inventory.clear();
         Inventories.readNbt(nbt, inventory);
         if (!isEmpty() && !ModRecipes.RACK_RESULT_ITEM_LIST.isEmpty() && ModRecipes.RACK_RESULT_ITEM_LIST.size() > index)
