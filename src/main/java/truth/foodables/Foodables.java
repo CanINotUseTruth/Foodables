@@ -15,6 +15,12 @@ public class Foodables implements ModInitializer {
 
     // TODO - Villager Trading
     // TODO - REI Support for Drying Rack
+    // TODO - Pizzas & Pizza Oven
+    // TODO - Cheese & Cheescakes
+    // TODO - Pies
+    // TODO - Garlic Bread
+    // TODO - Milk Bottle for cake recipes
+    // TODO - Biome Tags for generation
 
     public static final String MOD_ID = "fab";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
