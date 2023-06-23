@@ -7,7 +7,7 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.json.ModelTransformation;
+import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Direction;
@@ -50,7 +50,7 @@ public class DryingRackRenderer implements BlockEntityRenderer<DryingRackEntity>
                 default:
                     
             }
-            itemRenderer.renderItem(itemStack, ModelTransformation.Mode.FIXED, light, overlay, matrixStack, vertexConsumers, k);
+            itemRenderer.renderItem(itemStack, ModelTransformationMode.FIXED, light, overlay, matrixStack, vertexConsumers, entity.getWorld(), k);
             matrixStack.pop();
         }
 

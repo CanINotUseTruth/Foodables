@@ -5,9 +5,7 @@
 
   "name": "Foodables",
   "description": "This Mod adds all your delicious favourites to minecraft!",
-  "authors": [
-    "TRUTH"
-  ],
+  "authors": ["TRUTH"],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/foodables-fabric",
     "sources": "https://github.com/CanINotUseTruth/Foodables"
@@ -18,21 +16,15 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
-      "truth.foodables.Foodables"
-    ],
-    "client": [
-      "truth.foodables.FoodablesClient"
-    ]
+    "main": ["truth.foodables.Foodables"],
+    "client": ["truth.foodables.FoodablesClient"]
   },
-  "mixins": [
-    "fab.mixins.json"
-  ],
+  "mixins": ["fab.mixins.json"],
 
   "depends": {
     "fabricloader": ">=0.14.11",
     "fabric": "*",
-    "minecraft": "1.19.3",
+    "minecraft": "1.19.4",
     "java": ">=17"
   },
   "suggests": {
