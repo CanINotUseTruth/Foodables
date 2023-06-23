@@ -133,7 +133,7 @@ public class DryingRack extends Block implements BlockEntityProvider, Waterlogga
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return (BlockState)this.getDefaultState()
-            .with(FACING, ctx.getPlayerFacing().getOpposite())
+            .with(FACING, ctx.getPlayerLookDirection().getOpposite())
             .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER);
     }
     
