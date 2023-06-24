@@ -8,7 +8,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.LeavesBlock;
-import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -37,26 +36,26 @@ public class ModBlocks {
     
     // Functional Blocks
     public static BlockEntityType<DryingRackEntity> DRYING_RACK_ENTITY;
-    public static final Block OAK_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block SPRUCE_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block BIRCH_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block JUNGLE_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block DARK_OAK_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block ACACIA_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block CRIMSON_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block WARPED_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
-    public static final Block MANGROVE_DRYING_RACK = new DryingRack(FabricBlockSettings.of(Material.WOOD).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block OAK_DRYING_RACK = new DryingRack(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block SPRUCE_DRYING_RACK = new DryingRack(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block BIRCH_DRYING_RACK = new DryingRack(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block JUNGLE_DRYING_RACK = new DryingRack(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block DARK_OAK_DRYING_RACK = new DryingRack(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block ACACIA_DRYING_RACK = new DryingRack(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block CRIMSON_DRYING_RACK = new DryingRack(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block WARPED_DRYING_RACK = new DryingRack(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block MANGROVE_DRYING_RACK = new DryingRack(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
 
     // Food Blocks
-    public static final Block HONEY_CAKE = new HoneyCakeBlock(FabricBlockSettings.of(Material.CAKE).strength(0.5F).sounds(BlockSoundGroup.WOOL));
-    public static final Block APPLE_CAKE = new FabCakeBlock(FabricBlockSettings.of(Material.WOOL).strength(0.5f).sounds(BlockSoundGroup.WOOL));
-    public static final Block BERRY_CAKE = new FabCakeBlock(FabricBlockSettings.of(Material.WOOL).strength(0.5f).sounds(BlockSoundGroup.WOOL));
-    public static final Block ORANGE_CAKE = new FabCakeBlock(FabricBlockSettings.of(Material.WOOL).strength(0.5f).sounds(BlockSoundGroup.WOOL));
-    public static final Block BANANA_CAKE = new FabCakeBlock(FabricBlockSettings.of(Material.WOOL).strength(0.5f).sounds(BlockSoundGroup.WOOL));
-    public static final Block CHOCOLATE_CAKE = new FabCakeBlock(FabricBlockSettings.of(Material.WOOL).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+    public static final Block HONEY_CAKE = new HoneyCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5F).sounds(BlockSoundGroup.WOOL));
+    public static final Block APPLE_CAKE = new FabCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+    public static final Block BERRY_CAKE = new FabCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+    public static final Block ORANGE_CAKE = new FabCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+    public static final Block BANANA_CAKE = new FabCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+    public static final Block CHOCOLATE_CAKE = new FabCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
 
     // Generated Blocks
-    public static final Block SALT_ORE = new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3f, 3f).sounds(BlockSoundGroup.STONE));
+    public static final Block SALT_ORE = new Block(FabricBlockSettings.copyOf(Blocks.STONE).requiresTool().strength(3f, 3f).sounds(BlockSoundGroup.STONE));
 
     // Tree Blocks
     public static final Block PEPPERCORN_LEAVES = new LeavesBlock(FabricBlockSettings.copyOf(Blocks.SPRUCE_LEAVES).ticksRandomly().sounds(BlockSoundGroup.GRASS).strength(0.2f, 0.2f));
@@ -82,8 +81,8 @@ public class ModBlocks {
     public static final Block POTTED_BANANA_SAPLING = new FlowerPotBlock(BANANA_SAPLING, FabricBlockSettings.copy(Blocks.POTTED_SPRUCE_SAPLING));
 
     // Berry Blocks
-    public static final Block BLUEBERRY_BUSH = new BlueberryBush(AbstractBlock.Settings.of(Material.PLANT).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
-    public static final Block BLACKBERRY_BUSH = new BlackberryBush(AbstractBlock.Settings.of(Material.PLANT).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
+    public static final Block BLUEBERRY_BUSH = new BlueberryBush(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
+    public static final Block BLACKBERRY_BUSH = new BlackberryBush(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
 
     // Crop Blocks
     public static final Block LETTUCE_CROP = new FabCropBlock();

@@ -5,6 +5,7 @@ import org.jetbrains.annotations.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -121,20 +122,46 @@ public class DryingRack extends Block implements BlockEntityProvider, Waterlogga
     }
     
     @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        if (state.get(WATERLOGGED)) {
-            // This is for 1.17 and below: world.getFluidTickScheduler().schedule(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
-            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos neighborBlockPos) {
+        if (direction.getOpposite() == state.get(FACING) && !state.canPlaceAt(world, pos)) {
+            return Blocks.AIR.getDefaultState();
+        } else {
+            if ((Boolean) state.get(WATERLOGGED)) {
+                world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+            }
+
+            return super.getStateForNeighborUpdate(state, direction, newState, world, pos, neighborBlockPos);
         }
- 
-        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
-    
+
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState)this.getDefaultState()
-            .with(FACING, ctx.getPlayerLookDirection().getOpposite())
-            .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).getFluid() == Fluids.WATER);
+        BlockState blockState;
+        if (!ctx.canReplaceExisting()) {
+            blockState = ctx.getWorld().getBlockState(ctx.getBlockPos().offset(ctx.getSide().getOpposite()));
+            if (blockState.getBlock() == this && blockState.get(FACING) == ctx.getSide()) {
+                return null;
+            }
+        }
+
+        blockState = this.getDefaultState();
+        WorldView worldView = ctx.getWorld();
+        BlockPos blockPos = ctx.getBlockPos();
+        FluidState fluidState = ctx.getWorld().getFluidState(ctx.getBlockPos());
+        Direction[] directions = ctx.getPlacementDirections();
+        int j = directions.length;
+
+        for (int k = 0; k < j; ++k) {
+            Direction direction = directions[k];
+            if (direction.getAxis().isHorizontal()) {
+                blockState = (BlockState) blockState.with(FACING, direction.getOpposite());
+                if (blockState.canPlaceAt(worldView, blockPos)) {
+                    return (BlockState) blockState.with(WATERLOGGED, fluidState.getFluid() == Fluids.WATER);
+                }
+            }
+        }
+
+        return null;
     }
     
     @Override

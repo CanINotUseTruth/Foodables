@@ -13,6 +13,9 @@ import truth.foodables.registry.ModRecipes;
 
 public class Foodables implements ModInitializer {
 
+    // TODO - Cherry Drying Racks
+    // TODO - Waterlog from bucket Drying Racks
+    // TODO - Disable drying if waterlogged
     // TODO - Villager Trading
     // TODO - REI Support for Drying Rack
     // TODO - Pizzas & Pizza Oven
@@ -31,7 +34,7 @@ public class Foodables implements ModInitializer {
         ModBlocks.registerBlocks();
         ModPlacedFeatures.init();
         ModRecipes.registerRecipes();
-        ModGroups.addToGroups();
+        ModGroups.registerItemGroups();
         EditVanillaLoot.modifyLootTables();
     }
 
