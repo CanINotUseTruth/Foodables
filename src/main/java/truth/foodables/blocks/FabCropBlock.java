@@ -4,8 +4,8 @@ import java.util.List;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.CropBlock;
-import net.minecraft.block.Material;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
@@ -27,7 +27,7 @@ public class FabCropBlock extends CropBlock {
     private Item seed;
 
     public FabCropBlock() {
-        super(FabricBlockSettings.of(Material.PLANT).sounds(BlockSoundGroup.CROP).noCollision().ticksRandomly().breakInstantly().nonOpaque());
+        super(FabricBlockSettings.copyOf(Blocks.WHEAT).sounds(BlockSoundGroup.CROP).noCollision().ticksRandomly().breakInstantly().nonOpaque());
     }
 
     public void setSeedsItem(Item seed) {
