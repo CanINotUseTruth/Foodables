@@ -45,6 +45,7 @@ public class ModBlocks {
     public static final Block CRIMSON_DRYING_RACK = new DryingRack(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
     public static final Block WARPED_DRYING_RACK = new DryingRack(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
     public static final Block MANGROVE_DRYING_RACK = new DryingRack(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
+    public static final Block CHERRY_DRYING_RACK = new DryingRack(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(2f, 3f).sounds(BlockSoundGroup.WOOD));
 
     // Food Blocks
     public static final Block HONEY_CAKE = new HoneyCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5F).sounds(BlockSoundGroup.WOOL));
@@ -93,7 +94,7 @@ public class ModBlocks {
 
     public static void registerBlocks() {
         // Functional Blocks
-        DRYING_RACK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, "fab:drying_rack", FabricBlockEntityTypeBuilder.create(DryingRackEntity::new, OAK_DRYING_RACK, SPRUCE_DRYING_RACK, BIRCH_DRYING_RACK, JUNGLE_DRYING_RACK, DARK_OAK_DRYING_RACK, ACACIA_DRYING_RACK, CRIMSON_DRYING_RACK, WARPED_DRYING_RACK, MANGROVE_DRYING_RACK).build(null));
+        DRYING_RACK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, "fab:drying_rack", FabricBlockEntityTypeBuilder.create(DryingRackEntity::new, OAK_DRYING_RACK, SPRUCE_DRYING_RACK, BIRCH_DRYING_RACK, JUNGLE_DRYING_RACK, DARK_OAK_DRYING_RACK, ACACIA_DRYING_RACK, CRIMSON_DRYING_RACK, WARPED_DRYING_RACK, MANGROVE_DRYING_RACK, CHERRY_DRYING_RACK).build(null));
         Registry.register(Registries.BLOCK, new Identifier(Foodables.MOD_ID, "oak_drying_rack"), OAK_DRYING_RACK);
         Registry.register(Registries.BLOCK, new Identifier(Foodables.MOD_ID, "spruce_drying_rack"), SPRUCE_DRYING_RACK);
         Registry.register(Registries.BLOCK, new Identifier(Foodables.MOD_ID, "birch_drying_rack"), BIRCH_DRYING_RACK);
@@ -103,6 +104,7 @@ public class ModBlocks {
         Registry.register(Registries.BLOCK, new Identifier(Foodables.MOD_ID, "crimson_drying_rack"), CRIMSON_DRYING_RACK);
         Registry.register(Registries.BLOCK, new Identifier(Foodables.MOD_ID, "warped_drying_rack"), WARPED_DRYING_RACK);
         Registry.register(Registries.BLOCK, new Identifier(Foodables.MOD_ID, "mangrove_drying_rack"), MANGROVE_DRYING_RACK);
+        Registry.register(Registries.BLOCK, new Identifier(Foodables.MOD_ID, "cherry_drying_rack"), CHERRY_DRYING_RACK);
 
         // Food Blocks
         Registry.register(Registries.BLOCK, new Identifier(Foodables.MOD_ID, "honey_cake"), HONEY_CAKE);

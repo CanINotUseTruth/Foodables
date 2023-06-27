@@ -1,66 +1,63 @@
 {
-    "type": "minecraft:block",
-    "pools": [
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
         {
-            "rolls": 1.0,
-            "entries": [
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
                 {
-                    "type":"minecraft:item",
-                    "functions":[
-                        {
-                            "function":"minecraft:set_count",
-                            "count":{
-                                "min":1,
-                                "max":3
-                            }
-                        }
-                    ],
-                    "name":"fab:brown_onion"
+                  "block": "fab:brown_onion_crop",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "age": "7"
+                  }
                 }
-            ],
-            "conditions": [
-                {
-                    "condition": "minecraft:block_state_property",
-                    "block": "fab:brown_onion_crop",
-                    "properties": {
-                        "age": "7"
-                    }
-                }
-            ]
-        },
-        {
-            "rolls": 1.0,
-            "entries": [
-                {
-                    "type": "minecraft:item",
-                    "functions": [
-                        {
-                            "function": "minecraft:apply_bonus",
-                            "enchantment": "minecraft:fortune",
-                            "formula": "minecraft:binomial_with_bonus_count",
-                            "parameters": {
-                                "extra": 1,
-                                "probability": 0.5714286
-                            }
-                        }
-                    ],
-                    "name": "fab:brown_onion_seeds"
-                }
-            ],
-            "conditions": [
-                {
-                    "condition": "minecraft:block_state_property",
-                    "block": "fab:brown_onion_crop",
-                    "properties": {
-                        "age": "7"
-                    }
-                }
-            ]
+              ],
+              "name": "fab:brown_onion"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "fab:brown_onion_seeds"
+            }
+          ]
         }
-    ],
-    "functions": [
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
         {
-            "function": "minecraft:explosion_decay"
+          "block": "fab:brown_onion_crop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "7"
+          }
         }
-    ]
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "enchantment": "minecraft:fortune",
+              "formula": "minecraft:binomial_with_bonus_count",
+              "function": "minecraft:apply_bonus",
+              "parameters": {
+                "extra": 1,
+                "probability": 0.5714286
+              }
+            }
+          ],
+          "name": "fab:brown_onion_seeds"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
 }
