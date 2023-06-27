@@ -160,6 +160,7 @@ public class ModItems {
     public static final BlockItem CRIMSON_DRYING_RACK = new BlockItem(ModBlocks.CRIMSON_DRYING_RACK, new Item.Settings());
     public static final BlockItem WARPED_DRYING_RACK = new BlockItem(ModBlocks.WARPED_DRYING_RACK, new Item.Settings());
     public static final BlockItem MANGROVE_DRYING_RACK = new BlockItem(ModBlocks.MANGROVE_DRYING_RACK, new Item.Settings());
+    public static final BlockItem CHERRY_DRYING_RACK = new BlockItem(ModBlocks.CHERRY_DRYING_RACK, new Item.Settings());
 
     // Ore Block Items
     public static final BlockItem SALT_ORE = new BlockItem(ModBlocks.SALT_ORE, new Item.Settings());
@@ -327,6 +328,7 @@ public class ModItems {
         Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "crimson_drying_rack"), CRIMSON_DRYING_RACK);
         Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "warped_drying_rack"), WARPED_DRYING_RACK);
         Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "mangrove_drying_rack"), MANGROVE_DRYING_RACK);
+        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "cherry_drying_rack"), CHERRY_DRYING_RACK);
 
         // Ore Block Items
         Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "salt_ore"), SALT_ORE);

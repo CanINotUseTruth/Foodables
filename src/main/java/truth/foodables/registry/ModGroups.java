@@ -25,6 +25,7 @@ public class ModGroups {
         entries.add(ModItems.CRIMSON_DRYING_RACK);
         entries.add(ModItems.WARPED_DRYING_RACK);
         entries.add(ModItems.MANGROVE_DRYING_RACK);
+        entries.add(ModItems.CHERRY_DRYING_RACK);
         // Ores
         entries.add(ModItems.SALT_ORE);
         // Tree Things
