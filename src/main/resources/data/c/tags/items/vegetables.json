@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:potato",
+    "minecraft:carrot",
+    "minecraft:beetroot",
+    "minecraft:golden_carrot",
+    "fab:lettuce",
+    "fab:tomato",
+    "fab:garlic",
+    "fab:brown_onion",
+    "fab:red_onion",
+    "fab:sliced_brown_onion",
+    "fab:sliced_red_onion",
+    "fab:pumpkin_slices"
+  ]
+}

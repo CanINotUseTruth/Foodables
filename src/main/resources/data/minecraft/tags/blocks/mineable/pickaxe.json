@@ -1,6 +1,4 @@
 {
-    "replace": false,
-    "values": [
-      "fab:salt_ore"
-    ]
-  }
+  "replace": false,
+  "values": ["#c:ores"]
+}

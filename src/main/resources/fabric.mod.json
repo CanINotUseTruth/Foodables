@@ -8,7 +8,8 @@
   "authors": ["TRUTH"],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/foodables-fabric",
-    "sources": "https://github.com/CanINotUseTruth/Foodables"
+    "sources": "https://github.com/CanINotUseTruth/Foodables",
+    "issues": "https://github.com/CanINotUseTruth/Foodables/issues"
   },
 
   "license": "MIT",
@@ -17,7 +18,8 @@
   "environment": "*",
   "entrypoints": {
     "main": ["truth.foodables.Foodables"],
-    "client": ["truth.foodables.FoodablesClient"]
+    "client": ["truth.foodables.FoodablesClient"],
+    "modmenu": ["truth.foodables.config.FabModMenuIntegration"]
   },
   "mixins": ["fab.mixins.json"],
 
@@ -25,9 +27,10 @@
     "fabricloader": ">=0.14.20",
     "fabric": "*",
     "minecraft": ">=1.20",
-    "java": ">=17"
+    "java": ">=17",
+    "cloth-config": ">=11.0.99"
   },
   "suggests": {
-    "another-mod": "*"
+    "modmenu": ">=7.0.1"
   }
 }

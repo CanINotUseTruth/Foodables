@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:dried_kelp",
+    "minecraft:baked_potato",
+    "fab:cooked_onion",
+    "fab:caramelized_onion",
+    "fab:baked_pumpkin",
+    "fab:baked_carrot",
+    "fab:baked_beetroot",
+    "fab:fries"
+  ]
+}

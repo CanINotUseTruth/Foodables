@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:beef",
+    "minecraft:porkchop",
+    "minecraft:chicken",
+    "minecraft:rabbit",
+    "minecraft:mutton",
+    "minecraft:cod",
+    "minecraft:salmon",
+    "fab:raw_bacon",
+    "fab:chicken_strips",
+    "fab:beef_strips",
+    "fab:lamb_strips",
+    "fab:rabbit_strips",
+    "fab:raw_nuggets",
+    "#c:raw_fish"
+  ]
+}

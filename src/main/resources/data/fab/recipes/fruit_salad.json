@@ -1,23 +1,19 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        " % ",
-        "$$$",
-        " # "
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:bowl"
-        },
-        "$": {
-            "tag": "fab:fruit"
-        },
-        "%": {
-            "item": "fab:knife"
-        }
+  "type": "minecraft:crafting_shaped",
+  "pattern": [" % ", "$$$", " # "],
+  "key": {
+    "#": {
+      "item": "minecraft:bowl"
     },
-    "result": {
-        "item": "fab:fruit_salad",
-        "count": 1
+    "$": {
+      "tag": "c:fruits"
+    },
+    "%": {
+      "item": "fab:knife"
     }
+  },
+  "result": {
+    "item": "fab:fruit_salad",
+    "count": 1
+  }
 }

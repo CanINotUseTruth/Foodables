@@ -1,13 +1,4 @@
 {
-    "replace": false,
-    "values": [
-      "fab:oak_drying_rack",
-      "fab:spruce_drying_rack",
-      "fab:birch_drying_rack",
-      "fab:acacia_drying_rack",
-      "fab:jungle_drying_rack",
-      "fab:dark_oak_drying_rack",
-      "fab:crimson_drying_rack",
-      "fab:warped_drying_rack"
-    ]
-  }
+  "replace": false,
+  "values": ["#fab:drying_racks"]
+}

@@ -1,10 +1,8 @@
 package truth.foodables.registry;
 
-// import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-// import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
@@ -15,10 +13,11 @@ import truth.foodables.Foodables;
 
 import java.util.Arrays;
 import java.util.Collection;
-// import java.util.function.BiConsumer;
 import java.util.function.Predicate;
 
+
 public class ModPlacedFeatures {
+
 	// Biome Collections
 	public static Collection<RegistryKey<Biome>> forestCollection = Arrays.asList(BiomeKeys.FOREST, BiomeKeys.FLOWER_FOREST, BiomeKeys.DARK_FOREST);
 	public static Collection<RegistryKey<Biome>> jungleCollection = Arrays.asList(BiomeKeys.JUNGLE, BiomeKeys.SPARSE_JUNGLE, BiomeKeys.BAMBOO_JUNGLE);
@@ -28,7 +27,13 @@ public class ModPlacedFeatures {
 	public static Collection<RegistryKey<Biome>> blueBerryCollection = Arrays.asList(BiomeKeys.DARK_FOREST, BiomeKeys.BIRCH_FOREST, BiomeKeys.OLD_GROWTH_BIRCH_FOREST);
 	public static Collection<RegistryKey<Biome>> blackBerryCollection = Arrays.asList(BiomeKeys.DARK_FOREST, BiomeKeys.OLD_GROWTH_SPRUCE_TAIGA);
 
-	public static void init() {
+	public static void registerPlacedFeatures() {
+		if(Foodables.CONFIG.worldGen.enableTreeGeneration) registerTrees();
+		if(Foodables.CONFIG.worldGen.enableBerryBushGeneration) registerBerryBushes();
+		if(Foodables.CONFIG.worldGen.enableOreGeneration) registerOres();
+	}
+
+	private static void registerTrees() {
 		registerVegetalGeneration(coldCollection, "apple_tree_patch");
 		registerVegetalGeneration(jungleCollection, "banana_tree_patch");
 		registerVegetalGeneration(forestCollection, "lemon_tree_patch");
@@ -36,8 +41,14 @@ public class ModPlacedFeatures {
 		registerVegetalGeneration(jungleCollection, "mango_tree_patch");
 		registerVegetalGeneration(forestCollection, "orange_tree_patch");
 		registerVegetalGeneration(plainsCollection, "peppercorn_tree_patch");
+	}
+
+	private static void registerBerryBushes() {
 		registerVegetalGeneration(blueBerryCollection, "blueberry_patch");
 		registerVegetalGeneration(blackBerryCollection, "blackberry_patch");
+	}
+
+	private static void registerOres() {
 		registerUndergroundGeneration("salt_ore");
 	}
 

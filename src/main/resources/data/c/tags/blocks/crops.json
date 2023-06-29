@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "fab:lettuce_crop",
+    "fab:tomato_crop",
+    "fab:garlic_crop",
+    "fab:brown_onion_crop",
+    "fab:red_onion_crop"
+  ]
+}

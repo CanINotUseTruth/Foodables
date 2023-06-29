@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "fab:lemon_juice",
+    "fab:lime_juice",
+    "fab:orange_juice",
+    "fab:apple_juice",
+    "fab:carrot_juice",
+    "fab:pumpkin_juice",
+    "fab:tomato_juice",
+    "fab:melon_juice",
+    "fab:sweet_berry_juice",
+    "fab:blueberry_juice",
+    "fab:blackberry_juice",
+    "fab:mango_juice"
+  ]
+}

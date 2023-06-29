@@ -1,12 +1,4 @@
 {
-    "replace": false,
-    "values": [
-      "fab:peppercorn_leaves",
-      "fab:lemon_leaves",
-      "fab:lime_leaves",
-      "fab:orange_leaves",
-      "fab:apple_leaves",
-      "fab:mango_leaves",
-      "fab:banana_leaves"
-    ]
-  }
+  "replace": false,
+  "values": ["#c:leaves"]
+}
