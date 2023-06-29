@@ -14,10 +14,11 @@ import truth.foodables.registry.ModRecipes;
 public class Foodables implements ModInitializer {
 
     // TODO - Villager Trading
-    // TODO - REI Support for Drying Rack
-    // TODO - Update Wiki
+    // TODO - REI & EMI Support for Drying Rack
     // TODO - Add Configs
-    
+    // TODO - Update Wiki
+    // TODO - Update Drying rack with custom recipe type
+
     // TODO - Pizzas & Pizza Oven
     // TODO - Tomato Sauce
     // TODO - Cheese
