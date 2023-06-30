@@ -5,12 +5,13 @@ import net.minecraft.loot.LootPool;
 import net.minecraft.loot.entry.LootTableEntry;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.util.Identifier;
+import truth.foodables.Foodables;
 
 public class EditVanillaLoot {
     private static final Identifier SQUID_LOOT_TABLE_ID = new Identifier("minecraft", "entities/squid");
-    private static final Identifier MOD_SQUID_LOOT_TABLE_ID = new Identifier("fab", "entities/squid");
+    private static final Identifier MOD_SQUID_LOOT_TABLE_ID = new Identifier(Foodables.MOD_ID, "entities/squid");
     private static final Identifier GRASS_LOOT_TABLE_ID = new Identifier("minecraft", "blocks/grass");
-    private static final Identifier MOD_GRASS_LOOT_TABLE_ID = new Identifier("fab", "blocks/grass");
+    private static final Identifier MOD_GRASS_LOOT_TABLE_ID = new Identifier(Foodables.MOD_ID, "blocks/grass");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {

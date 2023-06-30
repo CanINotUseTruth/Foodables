@@ -5,13 +5,13 @@
     "minecraft:carrot",
     "minecraft:beetroot",
     "minecraft:golden_carrot",
-    "fab:lettuce",
-    "fab:tomato",
-    "fab:garlic",
-    "fab:brown_onion",
-    "fab:red_onion",
-    "fab:sliced_brown_onion",
-    "fab:sliced_red_onion",
-    "fab:pumpkin_slices"
+    "foodables:lettuce",
+    "foodables:tomato",
+    "foodables:garlic",
+    "foodables:brown_onion",
+    "foodables:red_onion",
+    "foodables:sliced_brown_onion",
+    "foodables:sliced_red_onion",
+    "foodables:pumpkin_slices"
   ]
 }

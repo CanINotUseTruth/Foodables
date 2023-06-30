@@ -16,15 +16,16 @@ import truth.foodables.registry.ModRecipes;
 
 public class Foodables implements ModInitializer {
 
-    // TODO - Villager Trading
-    // TODO - Update Drying rack with custom recipe type
+    // TODO - Update Gradle and Loom
+    // TODO - Update Drying rack with custom recipe type and serializer
     // TODO - REI & EMI Support for Drying Rack
+    // TODO - Villager Trading
     // TODO - Update Wiki
 
     // TODO - Tomato Sauce, Cheese, Pizzas/Pizza Oven, Garlic Bread, Butter, Garlic Butter, Churn, Milk Bottle for cake recipes
     // TODO - Placeable Pies - MAYBE
 
-    public static final String MOD_ID = "fab";
+    public static final String MOD_ID = "foodables";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static final FoodablesConfig CONFIG = AutoConfig.register(FoodablesConfig.class, GsonConfigSerializer::new).getConfig();
 

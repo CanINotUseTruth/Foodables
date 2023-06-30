@@ -1,9 +1,0 @@
-{
-    "type": "minecraft:smoking",
-    "ingredient": {
-      "item": "fab:honey_cake_mix"
-    },
-    "result": "fab:baked_honey_cake",
-    "experience": 0.35,
-    "cookingtime": 100
-  }

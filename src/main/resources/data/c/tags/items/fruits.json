@@ -7,9 +7,9 @@
     "minecraft:beetroot",
     "minecraft:chorus_fruit",
     "minecraft:melon_slice",
-    "fab:orange",
-    "fab:mango",
-    "fab:banana",
+    "foodables:orange",
+    "foodables:mango",
+    "foodables:banana",
     "#c:berries"
   ]
 }

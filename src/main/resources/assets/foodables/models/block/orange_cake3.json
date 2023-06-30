@@ -1,0 +1,23 @@
+{
+  "textures": {
+    "particle": "foodables:block/orange_cake_side",
+    "bottom": "minecraft:block/cake_bottom",
+    "top": "foodables:block/orange_cake_top",
+    "side": "foodables:block/orange_cake_side",
+    "inside": "foodables:block/orange_cake_inner"
+  },
+  "elements": [
+    {
+      "from": [7, 0, 1],
+      "to": [15, 8, 15],
+      "faces": {
+        "down": { "texture": "#bottom", "cullface": "down" },
+        "up": { "texture": "#top" },
+        "north": { "texture": "#side" },
+        "south": { "texture": "#side" },
+        "west": { "texture": "#inside" },
+        "east": { "texture": "#side" }
+      }
+    }
+  ]
+}

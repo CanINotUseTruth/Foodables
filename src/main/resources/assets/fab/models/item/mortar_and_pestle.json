@@ -1,6 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "fab:item/mortar_and_pestle"
-    }
-}

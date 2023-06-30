@@ -3,11 +3,11 @@
   "values": [
     "minecraft:dried_kelp",
     "minecraft:baked_potato",
-    "fab:cooked_onion",
-    "fab:caramelized_onion",
-    "fab:baked_pumpkin",
-    "fab:baked_carrot",
-    "fab:baked_beetroot",
-    "fab:fries"
+    "foodables:cooked_onion",
+    "foodables:caramelized_onion",
+    "foodables:baked_pumpkin",
+    "foodables:baked_carrot",
+    "foodables:baked_beetroot",
+    "foodables:fries"
   ]
 }

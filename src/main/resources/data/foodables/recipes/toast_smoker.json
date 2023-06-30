@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "foodables:sliced_bread"
+  },
+  "result": "foodables:toast",
+  "experience": 0.35,
+  "cookingtime": 100
+}

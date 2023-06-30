@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["#$%"],
+  "key": {
+    "#": {
+      "item": "foodables:wheat_flour"
+    },
+    "$": {
+      "item": "minecraft:water_bucket"
+    },
+    "%": {
+      "item": "foodables:ground_salt"
+    }
+  },
+  "result": {
+    "item": "foodables:dough",
+    "count": 1
+  }
+}

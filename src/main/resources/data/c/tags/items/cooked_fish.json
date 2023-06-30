@@ -3,6 +3,6 @@
   "values": [
     "minecraft:cooked_cod",
     "minecraft:cooked_salmon",
-    "fab:salt_and_pepper_squid"
+    "foodables:salt_and_pepper_squid"
   ]
 }

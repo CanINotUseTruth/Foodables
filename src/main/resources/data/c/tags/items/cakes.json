@@ -2,11 +2,11 @@
   "replace": false,
   "values": [
     "minecraft:cake",
-    "fab:honey_cake",
-    "fab:apple_cake",
-    "fab:berry_cake",
-    "fab:orange_cake",
-    "fab:banana_cake",
-    "fab:chocolate_cake"
+    "foodables:honey_cake",
+    "foodables:apple_cake",
+    "foodables:berry_cake",
+    "foodables:orange_cake",
+    "foodables:banana_cake",
+    "foodables:chocolate_cake"
   ]
 }

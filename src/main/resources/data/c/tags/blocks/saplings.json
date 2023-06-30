@@ -1,12 +1,12 @@
 {
   "replace": false,
   "values": [
-    "fab:peppercorn_sapling",
-    "fab:lemon_sapling",
-    "fab:lime_sapling",
-    "fab:orange_sapling",
-    "fab:apple_sapling",
-    "fab:mango_sapling",
-    "fab:banana_sapling"
+    "foodables:peppercorn_sapling",
+    "foodables:lemon_sapling",
+    "foodables:lime_sapling",
+    "foodables:orange_sapling",
+    "foodables:apple_sapling",
+    "foodables:mango_sapling",
+    "foodables:banana_sapling"
   ]
 }

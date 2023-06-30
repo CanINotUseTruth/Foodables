@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "foodables:sliced_brown_onion"
+  },
+  "result": "foodables:cooked_onion",
+  "experience": 0.1,
+  "cookingtime": 200
+}

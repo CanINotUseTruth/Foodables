@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [" % ", "###", " $ "],
+  "key": {
+    "#": {
+      "item": "minecraft:apple"
+    },
+    "$": {
+      "item": "foodables:plain_cake_mix"
+    },
+    "%": {
+      "item": "foodables:knife"
+    }
+  },
+  "result": {
+    "item": "foodables:apple_cake_mix",
+    "count": 1
+  }
+}

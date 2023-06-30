@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "foodables:block/jungle_fruit_leaves"
+  }
+}

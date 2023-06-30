@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "foodables:orange_cake_mix"
+  },
+  "result": "foodables:baked_orange_cake",
+  "experience": 0.35,
+  "cookingtime": 100
+}

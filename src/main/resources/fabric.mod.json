@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "fab",
+  "id": "foodables",
   "version": "${version}",
 
   "name": "Foodables",
@@ -13,15 +13,15 @@
   },
 
   "license": "MIT",
-  "icon": "assets/fab/icon.png",
+  "icon": "assets/foodables/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": ["truth.foodables.Foodables"],
     "client": ["truth.foodables.FoodablesClient"],
-    "modmenu": ["truth.foodables.config.FabModMenuIntegration"]
+    "modmenu": ["truth.foodables.config.FoodablesModMenuIntegration"]
   },
-  "mixins": ["fab.mixins.json"],
+  "mixins": ["foodables.mixins.json"],
 
   "depends": {
     "fabricloader": ">=0.14.20",

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "foodables:battered_squid"
+  },
+  "result": "foodables:salt_and_pepper_squid",
+  "experience": 0.35,
+  "cookingtime": 100
+}

@@ -1,9 +1,0 @@
-{
-    "type": "minecraft:smoking",
-    "ingredient": {
-      "item": "fab:battered_squid"
-    },
-    "result": "fab:salt_and_pepper_squid",
-    "experience": 0.35,
-    "cookingtime": 100
-  }

@@ -1,6 +1,0 @@
-{
-    "parent": "item/generated",
-    "textures": {
-        "layer0": "fab:item/salt_and_pepper_squid"
-    }
-}

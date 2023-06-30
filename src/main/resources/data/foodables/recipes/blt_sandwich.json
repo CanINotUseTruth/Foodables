@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [" # ", "$%^", " # "],
+  "key": {
+    "#": {
+      "item": "foodables:sliced_bread"
+    },
+    "$": {
+      "item": "foodables:cooked_bacon"
+    },
+    "%": {
+      "item": "foodables:lettuce"
+    },
+    "^": {
+      "item": "foodables:tomato"
+    }
+  },
+  "result": {
+    "item": "foodables:blt_sandwich",
+    "count": 1
+  }
+}

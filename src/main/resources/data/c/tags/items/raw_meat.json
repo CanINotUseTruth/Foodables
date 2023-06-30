@@ -8,12 +8,12 @@
     "minecraft:mutton",
     "minecraft:cod",
     "minecraft:salmon",
-    "fab:raw_bacon",
-    "fab:chicken_strips",
-    "fab:beef_strips",
-    "fab:lamb_strips",
-    "fab:rabbit_strips",
-    "fab:raw_nuggets",
+    "foodables:raw_bacon",
+    "foodables:chicken_strips",
+    "foodables:beef_strips",
+    "foodables:lamb_strips",
+    "foodables:rabbit_strips",
+    "foodables:raw_nuggets",
     "#c:raw_fish"
   ]
 }

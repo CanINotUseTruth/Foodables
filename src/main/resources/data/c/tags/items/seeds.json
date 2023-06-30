@@ -7,10 +7,10 @@
     "minecraft:melon_seeds",
     "minecraft:carrot",
     "minecraft:potato",
-    "fab:lettuce_seeds",
-    "fab:tomato_seeds",
-    "fab:garlic_seeds",
-    "fab:brown_onion_seeds",
-    "fab:red_onion_seeds"
+    "foodables:lettuce_seeds",
+    "foodables:tomato_seeds",
+    "foodables:garlic_seeds",
+    "foodables:brown_onion_seeds",
+    "foodables:red_onion_seeds"
   ]
 }

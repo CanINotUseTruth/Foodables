@@ -1,12 +1,12 @@
 {
   "replace": false,
   "values": [
-    "fab:peppercorn_leaves",
-    "fab:lemon_leaves",
-    "fab:lime_leaves",
-    "fab:orange_leaves",
-    "fab:apple_leaves",
-    "fab:mango_leaves",
-    "fab:banana_leaves"
+    "foodables:peppercorn_leaves",
+    "foodables:lemon_leaves",
+    "foodables:lime_leaves",
+    "foodables:orange_leaves",
+    "foodables:apple_leaves",
+    "foodables:mango_leaves",
+    "foodables:banana_leaves"
   ]
 }

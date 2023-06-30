@@ -3,8 +3,9 @@ package truth.foodables.config;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
+import truth.foodables.Foodables;
 
-@Config(name = "foodables")
+@Config(name = Foodables.MOD_ID)
 public class FoodablesConfig implements ConfigData {
 
     @ConfigEntry.Gui.CollapsibleObject

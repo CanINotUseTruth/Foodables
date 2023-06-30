@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "foodables:orange_cake_mix"
+  },
+  "result": "foodables:baked_orange_cake",
+  "experience": 0.1,
+  "cookingtime": 200
+}

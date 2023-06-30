@@ -6,9 +6,9 @@
     "minecraft:cooked_chicken",
     "minecraft:cooked_mutton",
     "minecraft:cooked_rabbit",
-    "fab:cooked_bacon",
-    "fab:cooked_beef_strips",
-    "fab:cooked_nuggets",
+    "foodables:cooked_bacon",
+    "foodables:cooked_beef_strips",
+    "foodables:cooked_nuggets",
     "#c:cooked_fish"
   ]
 }

@@ -1,17 +1,17 @@
 {
   "replace": false,
   "values": [
-    "fab:lemon_juice",
-    "fab:lime_juice",
-    "fab:orange_juice",
-    "fab:apple_juice",
-    "fab:carrot_juice",
-    "fab:pumpkin_juice",
-    "fab:tomato_juice",
-    "fab:melon_juice",
-    "fab:sweet_berry_juice",
-    "fab:blueberry_juice",
-    "fab:blackberry_juice",
-    "fab:mango_juice"
+    "foodables:lemon_juice",
+    "foodables:lime_juice",
+    "foodables:orange_juice",
+    "foodables:apple_juice",
+    "foodables:carrot_juice",
+    "foodables:pumpkin_juice",
+    "foodables:tomato_juice",
+    "foodables:melon_juice",
+    "foodables:sweet_berry_juice",
+    "foodables:blueberry_juice",
+    "foodables:blackberry_juice",
+    "foodables:mango_juice"
   ]
 }

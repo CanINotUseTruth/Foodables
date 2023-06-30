@@ -17,8 +17,8 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import truth.foodables.Foodables;
 import truth.foodables.blocks.DryingRack;
-import truth.foodables.blocks.FabCakeBlock;
-import truth.foodables.blocks.FabCropBlock;
+import truth.foodables.blocks.FoodablesCakeBlock;
+import truth.foodables.blocks.FoodablesCropBlock;
 import truth.foodables.blocks.berrybushes.BlackberryBush;
 import truth.foodables.blocks.berrybushes.BlueberryBush;
 import truth.foodables.blocks.blockentities.DryingRackEntity;
@@ -49,11 +49,11 @@ public class ModBlocks {
 
     // Food Blocks
     public static final Block HONEY_CAKE = new HoneyCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5F).sounds(BlockSoundGroup.WOOL));
-    public static final Block APPLE_CAKE = new FabCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
-    public static final Block BERRY_CAKE = new FabCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
-    public static final Block ORANGE_CAKE = new FabCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
-    public static final Block BANANA_CAKE = new FabCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
-    public static final Block CHOCOLATE_CAKE = new FabCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+    public static final Block APPLE_CAKE = new FoodablesCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+    public static final Block BERRY_CAKE = new FoodablesCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+    public static final Block ORANGE_CAKE = new FoodablesCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+    public static final Block BANANA_CAKE = new FoodablesCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
+    public static final Block CHOCOLATE_CAKE = new FoodablesCakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE).strength(0.5f).sounds(BlockSoundGroup.WOOL));
 
     // Generated Blocks
     public static final Block SALT_ORE = new Block(FabricBlockSettings.copyOf(Blocks.STONE).requiresTool().strength(3f, 3f).sounds(BlockSoundGroup.STONE));
@@ -86,15 +86,15 @@ public class ModBlocks {
     public static final Block BLACKBERRY_BUSH = new BlackberryBush(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH));
 
     // Crop Blocks
-    public static final Block LETTUCE_CROP = new FabCropBlock();
-    public static final Block TOMATO_CROP = new FabCropBlock();
-    public static final Block BROWN_ONION_CROP = new FabCropBlock();
-    public static final Block RED_ONION_CROP = new FabCropBlock();
-    public static final Block GARLIC_CROP = new FabCropBlock();
+    public static final Block LETTUCE_CROP = new FoodablesCropBlock();
+    public static final Block TOMATO_CROP = new FoodablesCropBlock();
+    public static final Block BROWN_ONION_CROP = new FoodablesCropBlock();
+    public static final Block RED_ONION_CROP = new FoodablesCropBlock();
+    public static final Block GARLIC_CROP = new FoodablesCropBlock();
 
     public static void registerBlocks() {
         // Functional Blocks
-        DRYING_RACK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, "fab:drying_rack", FabricBlockEntityTypeBuilder.create(DryingRackEntity::new, OAK_DRYING_RACK, SPRUCE_DRYING_RACK, BIRCH_DRYING_RACK, JUNGLE_DRYING_RACK, DARK_OAK_DRYING_RACK, ACACIA_DRYING_RACK, CRIMSON_DRYING_RACK, WARPED_DRYING_RACK, MANGROVE_DRYING_RACK, CHERRY_DRYING_RACK).build(null));
+        DRYING_RACK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, "foodables:drying_rack", FabricBlockEntityTypeBuilder.create(DryingRackEntity::new, OAK_DRYING_RACK, SPRUCE_DRYING_RACK, BIRCH_DRYING_RACK, JUNGLE_DRYING_RACK, DARK_OAK_DRYING_RACK, ACACIA_DRYING_RACK, CRIMSON_DRYING_RACK, WARPED_DRYING_RACK, MANGROVE_DRYING_RACK, CHERRY_DRYING_RACK).build(null));
         Registry.register(Registries.BLOCK, new Identifier(Foodables.MOD_ID, "oak_drying_rack"), OAK_DRYING_RACK);
         Registry.register(Registries.BLOCK, new Identifier(Foodables.MOD_ID, "spruce_drying_rack"), SPRUCE_DRYING_RACK);
         Registry.register(Registries.BLOCK, new Identifier(Foodables.MOD_ID, "birch_drying_rack"), BIRCH_DRYING_RACK);
