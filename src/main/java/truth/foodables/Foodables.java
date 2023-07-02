@@ -16,11 +16,11 @@ import truth.foodables.registry.ModRecipes;
 
 public class Foodables implements ModInitializer {
 
-    // TODO - Update Gradle and Loom
     // TODO - Update Drying rack with custom recipe type and serializer
     // TODO - REI & EMI Support for Drying Rack
     // TODO - Villager Trading
     // TODO - Update Wiki
+    // TODO - Update Gradle and Loom - Before next minecraft version update
 
     // TODO - Tomato Sauce, Cheese, Pizzas/Pizza Oven, Garlic Bread, Butter, Garlic Butter, Churn, Milk Bottle for cake recipes
     // TODO - Placeable Pies - MAYBE
