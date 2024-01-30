@@ -20,14 +20,15 @@ public class Foodables implements ModInitializer {
     // TODO - REI & EMI Support for Drying Rack
     // TODO - Villager Trading
     // TODO - Update Wiki
-    // TODO - Update Gradle and Loom - Before next minecraft version update
 
-    // TODO - Tomato Sauce, Cheese, Pizzas/Pizza Oven, Garlic Bread, Butter, Garlic Butter, Churn, Milk Bottle for cake recipes
+    // TODO - Tomato Sauce, Cheese, Pizzas/Pizza Oven, Garlic Bread, Butter, Garlic
+    // Butter, Churn, Milk Bottle for cake recipes
     // TODO - Placeable Pies - MAYBE
 
     public static final String MOD_ID = "foodables";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-    public static final FoodablesConfig CONFIG = AutoConfig.register(FoodablesConfig.class, GsonConfigSerializer::new).getConfig();
+    public static final FoodablesConfig CONFIG = AutoConfig.register(FoodablesConfig.class, GsonConfigSerializer::new)
+            .getConfig();
 
     @Override
     public void onInitialize() {
