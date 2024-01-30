@@ -1,8 +1,0 @@
-{
-    "variants": {
-      "": [   
-        { "model": "fab:block/apple_leaves", "weight": 30 },     
-        { "model": "fab:block/pepper_leaves", "weight": 70 }     
-      ]
-    }
-  }

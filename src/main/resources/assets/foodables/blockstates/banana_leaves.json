@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": [
+      { "model": "foodables:block/banana_leaves", "weight": 30 },
+      { "model": "foodables:block/jungle_fruit_leaves", "weight": 70 }
+    ]
+  }
+}

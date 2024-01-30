@@ -1,9 +1,0 @@
-{
-    "type": "minecraft:random_patch",
-    "config": {
-      "feature": "fab:lemon_tree",
-      "tries": 1,
-      "xz_spread": 1,
-      "y_spread": 1
-    }
-  }

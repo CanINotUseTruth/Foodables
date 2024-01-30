@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "foodables:block/mango_sapling"
+  }
+}

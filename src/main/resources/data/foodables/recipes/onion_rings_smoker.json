@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "foodables:battered_onions"
+  },
+  "result": "foodables:onion_rings",
+  "experience": 0.35,
+  "cookingtime": 100
+}

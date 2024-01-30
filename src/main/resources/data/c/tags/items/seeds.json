@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:wheat_seeds",
+    "minecraft:beetroot_seeds",
+    "minecraft:pumpkin_seeds",
+    "minecraft:melon_seeds",
+    "minecraft:carrot",
+    "minecraft:potato",
+    "foodables:lettuce_seeds",
+    "foodables:tomato_seeds",
+    "foodables:garlic_seeds",
+    "foodables:brown_onion_seeds",
+    "foodables:red_onion_seeds"
+  ]
+}

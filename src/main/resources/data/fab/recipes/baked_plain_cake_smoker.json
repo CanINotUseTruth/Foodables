@@ -1,9 +1,0 @@
-{
-    "type": "minecraft:smoking",
-    "ingredient": {
-      "item": "fab:plain_cake_mix"
-    },
-    "result": "fab:baked_plain_cake",
-    "experience": 0.35,
-    "cookingtime": 100
-  }

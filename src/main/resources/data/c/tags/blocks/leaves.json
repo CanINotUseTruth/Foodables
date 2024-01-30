@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "foodables:peppercorn_leaves",
+    "foodables:lemon_leaves",
+    "foodables:lime_leaves",
+    "foodables:orange_leaves",
+    "foodables:apple_leaves",
+    "foodables:mango_leaves",
+    "foodables:banana_leaves"
+  ]
+}

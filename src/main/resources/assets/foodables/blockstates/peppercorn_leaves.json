@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": [
+      { "model": "foodables:block/peppercorn_leaves", "weight": 40 },
+      { "model": "foodables:block/pepper_leaves", "weight": 60 }
+    ]
+  }
+}

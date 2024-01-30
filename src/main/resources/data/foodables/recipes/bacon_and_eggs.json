@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "foodables:fried_egg"
+    },
+    {
+      "item": "foodables:cooked_bacon"
+    }
+  ],
+  "result": {
+    "item": "foodables:bacon_and_eggs",
+    "count": 1
+  }
+}

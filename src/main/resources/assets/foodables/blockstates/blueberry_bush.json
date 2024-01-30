@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "foodables:block/blueberry_bush0"
+    },
+    "age=1": {
+      "model": "foodables:block/blueberry_bush1"
+    },
+    "age=2": {
+      "model": "foodables:block/blueberry_bush2"
+    },
+    "age=3": {
+      "model": "foodables:block/blueberry_bush3"
+    }
+  }
+}

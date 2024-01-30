@@ -3,7 +3,10 @@ package truth.foodables;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ModInitializer;
+import truth.foodables.config.FoodablesConfig;
 import truth.foodables.registry.EditVanillaLoot;
 import truth.foodables.registry.ModBlocks;
 import truth.foodables.registry.ModGroups;
@@ -13,26 +16,25 @@ import truth.foodables.registry.ModRecipes;
 
 public class Foodables implements ModInitializer {
 
+    // TODO - Update Drying rack with custom recipe type and serializer
+    // TODO - REI & EMI Support for Drying Rack
     // TODO - Villager Trading
-    // TODO - REI Support for Drying Rack
     // TODO - Update Wiki
-    // TODO - Add Configs
-    
-    // TODO - Pizzas & Pizza Oven
-    // TODO - Tomato Sauce
-    // TODO - Cheese
-    // TODO - Pies - Maybe
-    // TODO - Garlic Bread, Butter, Garlic Butter
-    // TODO - Milk Bottle for cake recipes
 
-    public static final String MOD_ID = "fab";
+    // TODO - Tomato Sauce, Cheese, Pizzas/Pizza Oven, Garlic Bread, Butter, Garlic
+    // Butter, Churn, Milk Bottle for cake recipes
+    // TODO - Placeable Pies - MAYBE
+
+    public static final String MOD_ID = "foodables";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final FoodablesConfig CONFIG = AutoConfig.register(FoodablesConfig.class, GsonConfigSerializer::new)
+            .getConfig();
 
     @Override
     public void onInitialize() {
         ModItems.registerItems();
         ModBlocks.registerBlocks();
-        ModPlacedFeatures.init();
+        ModPlacedFeatures.registerPlacedFeatures();
         ModRecipes.registerRecipes();
         ModGroups.registerItemGroups();
         EditVanillaLoot.modifyLootTables();

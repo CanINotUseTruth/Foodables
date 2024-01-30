@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "": [
+      { "model": "foodables:block/lime_leaves", "weight": 40 },
+      { "model": "foodables:block/citrus_leaves", "weight": 60 }
+    ]
+  }
+}

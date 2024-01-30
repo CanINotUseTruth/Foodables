@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:random_patch",
+  "config": {
+    "feature": "foodables:orange_tree",
+    "tries": 1,
+    "xz_spread": 1,
+    "y_spread": 1
+  }
+}

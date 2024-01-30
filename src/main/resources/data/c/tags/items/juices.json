@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "foodables:lemon_juice",
+    "foodables:lime_juice",
+    "foodables:orange_juice",
+    "foodables:apple_juice",
+    "foodables:carrot_juice",
+    "foodables:pumpkin_juice",
+    "foodables:tomato_juice",
+    "foodables:melon_juice",
+    "foodables:sweet_berry_juice",
+    "foodables:blueberry_juice",
+    "foodables:blackberry_juice",
+    "foodables:mango_juice"
+  ]
+}

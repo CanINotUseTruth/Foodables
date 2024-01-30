@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:cake",
+    "foodables:honey_cake",
+    "foodables:apple_cake",
+    "foodables:berry_cake",
+    "foodables:orange_cake",
+    "foodables:banana_cake",
+    "foodables:chocolate_cake"
+  ]
+}

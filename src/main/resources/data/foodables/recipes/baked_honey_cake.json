@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "foodables:honey_cake_mix"
+  },
+  "result": "foodables:baked_honey_cake",
+  "experience": 0.1,
+  "cookingtime": 200
+}

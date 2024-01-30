@@ -11,7 +11,7 @@ import truth.foodables.Foodables;
 
 public class ModGroups {
 
-    public static final ItemGroup FAB_FOODABLES_GROUP = Registry.register(Registries.ITEM_GROUP, new Identifier(Foodables.MOD_ID, "foodables"),
+    public static final ItemGroup FOODABLES_GROUP = Registry.register(Registries.ITEM_GROUP, new Identifier(Foodables.MOD_ID, "foodables"),
     
     FabricItemGroup.builder().displayName(Text.translatable("itemgroup.foodables")).icon(() -> new ItemStack(ModItems.MORTAR_AND_PESTLE)).entries((displayContexy, entries) -> {
         // Blocks

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "foodables:beef_strips"
+    },
+    {
+      "item": "foodables:ground_salt"
+    }
+  ],
+  "result": {
+    "item": "foodables:salted_beef_strips",
+    "count": 1
+  }
+}

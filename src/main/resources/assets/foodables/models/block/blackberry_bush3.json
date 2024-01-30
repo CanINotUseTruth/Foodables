@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "foodables:block/blackberry_bush3"
+  }
+}

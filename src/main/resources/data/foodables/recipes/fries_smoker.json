@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "foodables:uncooked_fries"
+  },
+  "result": "foodables:fries",
+  "experience": 0.35,
+  "cookingtime": 100
+}

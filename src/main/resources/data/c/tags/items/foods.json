@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "#c:berries",
+    "#c:cakes",
+    "#c:cooked_eggs",
+    "#c:cooked_fruits",
+    "#c:cooked_meat",
+    "#c:cooked_vegetables",
+    "#c:fruits",
+    "#c:raw_meat",
+    "#c:vegetables"
+  ]
+}

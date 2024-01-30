@@ -14,9 +14,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.event.GameEvent;
-import truth.foodables.blocks.FabCakeBlock;
+import truth.foodables.blocks.FoodablesCakeBlock;
 
-public class HoneyCakeBlock extends FabCakeBlock {
+public class HoneyCakeBlock extends FoodablesCakeBlock {
 
     public HoneyCakeBlock(Settings settings) {
         super(settings);

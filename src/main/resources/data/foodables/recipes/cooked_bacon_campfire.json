@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "ingredient": {
+    "item": "foodables:raw_bacon"
+  },
+  "result": "foodables:cooked_bacon",
+  "experience": 0.35,
+  "cookingtime": 100
+}
