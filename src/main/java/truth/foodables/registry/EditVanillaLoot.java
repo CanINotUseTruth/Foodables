@@ -10,8 +10,8 @@ import truth.foodables.Foodables;
 public class EditVanillaLoot {
     private static final Identifier SQUID_LOOT_TABLE_ID = new Identifier("minecraft", "entities/squid");
     private static final Identifier MOD_SQUID_LOOT_TABLE_ID = new Identifier(Foodables.MOD_ID, "entities/squid");
-    private static final Identifier GRASS_LOOT_TABLE_ID = new Identifier("minecraft", "blocks/grass");
-    private static final Identifier MOD_GRASS_LOOT_TABLE_ID = new Identifier(Foodables.MOD_ID, "blocks/grass");
+    private static final Identifier GRASS_LOOT_TABLE_ID = new Identifier("minecraft", "blocks/short_grass");
+    private static final Identifier MOD_GRASS_LOOT_TABLE_ID = new Identifier(Foodables.MOD_ID, "blocks/short_grass");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {
