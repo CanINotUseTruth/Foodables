@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:mutton",
+    "foodables:knife"
+  ],
+  "result": {
+    "id": "foodables:lamb_strips",
+    "count": 2
+  }
+}

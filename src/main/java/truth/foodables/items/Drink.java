@@ -1,12 +1,10 @@
 package truth.foodables.items;
 
-import net.minecraft.item.HoneyBottleItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import truth.foodables.mixin.ItemAccessor;
 
-public class Drink extends HoneyBottleItem {
+public class Drink extends Item{
 
     public Drink(Settings settings) {
         super(settings);
@@ -17,14 +15,12 @@ public class Drink extends HoneyBottleItem {
         ((ItemAccessor) this).clothesline$setRecipeRemainder(item);
     }
 
-    @Override
     public SoundEvent getDrinkSound() {
-        return SoundEvents.ENTITY_GENERIC_DRINK;
+        return net.minecraft.registry.Registries.SOUND_EVENT.get(net.minecraft.util.Identifier.of("minecraft", "entity.generic.drink"));
     }
     
-    @Override
     public SoundEvent getEatSound() {
-        return SoundEvents.ENTITY_GENERIC_EAT;
+        return net.minecraft.registry.Registries.SOUND_EVENT.get(net.minecraft.util.Identifier.of("minecraft", "entity.generic.eat"));
     }
     
 }

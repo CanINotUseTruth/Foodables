@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:oak_sapling",
+    "foodables:orange"
+  ],
+  "result": {
+    "id": "foodables:orange_sapling",
+    "count": 1
+  }
+}

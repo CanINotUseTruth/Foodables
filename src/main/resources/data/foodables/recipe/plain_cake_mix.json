@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "!": "minecraft:milk_bucket",
+    "@": "foodables:whisk",
+    "#": "minecraft:sugar",
+    "$": "foodables:wheat_flour",
+    "%": "minecraft:egg",
+    "^": "foodables:cake_tin"
+  },
+  "pattern": [" !@", "#$%", " ^ "],
+  "result": {
+    "count": 1,
+    "id": "foodables:plain_cake_mix"
+  }
+}

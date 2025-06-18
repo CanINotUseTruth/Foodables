@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "foodables:ground_salt",
+    "foodables:ground_pepper",
+    "foodables:wheat_flour",
+    "foodables:squid"
+  ],
+  "result": {
+    "id": "foodables:battered_squid",
+    "count": 1
+  }
+}

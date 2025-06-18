@@ -11,7 +11,7 @@ import truth.foodables.Foodables;
 
 public class ModGroups {
 
-    public static final ItemGroup FOODABLES_GROUP = Registry.register(Registries.ITEM_GROUP, new Identifier(Foodables.MOD_ID, "foodables"),
+    public static final ItemGroup FOODABLES_GROUP = Registry.register(Registries.ITEM_GROUP, Identifier.of(Foodables.MOD_ID, "foodables"),
     
     FabricItemGroup.builder().displayName(Text.translatable("itemgroup.foodables")).icon(() -> new ItemStack(ModItems.MORTAR_AND_PESTLE)).entries((displayContexy, entries) -> {
         // Blocks
@@ -26,6 +26,7 @@ public class ModGroups {
         entries.add(ModItems.WARPED_DRYING_RACK);
         entries.add(ModItems.MANGROVE_DRYING_RACK);
         entries.add(ModItems.CHERRY_DRYING_RACK);
+        entries.add(ModItems.PALE_OAK_DRYING_RACK);
         // Ores
         entries.add(ModItems.SALT_ORE);
         // Tree Things

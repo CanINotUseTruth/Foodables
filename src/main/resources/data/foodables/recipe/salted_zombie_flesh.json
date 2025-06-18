@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:rotten_flesh",
+    "foodables:ground_salt"
+  ],
+  "result": {
+    "id": "foodables:salted_zombie_flesh",
+    "count": 2
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:warped_slab"
+  },
+  "pattern": ["###"],
+  "result": {
+    "count": 1,
+    "id": "foodables:warped_drying_rack"
+  }
+}

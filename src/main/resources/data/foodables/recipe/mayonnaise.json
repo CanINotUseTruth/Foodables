@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:egg",
+    "@": "foodables:whisk",
+    "^": "foodables:lemon_juice",
+    "%": "foodables:sunflower_oil",
+    "&": "minecraft:glass_bottle"
+  },
+  "pattern": [" @ ", "^#%", " & "],
+  "result": {
+    "count": 1,
+    "id": "foodables:mayonnaise"
+  }
+}

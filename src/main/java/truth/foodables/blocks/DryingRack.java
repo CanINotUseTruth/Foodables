@@ -3,10 +3,11 @@ package truth.foodables.blocks;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockEntityProvider;
+import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.HorizontalFacingBlock;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -18,7 +19,8 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
+import net.minecraft.util.Identifier;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
@@ -33,22 +35,35 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
+import truth.foodables.Foodables;
 import truth.foodables.blocks.blockentities.DryingRackEntity;
 import truth.foodables.registry.ModBlocks;
 import truth.foodables.registry.ModRecipes;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.block.Waterloggable;
+import java.util.Optional;
 
 @SuppressWarnings("deprecation")
-public class DryingRack extends Block implements BlockEntityProvider, Waterloggable {
+public class DryingRack extends BlockWithEntity implements Waterloggable {
 
     public static final VoxelShape NORTH_SHAPE, SOUTH_SHAPE, EAST_SHAPE, WEST_SHAPE;
-    public static final DirectionProperty FACING;
-    public static final BooleanProperty WATERLOGGED;
+    public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
+    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
+    public static final MapCodec<DryingRack> CODEC = createCodec(DryingRack::new);
+    
     public DryingRack(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.SOUTH).with(WATERLOGGED, false));
+    }
+    
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
+    }
+    
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
     }
     
     @Override
@@ -63,7 +78,7 @@ public class DryingRack extends Block implements BlockEntityProvider, Waterlogga
     }
     
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         DryingRackEntity woodRackEntity = (DryingRackEntity) world.getBlockEntity(pos);
         ItemStack stack = woodRackEntity.getStack(0);
         if (stack.isEmpty()) {
@@ -72,15 +87,17 @@ public class DryingRack extends Block implements BlockEntityProvider, Waterlogga
             if (!heldItem.isEmpty() && ModRecipes.RACK_ITEM_LIST.contains(heldItem.getItem()) && !state.get(WATERLOGGED)) {
                 if (!world.isClient) {
                     int index = ModRecipes.RACK_ITEM_LIST.indexOf(heldItem.getItem());
-                    woodRackEntity.dryingTime = ModRecipes.RACK_RESULT_TIME_LIST.get(index);
+                    woodRackEntity.dryingTime = Optional.of(ModRecipes.RACK_RESULT_TIME_LIST.get(index));
                     woodRackEntity.result = ModRecipes.RACK_RESULT_ITEM_LIST.get(index);
-                    woodRackEntity.index = index;
+                    woodRackEntity.index = Optional.of(index);
                     if (player.isCreative()) {
                         woodRackEntity.setStack(0, heldItem.copy());
                     } else
                         woodRackEntity.setStack(0, heldItem.split(1));
                 }
-                return ActionResult.success(world.isClient);
+                if (world.isClient) {
+                    return ActionResult.SUCCESS;
+                }
             }
             return ActionResult.CONSUME;
         } else {
@@ -89,25 +106,22 @@ public class DryingRack extends Block implements BlockEntityProvider, Waterlogga
                 player.dropItem(stack.split(1), false);
             }
             woodRackEntity.clear();
-            return ActionResult.success(world.isClient);
+            if (world.isClient) {
+                return ActionResult.SUCCESS;
+            }
+            return ActionResult.SUCCESS;
         }
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         Direction dir = state.get(FACING);
-        switch(dir) {
-            case NORTH:
-                return NORTH_SHAPE;
-            case SOUTH:
-                return SOUTH_SHAPE;
-            case EAST:
-                return EAST_SHAPE;
-            case WEST:
-                return WEST_SHAPE;
-            default:
-                return NORTH_SHAPE;
-        }
+        return switch (dir) {
+            case SOUTH -> SOUTH_SHAPE;
+            case EAST -> EAST_SHAPE;
+            case WEST -> WEST_SHAPE;
+            default -> NORTH_SHAPE;
+        };
     }
 
     private boolean canPlaceOn(BlockView world, BlockPos pos, Direction side) {
@@ -121,7 +135,6 @@ public class DryingRack extends Block implements BlockEntityProvider, Waterlogga
         return this.canPlaceOn(world, pos.offset(direction.getOpposite()), direction);
     }
     
-    @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos neighborBlockPos) {
         if (direction.getOpposite() == state.get(FACING) && !state.canPlaceAt(world, pos)) {
             return Blocks.AIR.getDefaultState();
@@ -130,7 +143,7 @@ public class DryingRack extends Block implements BlockEntityProvider, Waterlogga
                 world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
             }
 
-            return super.getStateForNeighborUpdate(state, direction, newState, world, pos, neighborBlockPos);
+            return Blocks.AIR.getDefaultState();
         }
     }
 
@@ -184,7 +197,6 @@ public class DryingRack extends Block implements BlockEntityProvider, Waterlogga
         return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
     
-    @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (!state.isOf(newState.getBlock())) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -192,8 +204,6 @@ public class DryingRack extends Block implements BlockEntityProvider, Waterlogga
                 ItemScatterer.spawn(world, pos, (Inventory) blockEntity);
                 world.updateComparators(pos, this);
             }
-    
-            super.onStateReplaced(state, world, pos, newState, moved);
         }
     }
 
@@ -203,11 +213,9 @@ public class DryingRack extends Block implements BlockEntityProvider, Waterlogga
     }
 
     static {
-        FACING = HorizontalFacingBlock.FACING;
         NORTH_SHAPE = Block.createCuboidShape(0.0D, 12.0D, 12.0D, 16.0D, 16.0D, 16.0D);
         SOUTH_SHAPE = Block.createCuboidShape(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 4.0D);
         EAST_SHAPE = Block.createCuboidShape(0.0D, 12.0D, 0.0D, 4.0D, 16.0D, 16.0D);
         WEST_SHAPE = Block.createCuboidShape(12.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-        WATERLOGGED = Properties.WATERLOGGED;
     }
 }

@@ -4,6 +4,7 @@
 build/
 out/
 classes/
+remappedSrc/
 
 # eclipse
 
@@ -38,3 +39,8 @@ hs_err_*.log
 replay_*.log
 *.hprof
 *.jfr
+
+# claude
+
+.claude/
+workingDocs/

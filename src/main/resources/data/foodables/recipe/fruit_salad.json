@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:bowl",
+    "$": "#c:fruits",
+    "%": "foodables:knife"
+  },
+  "pattern": [" % ", "$$$", " # "],
+  "result": {
+    "count": 1,
+    "id": "foodables:fruit_salad"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+      "foodables:mortar_and_pestle",
+      "minecraft:sunflower",
+      "minecraft:glass_bottle"
+  ],
+  "result": {
+    "id": "foodables:sunflower_oil",
+    "count": 1
+  }
+}

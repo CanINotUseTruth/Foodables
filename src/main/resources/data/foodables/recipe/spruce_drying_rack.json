@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:spruce_slab"
+  },
+  "pattern": ["###"],
+  "result": {
+    "count": 1,
+    "id": "foodables:spruce_drying_rack"
+  }
+}

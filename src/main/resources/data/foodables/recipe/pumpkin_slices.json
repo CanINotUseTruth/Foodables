@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:pumpkin",
+    "foodables:knife"
+  ],
+  "result": {
+    "id": "foodables:pumpkin_slices",
+    "count": 3
+  }
+}

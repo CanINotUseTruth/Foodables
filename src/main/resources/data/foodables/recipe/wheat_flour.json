@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+      "minecraft:wheat",
+      "foodables:mortar_and_pestle"
+  ],
+  "result": {
+    "id": "foodables:wheat_flour",
+    "count": 2
+  }
+}

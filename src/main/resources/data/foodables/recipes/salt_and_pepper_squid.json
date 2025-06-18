@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "foodables:battered_squid"
-  },
-  "result": "foodables:salt_and_pepper_squid",
-  "experience": 0.1,
-  "cookingtime": 200
-}

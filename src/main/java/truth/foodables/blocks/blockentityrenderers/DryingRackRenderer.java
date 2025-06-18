@@ -7,11 +7,12 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
 import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.json.ModelTransformationMode;
+import net.minecraft.item.ItemDisplayContext;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.RotationAxis;
+import net.minecraft.util.math.Vec3d;
 import truth.foodables.blocks.DryingRack;
 import truth.foodables.blocks.blockentities.DryingRackEntity;
 
@@ -22,7 +23,7 @@ public class DryingRackRenderer implements BlockEntityRenderer<DryingRackEntity>
     }
 
     @Override
-    public void render(DryingRackEntity entity, float tickDelta, MatrixStack matrixStack, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+    public void render(DryingRackEntity entity, float tickDelta, MatrixStack matrixStack, VertexConsumerProvider vertexConsumers, int light, int overlay, Vec3d cameraPos) {
         
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
         ItemStack itemStack = entity.getStack(0);
@@ -50,7 +51,7 @@ public class DryingRackRenderer implements BlockEntityRenderer<DryingRackEntity>
                 default:
                     
             }
-            itemRenderer.renderItem(itemStack, ModelTransformationMode.FIXED, light, overlay, matrixStack, vertexConsumers, entity.getWorld(), k);
+            itemRenderer.renderItem(itemStack, ItemDisplayContext.FIXED, light, overlay, matrixStack, vertexConsumers, entity.getWorld(), k);
             matrixStack.pop();
         }
 

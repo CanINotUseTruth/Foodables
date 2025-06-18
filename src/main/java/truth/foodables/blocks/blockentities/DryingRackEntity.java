@@ -1,5 +1,6 @@
 package truth.foodables.blocks.blockentities;
 
+
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -9,17 +10,21 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.RegistryWrapper.WrapperLookup;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import truth.foodables.registry.ModBlocks;
 import truth.foodables.registry.ModRecipes;
 
+import java.util.Optional;
+
 public class DryingRackEntity extends BlockEntity implements Inventory{
 
     public Item result;
-    public int index;
-    public int dryingTime;
+    public Optional<Integer> index = Optional.of(-1);
+    public Optional<Integer> dryingTime = Optional.of(-1);
     private int processTime;
     private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
@@ -28,22 +33,22 @@ public class DryingRackEntity extends BlockEntity implements Inventory{
     }
 
     @Override
-    public void readNbt(NbtCompound nbt) {
-        super.readNbt(nbt);
+    public void readNbt(NbtCompound nbt, WrapperLookup registryLookup) {
+        super.readNbt(nbt, registryLookup);
         this.dryingTime = nbt.getInt("Drying_Time");
         this.index = nbt.getInt("Rack_Index");
         this.inventory.clear();
-        Inventories.readNbt(nbt, inventory);
-        if (!isEmpty() && !ModRecipes.RACK_RESULT_ITEM_LIST.isEmpty() && ModRecipes.RACK_RESULT_ITEM_LIST.size() > index)
-            this.result = ModRecipes.RACK_RESULT_ITEM_LIST.get(index);
+        Inventories.readNbt(nbt, inventory, registryLookup);
+        if (!isEmpty() && !ModRecipes.RACK_RESULT_ITEM_LIST.isEmpty() && index.get() >= 0 && ModRecipes.RACK_RESULT_ITEM_LIST.size() > index.get())
+            this.result = ModRecipes.RACK_RESULT_ITEM_LIST.get(index.get());
     }
 
     @Override
-    public void writeNbt(NbtCompound nbt) {
-        super.writeNbt(nbt);
-        nbt.putInt("Drying_Time", dryingTime);
-        nbt.putInt("Rack_Index", index);
-        Inventories.writeNbt(nbt, inventory);
+    public void writeNbt(NbtCompound nbt, WrapperLookup registryLookup) {
+        super.writeNbt(nbt, registryLookup);
+        nbt.putInt("Drying_Time", dryingTime.get());
+        nbt.putInt("Rack_Index", index.get());
+        Inventories.writeNbt(nbt, inventory, registryLookup);
     }
 
     public static void serverTick(World world, BlockPos pos, BlockState state, DryingRackEntity blockEntity) {
@@ -51,9 +56,9 @@ public class DryingRackEntity extends BlockEntity implements Inventory{
     }
 
     private void update() {
-        if (!this.world.isClient && !isEmpty() && ModRecipes.RACK_ITEM_LIST.contains(this.getStack(0).getItem())) {
+        if (!this.world.isClient && !isEmpty() && ModRecipes.RACK_ITEM_LIST.contains(this.getStack(0).getItem()) && dryingTime.get() > 0) {
             ++this.processTime;
-            if (this.processTime >= this.dryingTime) {
+            if (this.processTime >= this.dryingTime.get()) {
                 this.setStack(0, new ItemStack(result));
                 this.processTime = 0;
             }
@@ -127,8 +132,8 @@ public class DryingRackEntity extends BlockEntity implements Inventory{
     }
 
     @Override
-    public NbtCompound toInitialChunkDataNbt() {
-        return this.createNbt();
+    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
+        return this.createNbt(registryLookup);
     }
 
 }

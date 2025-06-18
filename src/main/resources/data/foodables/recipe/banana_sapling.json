@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:jungle_sapling",
+    "foodables:banana"
+  ],
+  "result": {
+    "id": "foodables:banana_sapling",
+    "count": 1
+  }
+}

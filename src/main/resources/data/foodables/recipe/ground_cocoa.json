@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:cocoa_beans",
+    "foodables:mortar_and_pestle"
+  ],
+  "result": {
+    "id": "foodables:ground_cocoa",
+    "count": 2
+  }
+}

@@ -24,13 +24,13 @@
   "mixins": ["foodables.mixins.json"],
 
   "depends": {
-    "fabricloader": ">=0.14.20",
+    "fabricloader": ">=0.16.0",
     "fabric": "*",
-    "minecraft": ">=1.20",
-    "java": ">=17",
-    "cloth-config": ">=11.0.99"
+    "minecraft": ">=1.21.5",
+    "java": ">=21",
+    "cloth-config": ">=18.0.0"
   },
   "suggests": {
-    "modmenu": ">=7.0.1"
+    "modmenu": ">=14.0.0"
   }
 }

@@ -1,13 +1,16 @@
 package truth.foodables.registry;
 
-import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.FoodComponent;
+import net.minecraft.block.Block;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
+import java.util.function.Function;
 import truth.foodables.Foodables;
 import truth.foodables.items.Drink;
 import truth.foodables.items.RecipeRemainder;
@@ -16,337 +19,395 @@ import truth.foodables.items.SeedItem;
 public class ModItems {
 
     // Tool Items
-    public static Item MORTAR_AND_PESTLE = new RecipeRemainder(new Item.Settings().maxCount(1));
-    public static Item KNIFE = new RecipeRemainder(new Item.Settings().maxCount(1));
-    public static Item CRUSHER = new RecipeRemainder(new Item.Settings().maxCount(1));
-    public static Item WHISK = new RecipeRemainder(new Item.Settings().maxCount(1));
-    public static Item JUICER = new RecipeRemainder(new Item.Settings().maxCount(1));
-    public static Item WET_CARTON = new Item(new Item.Settings().maxCount(16));
-    public static Item CARTON = new Item(new Item.Settings().maxCount(16));
-    public static Item CAKE_TIN = new Item(new Item.Settings().maxCount(16));
+    public static Item MORTAR_AND_PESTLE;
+    public static Item KNIFE;
+    public static Item CRUSHER;
+    public static Item WHISK;
+    public static Item JUICER;
+    public static Item WET_CARTON;
+    public static Item CARTON;
+    public static Item CAKE_TIN;
 
     // Food Items
     // Veggies
-    public static final Item LETTUCE = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.6F).build()));
-    public static final Item TOMATO = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.6F).build()));
-    public static final Item GARLIC = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.3F).build()));
-    public static final Item BROWN_ONION = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.3F).build()));
-    public static final Item RED_ONION = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.6F).build()));
-    public static final Item SLICED_BROWN_ONION = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.3F).build()));
-    public static final Item SLICED_RED_ONION = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.6F).build()));
-    public static final Item PUMPKIN_SLICES = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.3F).build()));
+    public static Item LETTUCE;
+    public static Item TOMATO;
+    public static Item GARLIC;
+    public static Item BROWN_ONION;
+    public static Item RED_ONION;
+    public static Item SLICED_BROWN_ONION;
+    public static Item SLICED_RED_ONION;
+    public static Item PUMPKIN_SLICES;
     // Cooked Veggies
-    public static final Item COOKED_ONION = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.5F).build()));
-    public static final Item CARAMELIZED_ONION = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.6F).build()));
-    public static final Item BATTERED_ONIONS = new Item(new Item.Settings());
-    public static final Item ONION_RINGS = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.8F).build()));
-    public static final Item UNCOOKED_FRIES = new Item(new Item.Settings());
-    public static final Item FRIES = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.8F).build()));
+    public static Item COOKED_ONION;
+    public static Item CARAMELIZED_ONION;
+    public static Item BATTERED_ONIONS;
+    public static Item ONION_RINGS;
+    public static Item UNCOOKED_FRIES;
+    public static Item FRIES;
     // Fruit
-    public static final Item LEMON = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.6F).build()));
-    public static final Item LIME = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.6F).build()));
-    public static final Item ORANGE = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6f).build()));
-    public static final Item MANGO = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6f).build()));
-    public static final Item BANANA = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6f).build()));
-    public static final Item FRUIT_SALAD = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8f).build()));
+    public static Item LEMON;
+    public static Item LIME;
+    public static Item ORANGE;
+    public static Item MANGO;
+    public static Item BANANA;
+    public static Item FRUIT_SALAD;
     // Berries
-    public static final Item BLUEBERRIES = new AliasedBlockItem(ModBlocks.BLUEBERRY_BUSH, new Item.Settings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.5f).build()));
-    public static final Item BLACKBERRIES = new AliasedBlockItem(ModBlocks.BLACKBERRY_BUSH, new Item.Settings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.5f).build()));
+    public static Item BLUEBERRIES;
+    public static Item BLACKBERRIES;
     // Baked Goods
-    public static final Item BAKED_APPLE = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(0.5f).build()));
-    public static final Item BAKED_PUMPKIN = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6F).build()));
-    public static final Item BAKED_CARROT = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.6F).build()));
-    public static final Item BAKED_BEETROOT = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6F).build()));
+    public static Item BAKED_APPLE;
+    public static Item BAKED_PUMPKIN;
+    public static Item BAKED_CARROT;
+    public static Item BAKED_BEETROOT;
     // Meats
-    public static final Item SQUID = new Item(new Item.Settings());
-    public static final Item BATTERED_SQUID = new Item(new Item.Settings());
-    public static final Item SALT_AND_PEPPER_SQUID = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(10).saturationModifier(0.6f).build()));
-    public static final Item RAW_NUGGETS = new Item(new Item.Settings());
-    public static final Item BATTERED_NUGGETS = new Item(new Item.Settings());
-    public static final Item COOKED_NUGGETS = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8f).build()));
-    public static final Item RAW_BACON = new Item(new Item.Settings());
-    public static final Item SALTED_BACON_STRIPS = new Item(new Item.Settings());
-    public static final Item BACON_JERKY = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(9).saturationModifier(0.75f).build()));
-    public static final Item COOKED_BACON = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(0.8f).build()));
-    public static final Item CHICKEN_STRIPS = new Item(new Item.Settings());
-    public static final Item SALTED_CHICKEN_STRIPS = new Item(new Item.Settings());
-    public static final Item CHICKEN_JERKY = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(7).saturationModifier(0.75f).build()));
-    public static final Item BEEF_STRIPS = new Item(new Item.Settings());
-    public static final Item SALTED_BEEF_STRIPS = new Item(new Item.Settings());
-    public static final Item BEEF_JERKY = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(9).saturationModifier(0.75f).build()));
-    public static final Item COOKED_BEEF_STRIPS = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(6).saturationModifier(0.8f).build()));
-    public static final Item LAMB_STRIPS = new Item(new Item.Settings());
-    public static final Item SALTED_LAMB_STRIPS = new Item(new Item.Settings());
-    public static final Item LAMB_JERKY = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(7).saturationModifier(0.75f).build()));
-    public static final Item RABBIT_STRIPS = new Item(new Item.Settings());
-    public static final Item SALTED_RABBIT_STRIPS = new Item(new Item.Settings());
-    public static final Item RABBIT_JERKY = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(7).saturationModifier(0.75f).build()));
-    public static final Item SALTED_ZOMBIE_FLESH = new Item(new Item.Settings());
-    public static final Item ZOMBIE_JERKY = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.5f).build()));
+    public static Item SQUID;
+    public static Item BATTERED_SQUID;
+    public static Item SALT_AND_PEPPER_SQUID;
+    public static Item RAW_NUGGETS;
+    public static Item BATTERED_NUGGETS;
+    public static Item COOKED_NUGGETS;
+    public static Item RAW_BACON;
+    public static Item SALTED_BACON_STRIPS;
+    public static Item BACON_JERKY;
+    public static Item COOKED_BACON;
+    public static Item CHICKEN_STRIPS;
+    public static Item SALTED_CHICKEN_STRIPS;
+    public static Item CHICKEN_JERKY;
+    public static Item BEEF_STRIPS;
+    public static Item SALTED_BEEF_STRIPS;
+    public static Item BEEF_JERKY;
+    public static Item COOKED_BEEF_STRIPS;
+    public static Item LAMB_STRIPS;
+    public static Item SALTED_LAMB_STRIPS;
+    public static Item LAMB_JERKY;
+    public static Item RABBIT_STRIPS;
+    public static Item SALTED_RABBIT_STRIPS;
+    public static Item RABBIT_JERKY;
+    public static Item SALTED_ZOMBIE_FLESH;
+    public static Item ZOMBIE_JERKY;
     // Meat Adjacent Stuff
-    public static final Item FRIED_EGG = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.8f).build()));
-    public static final Item BACON_AND_EGGS = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(8).saturationModifier(0.8f).build()));
+    public static Item FRIED_EGG;
+    public static Item BACON_AND_EGGS;
     // Juices
-    public static Item LEMON_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()), Items.GLASS_BOTTLE);
-    public static Item LIME_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()));
-    public static Item ORANGE_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
-    public static Item APPLE_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
-    public static Item CARROT_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()));
-    public static Item PUMPKIN_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()));
-    public static Item TOMATO_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(3).saturationModifier(0.6f).alwaysEdible().build()));
-    public static Item MELON_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
-    public static Item SWEET_BERRY_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
-    public static Item BLUEBERRY_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
-    public static Item BLACKBERRY_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
-    public static Item MANGO_JUICE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).alwaysEdible().build()));
+    public static Item LEMON_JUICE;
+    public static Item LIME_JUICE;
+    public static Item ORANGE_JUICE;
+    public static Item APPLE_JUICE;
+    public static Item CARROT_JUICE;
+    public static Item PUMPKIN_JUICE;
+    public static Item TOMATO_JUICE;
+    public static Item MELON_JUICE;
+    public static Item SWEET_BERRY_JUICE;
+    public static Item BLUEBERRY_JUICE;
+    public static Item BLACKBERRY_JUICE;
+    public static Item MANGO_JUICE;
     // Other Drinks
-    public static Item LEMONADE = new Drink(new Item.Settings().food(new FoodComponent.Builder().hunger(5).saturationModifier(0.7f).alwaysEdible().build()));
+    public static Item LEMONADE;
     // Oils
-    public static Item SUNFLOWER_OIL = new RecipeRemainder(new Item.Settings(), Items.GLASS_BOTTLE);
+    public static Item SUNFLOWER_OIL;
     // Sauces
-    public static Item MAYONNAISE = new RecipeRemainder(new Item.Settings(), Items.GLASS_BOTTLE);
-    public static Item AIOLI = new RecipeRemainder(new Item.Settings(), Items.GLASS_BOTTLE);
+    public static Item MAYONNAISE;
+    public static Item AIOLI;
     // Cake Stuff
-    public static final Item PLAIN_CAKE_MIX = new Item(new Item.Settings().maxCount(16));
-    public static final Item HONEY_CAKE_MIX = new Item(new Item.Settings().maxCount(16));
-    public static final Item APPLE_CAKE_MIX = new Item(new Item.Settings().maxCount(16));
-    public static final Item BERRY_CAKE_MIX = new Item(new Item.Settings().maxCount(16));
-    public static final Item ORANGE_CAKE_MIX = new Item(new Item.Settings().maxCount(16));
-    public static final Item BANANA_CAKE_MIX = new Item(new Item.Settings().maxCount(16));
-    public static final Item CHOCOLATE_CAKE_MIX = new Item(new Item.Settings().maxCount(16));
-    public static final Item BAKED_PLAIN_CAKE = new Item(new Item.Settings().recipeRemainder(CAKE_TIN).maxCount(16));
-    public static final Item BAKED_HONEY_CAKE = new Item(new Item.Settings().recipeRemainder(CAKE_TIN).maxCount(16));
-    public static final Item BAKED_APPLE_CAKE = new Item(new Item.Settings().recipeRemainder(CAKE_TIN).maxCount(16));
-    public static final Item BAKED_BERRY_CAKE = new Item(new Item.Settings().recipeRemainder(CAKE_TIN).maxCount(16));
-    public static final Item BAKED_ORANGE_CAKE = new Item(new Item.Settings().recipeRemainder(CAKE_TIN).maxCount(16));
-    public static final Item BAKED_BANANA_CAKE = new Item(new Item.Settings().recipeRemainder(CAKE_TIN).maxCount(16));
-    public static final Item BAKED_CHOCOLATE_CAKE = new Item(new Item.Settings().recipeRemainder(CAKE_TIN).maxCount(16));
-    public static final BlockItem HONEY_CAKE = new BlockItem(ModBlocks.HONEY_CAKE, new Item.Settings().maxCount(16));
-    public static final BlockItem APPLE_CAKE = new BlockItem(ModBlocks.APPLE_CAKE, new Item.Settings().maxCount(16));
-    public static final BlockItem BERRY_CAKE = new BlockItem(ModBlocks.BERRY_CAKE, new Item.Settings().maxCount(16));
-    public static final BlockItem ORANGE_CAKE = new BlockItem(ModBlocks.ORANGE_CAKE, new Item.Settings().maxCount(16));
-    public static final BlockItem BANANA_CAKE = new BlockItem(ModBlocks.BANANA_CAKE, new Item.Settings().maxCount(16));
-    public static final BlockItem CHOCOLATE_CAKE = new BlockItem(ModBlocks.CHOCOLATE_CAKE, new Item.Settings().maxCount(16));
+    public static Item PLAIN_CAKE_MIX;
+    public static Item HONEY_CAKE_MIX;
+    public static Item APPLE_CAKE_MIX;
+    public static Item BERRY_CAKE_MIX;
+    public static Item ORANGE_CAKE_MIX;
+    public static Item BANANA_CAKE_MIX;
+    public static Item CHOCOLATE_CAKE_MIX;
+    public static Item BAKED_PLAIN_CAKE;
+    public static Item BAKED_HONEY_CAKE;
+    public static Item BAKED_APPLE_CAKE;
+    public static Item BAKED_BERRY_CAKE;
+    public static Item BAKED_ORANGE_CAKE;
+    public static Item BAKED_BANANA_CAKE;
+    public static Item BAKED_CHOCOLATE_CAKE;
+    public static BlockItem HONEY_CAKE;
+    public static BlockItem APPLE_CAKE;
+    public static BlockItem BERRY_CAKE;
+    public static BlockItem ORANGE_CAKE;
+    public static BlockItem BANANA_CAKE;
+    public static BlockItem CHOCOLATE_CAKE;
 
     // Sandwich Stuff
-    public static final Item DOUGH = new Item(new Item.Settings());
-    public static final Item SLICED_BREAD = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.4f).build()));
-    public static final Item TOAST = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(4).saturationModifier(0.8f).build()));
-    public static final Item BLT_SANDWICH = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(12).saturationModifier(0.6f).build()));
-    public static final Item STEAK_SANDWICH = new Item(new Item.Settings().food(new FoodComponent.Builder().hunger(14).saturationModifier(0.6f).build()));
+    public static Item DOUGH;
+    public static Item SLICED_BREAD;
+    public static Item TOAST;
+    public static Item BLT_SANDWICH;
+    public static Item STEAK_SANDWICH;
     // Miscellaneous
-    public static final Item PEPPERCORN_ITEM = new Item(new Item.Settings());
-    public static final Item DRIED_PEPPERCORN = new Item(new Item.Settings());
-    public static final Item SALT = new Item(new Item.Settings());
-    public static final Item GROUND_PEPPER = new Item(new Item.Settings());
-    public static final Item GROUND_SALT = new Item(new Item.Settings());
-    public static final Item WHEAT_FLOUR = new Item(new Item.Settings());
-    public static final Item GROUND_COCOA = new Item(new Item.Settings());
+    public static Item PEPPERCORN_ITEM;
+    public static Item DRIED_PEPPERCORN;
+    public static Item SALT;
+    public static Item GROUND_PEPPER;
+    public static Item GROUND_SALT;
+    public static Item WHEAT_FLOUR;
+    public static Item GROUND_COCOA;
 
     // Seed Items
-    public static Item LETTUCE_SEEDS = new SeedItem(ModBlocks.LETTUCE_CROP, new Item.Settings());
-    public static Item TOMATO_SEEDS = new SeedItem(ModBlocks.TOMATO_CROP, new Item.Settings());
-    public static Item GARLIC_SEEDS = new SeedItem(ModBlocks.GARLIC_CROP, new Item.Settings());
-    public static Item BROWN_ONION_SEEDS = new SeedItem(ModBlocks.BROWN_ONION_CROP, new Item.Settings());
-    public static Item RED_ONION_SEEDS = new SeedItem(ModBlocks.RED_ONION_CROP, new Item.Settings());
+    public static Item LETTUCE_SEEDS;
+    public static Item TOMATO_SEEDS;
+    public static Item GARLIC_SEEDS;
+    public static Item BROWN_ONION_SEEDS;
+    public static Item RED_ONION_SEEDS;
 
     // Functional Block Items
-    public static final BlockItem OAK_DRYING_RACK = new BlockItem(ModBlocks.OAK_DRYING_RACK, new Item.Settings());
-    public static final BlockItem SPRUCE_DRYING_RACK = new BlockItem(ModBlocks.SPRUCE_DRYING_RACK, new Item.Settings());
-    public static final BlockItem BIRCH_DRYING_RACK = new BlockItem(ModBlocks.BIRCH_DRYING_RACK, new Item.Settings());
-    public static final BlockItem JUNGLE_DRYING_RACK = new BlockItem(ModBlocks.JUNGLE_DRYING_RACK, new Item.Settings());
-    public static final BlockItem DARK_OAK_DRYING_RACK = new BlockItem(ModBlocks.DARK_OAK_DRYING_RACK, new Item.Settings());
-    public static final BlockItem ACACIA_DRYING_RACK = new BlockItem(ModBlocks.ACACIA_DRYING_RACK, new Item.Settings());
-    public static final BlockItem CRIMSON_DRYING_RACK = new BlockItem(ModBlocks.CRIMSON_DRYING_RACK, new Item.Settings());
-    public static final BlockItem WARPED_DRYING_RACK = new BlockItem(ModBlocks.WARPED_DRYING_RACK, new Item.Settings());
-    public static final BlockItem MANGROVE_DRYING_RACK = new BlockItem(ModBlocks.MANGROVE_DRYING_RACK, new Item.Settings());
-    public static final BlockItem CHERRY_DRYING_RACK = new BlockItem(ModBlocks.CHERRY_DRYING_RACK, new Item.Settings());
+    public static BlockItem OAK_DRYING_RACK;
+    public static BlockItem SPRUCE_DRYING_RACK;
+    public static BlockItem BIRCH_DRYING_RACK;
+    public static BlockItem JUNGLE_DRYING_RACK;
+    public static BlockItem DARK_OAK_DRYING_RACK;
+    public static BlockItem ACACIA_DRYING_RACK;
+    public static BlockItem CRIMSON_DRYING_RACK;
+    public static BlockItem WARPED_DRYING_RACK;
+    public static BlockItem MANGROVE_DRYING_RACK;
+    public static BlockItem CHERRY_DRYING_RACK;
+    public static BlockItem PALE_OAK_DRYING_RACK;
 
     // Ore Block Items
-    public static final BlockItem SALT_ORE = new BlockItem(ModBlocks.SALT_ORE, new Item.Settings());
+    public static BlockItem SALT_ORE;
 
     // Other Block Items
-    public static final BlockItem PEPPERCORN_SAPLING = new BlockItem(ModBlocks.PEPPERCORN_SAPLING, new Item.Settings());
-    public static final BlockItem LEMON_SAPLING = new BlockItem(ModBlocks.LEMON_SAPLING, new  Item.Settings());
-    public static final BlockItem LIME_SAPLING = new BlockItem(ModBlocks.LIME_SAPLING, new Item.Settings());
-    public static final BlockItem ORANGE_SAPLING = new BlockItem(ModBlocks.ORANGE_SAPLING, new Item.Settings());
-    public static final BlockItem APPLE_SAPLING = new BlockItem(ModBlocks.APPLE_SAPLING, new Item.Settings());
-    public static final BlockItem MANGO_SAPLING = new BlockItem(ModBlocks.MANGO_SAPLING, new Item.Settings());
-    public static final BlockItem BANANA_SAPLING = new BlockItem(ModBlocks.BANANA_SAPLING, new Item.Settings());
-    public static final BlockItem PEPPERCORN_LEAVES = new BlockItem(ModBlocks.PEPPERCORN_LEAVES, new Item.Settings());
-    public static final BlockItem LEMON_LEAVES = new BlockItem(ModBlocks.LEMON_LEAVES, new Item.Settings());
-    public static final BlockItem LIME_LEAVES = new BlockItem(ModBlocks.LIME_LEAVES, new Item.Settings());
-    public static final BlockItem ORANGE_LEAVES = new BlockItem(ModBlocks.ORANGE_LEAVES, new Item.Settings());
-    public static final BlockItem APPLE_LEAVES = new BlockItem(ModBlocks.APPLE_LEAVES, new Item.Settings());
-    public static final BlockItem MANGO_LEAVES = new BlockItem(ModBlocks.MANGO_LEAVES, new Item.Settings());
-    public static final BlockItem BANANA_LEAVES = new BlockItem(ModBlocks.BANANA_LEAVES, new Item.Settings());
+    public static BlockItem PEPPERCORN_SAPLING;
+    public static BlockItem LEMON_SAPLING;
+    public static BlockItem LIME_SAPLING;
+    public static BlockItem ORANGE_SAPLING;
+    public static BlockItem APPLE_SAPLING;
+    public static BlockItem MANGO_SAPLING;
+    public static BlockItem BANANA_SAPLING;
+    public static BlockItem PEPPERCORN_LEAVES;
+    public static BlockItem LEMON_LEAVES;
+    public static BlockItem LIME_LEAVES;
+    public static BlockItem ORANGE_LEAVES;
+    public static BlockItem APPLE_LEAVES;
+    public static BlockItem MANGO_LEAVES;
+    public static BlockItem BANANA_LEAVES;
 
     
     public static void registerItems() {
-        // Food Items
+        // Items - Updated to MC 1.21.5 compatible registration
+        MORTAR_AND_PESTLE = registerRecipeRemainder("mortar_and_pestle", new Item.Settings().maxCount(1));
+        KNIFE = registerRecipeRemainder("knife", new Item.Settings().maxCount(1));
+        CRUSHER = registerRecipeRemainder("crusher", new Item.Settings().maxCount(1));
+        WHISK = registerRecipeRemainder("whisk", new Item.Settings().maxCount(1));
+        JUICER = registerRecipeRemainder("juicer", new Item.Settings().maxCount(1));
+        WET_CARTON = registerItem("wet_carton", Item::new, new Item.Settings().maxCount(16));
+        CARTON = registerItem("carton", Item::new, new Item.Settings().maxCount(16));
+        CAKE_TIN = registerItem("cake_tin", Item::new, new Item.Settings().maxCount(16));
+
+        // Food Items - Updated to MC 1.21.5 compatible registration
         // Veggies
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "lettuce"), LETTUCE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "tomato"), TOMATO);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "garlic"), GARLIC);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "brown_onion"), BROWN_ONION);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "red_onion"), RED_ONION);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "sliced_brown_onion"), SLICED_BROWN_ONION);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "sliced_red_onion"), SLICED_RED_ONION);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "pumpkin_slices"), PUMPKIN_SLICES);
+        LETTUCE = registerItem("lettuce", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.6F).build()));
+        TOMATO = registerItem("tomato", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.6F).build()));
+        GARLIC = registerItem("garlic", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).build()));
+        BROWN_ONION = registerItem("brown_onion", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).build()));
+        RED_ONION = registerItem("red_onion", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.6F).build()));
+        SLICED_BROWN_ONION = registerItem("sliced_brown_onion", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).build()));
+        SLICED_RED_ONION = registerItem("sliced_red_onion", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.6F).build()));
+        PUMPKIN_SLICES = registerItem("pumpkin_slices", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.3F).build()));
         // Cooked Veggies
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "cooked_onion"), COOKED_ONION);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "caramelized_onion"), CARAMELIZED_ONION);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "battered_onions"), BATTERED_ONIONS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "onion_rings"), ONION_RINGS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "uncooked_fries"), UNCOOKED_FRIES);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "fries"), FRIES);
+        COOKED_ONION = registerItem("cooked_onion", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.5F).build()));
+        CARAMELIZED_ONION = registerItem("caramelized_onion", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.8F).build()));
+        BATTERED_ONIONS = registerItem("battered_onions", Item::new, new Item.Settings());
+        ONION_RINGS = registerItem("onion_rings", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.6F).build()));
+        UNCOOKED_FRIES = registerItem("uncooked_fries", Item::new, new Item.Settings());
+        FRIES = registerItem("fries", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.8F).build()).useRemainder(CARTON));
         // Fruit
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "lemon"), LEMON);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "lime"), LIME);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "orange"), ORANGE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "mango"), MANGO);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "banana"), BANANA);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "fruit_salad"), FRUIT_SALAD);
-        // Berries
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "blueberries"), BLUEBERRIES);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "blackberries"), BLACKBERRIES);
+        LEMON = registerItem("lemon", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.6F).build()));
+        LIME = registerItem("lime", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.6F).build()));
+        ORANGE = registerItem("orange", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.6f).build()));
+        MANGO = registerItem("mango", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.6f).build()));
+        BANANA = registerItem("banana", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.6f).build()));
+        FRUIT_SALAD = registerItem("fruit_salad", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(8).saturationModifier(0.8f).build()));
+        // Berries - Updated to MC 1.21.5 compatible registration
+        BLUEBERRIES = registerBlockItem("blueberries", new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.4f).build()), ModBlocks.BLUEBERRY_BUSH);
+        BLACKBERRIES = registerBlockItem("blackberries", new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.4f).build()), ModBlocks.BLACKBERRY_BUSH);
         // Baked Goods
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "baked_apple"), BAKED_APPLE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "baked_pumpkin"), BAKED_PUMPKIN);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "baked_carrot"), BAKED_CARROT);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "baked_beetroot"), BAKED_BEETROOT);
+        BAKED_APPLE = registerItem("baked_apple", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.8f).build()));
+        BAKED_PUMPKIN = registerItem("baked_pumpkin", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.6F).build()));
+        BAKED_CARROT = registerItem("baked_carrot", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.6F).build()));
+        BAKED_BEETROOT = registerItem("baked_beetroot", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.6F).build()));
         // Meats
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "squid"), SQUID);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "battered_squid"), BATTERED_SQUID);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "salt_and_pepper_squid"), SALT_AND_PEPPER_SQUID);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "raw_nuggets"), RAW_NUGGETS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "battered_nuggets"), BATTERED_NUGGETS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "cooked_nuggets"), COOKED_NUGGETS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "raw_bacon"), RAW_BACON);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "chicken_strips"), CHICKEN_STRIPS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "beef_strips"), BEEF_STRIPS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "lamb_strips"), LAMB_STRIPS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "rabbit_strips"), RABBIT_STRIPS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "salted_bacon_strips"), SALTED_BACON_STRIPS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "salted_chicken_strips"), SALTED_CHICKEN_STRIPS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "salted_beef_strips"), SALTED_BEEF_STRIPS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "salted_lamb_strips"), SALTED_LAMB_STRIPS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "salted_rabbit_strips"), SALTED_RABBIT_STRIPS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "salted_zombie_flesh"), SALTED_ZOMBIE_FLESH);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "bacon_jerky"), BACON_JERKY);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "chicken_jerky"), CHICKEN_JERKY);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "beef_jerky"), BEEF_JERKY);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "lamb_jerky"), LAMB_JERKY);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "rabbit_jerky"), RABBIT_JERKY);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "zombie_jerky"), ZOMBIE_JERKY);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "cooked_bacon"), COOKED_BACON);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "cooked_beef_strips"), COOKED_BEEF_STRIPS);
+        SQUID = registerItem("squid", Item::new, new Item.Settings());
+        BATTERED_SQUID = registerItem("battered_squid", Item::new, new Item.Settings());
+        SALT_AND_PEPPER_SQUID = registerItem("salt_and_pepper_squid", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(8).saturationModifier(1.2f).build()));
+        RAW_NUGGETS = registerItem("raw_nuggets", Item::new, new Item.Settings());
+        BATTERED_NUGGETS = registerItem("battered_nuggets", Item::new, new Item.Settings());
+        COOKED_NUGGETS = registerItem("cooked_nuggets", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(8).saturationModifier(0.8f).build()).useRemainder(CARTON));
+        RAW_BACON = registerItem("raw_bacon", Item::new, new Item.Settings());
+        SALTED_BACON_STRIPS = registerItem("salted_bacon_strips", Item::new, new Item.Settings());
+        BACON_JERKY = registerItem("bacon_jerky", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(9).saturationModifier(0.75f).build()));
+        COOKED_BACON = registerItem("cooked_bacon", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.8f).build()));
+        CHICKEN_STRIPS = registerItem("chicken_strips", Item::new, new Item.Settings());
+        SALTED_CHICKEN_STRIPS = registerItem("salted_chicken_strips", Item::new, new Item.Settings());
+        CHICKEN_JERKY = registerItem("chicken_jerky", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(7).saturationModifier(0.75f).build()));
+        BEEF_STRIPS = registerItem("beef_strips", Item::new, new Item.Settings());
+        SALTED_BEEF_STRIPS = registerItem("salted_beef_strips", Item::new, new Item.Settings());
+        BEEF_JERKY = registerItem("beef_jerky", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(9).saturationModifier(0.75f).build()));
+        COOKED_BEEF_STRIPS = registerItem("cooked_beef_strips", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.8f).build()));
+        LAMB_STRIPS = registerItem("lamb_strips", Item::new, new Item.Settings());
+        SALTED_LAMB_STRIPS = registerItem("salted_lamb_strips", Item::new, new Item.Settings());
+        LAMB_JERKY = registerItem("lamb_jerky", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(7).saturationModifier(0.75f).build()));
+        RABBIT_STRIPS = registerItem("rabbit_strips", Item::new, new Item.Settings());
+        SALTED_RABBIT_STRIPS = registerItem("salted_rabbit_strips", Item::new, new Item.Settings());
+        RABBIT_JERKY = registerItem("rabbit_jerky", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(7).saturationModifier(0.75f).build()));
+        SALTED_ZOMBIE_FLESH = registerItem("salted_zombie_flesh", Item::new, new Item.Settings());
+        ZOMBIE_JERKY = registerItem("zombie_jerky", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.5f).build()));
         // Meat Adjacent Stuff
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "fried_egg"), FRIED_EGG);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "bacon_and_eggs"), BACON_AND_EGGS);
-        // Juices
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "lemon_juice"), LEMON_JUICE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "lime_juice"), LIME_JUICE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "orange_juice"), ORANGE_JUICE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "apple_juice"), APPLE_JUICE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "carrot_juice"), CARROT_JUICE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "pumpkin_juice"), PUMPKIN_JUICE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "tomato_juice"), TOMATO_JUICE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "melon_juice"), MELON_JUICE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "sweet_berry_juice"), SWEET_BERRY_JUICE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "blueberry_juice"), BLUEBERRY_JUICE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "blackberry_juice"), BLACKBERRY_JUICE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "mango_juice"), MANGO_JUICE);
+        FRIED_EGG = registerItem("fried_egg", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.8f).build()));
+        BACON_AND_EGGS = registerItem("bacon_and_eggs", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(8).saturationModifier(0.8f).build()));
+        // Juices - Updated to MC 1.21.5 compatible registration
+        LEMON_JUICE = registerDrink("lemon_juice", new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.6f).alwaysEdible().build()).useRemainder(Items.GLASS_BOTTLE));
+        LIME_JUICE = registerDrink("lime_juice", new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.6f).alwaysEdible().build()).useRemainder(Items.GLASS_BOTTLE));
+        ORANGE_JUICE = registerDrink("orange_juice", new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.5f).alwaysEdible().build()).useRemainder(Items.GLASS_BOTTLE));
+        APPLE_JUICE = registerDrink("apple_juice", new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.5f).alwaysEdible().build()).useRemainder(Items.GLASS_BOTTLE));
+        CARROT_JUICE = registerDrink("carrot_juice", new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.6f).alwaysEdible().build()).useRemainder(Items.GLASS_BOTTLE));
+        PUMPKIN_JUICE = registerDrink("pumpkin_juice", new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.6f).alwaysEdible().build()).useRemainder(Items.GLASS_BOTTLE));
+        TOMATO_JUICE = registerDrink("tomato_juice", new Item.Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.6f).alwaysEdible().build()).useRemainder(Items.GLASS_BOTTLE));
+        MELON_JUICE = registerDrink("melon_juice", new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.5f).alwaysEdible().build()).useRemainder(Items.GLASS_BOTTLE));
+        SWEET_BERRY_JUICE = registerDrink("sweet_berry_juice", new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.5f).alwaysEdible().build()).useRemainder(Items.GLASS_BOTTLE));
+        BLUEBERRY_JUICE = registerDrink("blueberry_juice", new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.5f).alwaysEdible().build()).useRemainder(Items.GLASS_BOTTLE));
+        BLACKBERRY_JUICE = registerDrink("blackberry_juice", new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.5f).alwaysEdible().build()).useRemainder(Items.GLASS_BOTTLE));
+        MANGO_JUICE = registerDrink("mango_juice", new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.5f).alwaysEdible().build()).useRemainder(Items.GLASS_BOTTLE));
         // Other Drinks
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "lemonade"), LEMONADE);
-        // Oil
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "sunflower_oil"), SUNFLOWER_OIL);
-        // Sauces
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "mayonnaise"), MAYONNAISE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "aioli"), AIOLI);
+        LEMONADE = registerDrink("lemonade", new Item.Settings().food(new FoodComponent.Builder().nutrition(5).saturationModifier(0.7f).alwaysEdible().build()).useRemainder(Items.GLASS_BOTTLE));
+        // Oil - Updated to MC 1.21.5 compatible registration
+        SUNFLOWER_OIL = registerRecipeRemainder("sunflower_oil", new Item.Settings(), Items.GLASS_BOTTLE);
+        // Sauces - Updated to MC 1.21.5 compatible registration
+        MAYONNAISE = registerRecipeRemainder("mayonnaise", new Item.Settings(), Items.GLASS_BOTTLE);
+        AIOLI = registerRecipeRemainder("aioli", new Item.Settings(), Items.GLASS_BOTTLE);
 
         // Cake Stuff
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "plain_cake_mix"), PLAIN_CAKE_MIX);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "honey_cake_mix"), HONEY_CAKE_MIX);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "apple_cake_mix"), APPLE_CAKE_MIX);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "berry_cake_mix"), BERRY_CAKE_MIX);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "orange_cake_mix"), ORANGE_CAKE_MIX);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "banana_cake_mix"), BANANA_CAKE_MIX);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "chocolate_cake_mix"), CHOCOLATE_CAKE_MIX);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "baked_plain_cake"), BAKED_PLAIN_CAKE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "baked_honey_cake"), BAKED_HONEY_CAKE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "baked_apple_cake"), BAKED_APPLE_CAKE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "baked_berry_cake"), BAKED_BERRY_CAKE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "baked_orange_cake"), BAKED_ORANGE_CAKE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "baked_banana_cake"), BAKED_BANANA_CAKE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "baked_chocolate_cake"), BAKED_CHOCOLATE_CAKE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "honey_cake"), HONEY_CAKE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "apple_cake"), APPLE_CAKE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "berry_cake"), BERRY_CAKE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "orange_cake"), ORANGE_CAKE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "banana_cake"), BANANA_CAKE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "chocolate_cake"), CHOCOLATE_CAKE);
+        PLAIN_CAKE_MIX = registerItem("plain_cake_mix", Item::new, new Item.Settings().maxCount(16));
+        HONEY_CAKE_MIX = registerItem("honey_cake_mix", Item::new, new Item.Settings().maxCount(16));
+        APPLE_CAKE_MIX = registerItem("apple_cake_mix", Item::new, new Item.Settings().maxCount(16));
+        BERRY_CAKE_MIX = registerItem("berry_cake_mix", Item::new, new Item.Settings().maxCount(16));
+        ORANGE_CAKE_MIX = registerItem("orange_cake_mix", Item::new, new Item.Settings().maxCount(16));
+        BANANA_CAKE_MIX = registerItem("banana_cake_mix", Item::new, new Item.Settings().maxCount(16));
+        CHOCOLATE_CAKE_MIX = registerItem("chocolate_cake_mix", Item::new, new Item.Settings().maxCount(16));
+        BAKED_PLAIN_CAKE = registerRecipeRemainder("baked_plain_cake", new Item.Settings().maxCount(16), CAKE_TIN);
+        BAKED_HONEY_CAKE = registerRecipeRemainder("baked_honey_cake", new Item.Settings().maxCount(16), CAKE_TIN);
+        BAKED_APPLE_CAKE = registerRecipeRemainder("baked_apple_cake", new Item.Settings().maxCount(16), CAKE_TIN);
+        BAKED_BERRY_CAKE = registerRecipeRemainder("baked_berry_cake", new Item.Settings().maxCount(16), CAKE_TIN);
+        BAKED_ORANGE_CAKE = registerRecipeRemainder("baked_orange_cake", new Item.Settings().maxCount(16), CAKE_TIN);
+        BAKED_BANANA_CAKE = registerRecipeRemainder("baked_banana_cake", new Item.Settings().maxCount(16), CAKE_TIN);
+        BAKED_CHOCOLATE_CAKE = registerRecipeRemainder("baked_chocolate_cake", new Item.Settings().maxCount(16), CAKE_TIN);
+        HONEY_CAKE = registerBlockItem("honey_cake", new Item.Settings().maxCount(16), ModBlocks.HONEY_CAKE);
+        APPLE_CAKE = registerBlockItem("apple_cake", new Item.Settings().maxCount(16), ModBlocks.APPLE_CAKE);
+        BERRY_CAKE = registerBlockItem("berry_cake", new Item.Settings().maxCount(16), ModBlocks.BERRY_CAKE);
+        ORANGE_CAKE = registerBlockItem("orange_cake", new Item.Settings().maxCount(16), ModBlocks.ORANGE_CAKE);
+        BANANA_CAKE = registerBlockItem("banana_cake", new Item.Settings().maxCount(16), ModBlocks.BANANA_CAKE);
+        CHOCOLATE_CAKE = registerBlockItem("chocolate_cake", new Item.Settings().maxCount(16), ModBlocks.CHOCOLATE_CAKE);
         // Sandwich Stuff
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "dough"), DOUGH);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "sliced_bread"), SLICED_BREAD);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "toast"), TOAST);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "blt_sandwich"), BLT_SANDWICH);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "steak_sandwich"), STEAK_SANDWICH);
+        DOUGH = registerItem("dough", Item::new, new Item.Settings());
+        SLICED_BREAD = registerItem("sliced_bread", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.4f).build()));
+        TOAST = registerItem("toast", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.8f).build()));
+        BLT_SANDWICH = registerItem("blt_sandwich", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(10).saturationModifier(1.4f).build()));
+        STEAK_SANDWICH = registerItem("steak_sandwich", Item::new, new Item.Settings().food(new FoodComponent.Builder().nutrition(12).saturationModifier(1.6f).build()));
         // Miscellaneous
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "peppercorn_item"), PEPPERCORN_ITEM);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "dried_peppercorn"), DRIED_PEPPERCORN);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "salt"), SALT);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "ground_pepper"), GROUND_PEPPER);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "ground_salt"), GROUND_SALT);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "wheat_flour"), WHEAT_FLOUR);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "ground_cocoa"), GROUND_COCOA);
+        PEPPERCORN_ITEM = registerItem("peppercorn_item", Item::new, new Item.Settings());
+        DRIED_PEPPERCORN = registerItem("dried_peppercorn", Item::new, new Item.Settings());
+        SALT = registerItem("salt", Item::new, new Item.Settings());
+        GROUND_PEPPER = registerItem("ground_pepper", Item::new, new Item.Settings());
+        GROUND_SALT = registerItem("ground_salt", Item::new, new Item.Settings());
+        WHEAT_FLOUR = registerItem("wheat_flour", Item::new, new Item.Settings());
+        GROUND_COCOA = registerItem("ground_cocoa", Item::new, new Item.Settings());
 
-        // Items
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "mortar_and_pestle"), MORTAR_AND_PESTLE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "knife"), KNIFE);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "crusher"), CRUSHER);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "whisk"), WHISK);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "juicer"), JUICER);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "wet_carton"), WET_CARTON);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "carton"), CARTON);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "cake_tin"), CAKE_TIN);
+        // Seed Items - Updated to MC 1.21.5 compatible registration
+        LETTUCE_SEEDS = registerSeedItem("lettuce_seeds", new Item.Settings(), ModBlocks.LETTUCE_CROP);
+        TOMATO_SEEDS = registerSeedItem("tomato_seeds", new Item.Settings(), ModBlocks.TOMATO_CROP);
+        GARLIC_SEEDS = registerSeedItem("garlic_seeds", new Item.Settings(), ModBlocks.GARLIC_CROP);
+        BROWN_ONION_SEEDS = registerSeedItem("brown_onion_seeds", new Item.Settings(), ModBlocks.BROWN_ONION_CROP);
+        RED_ONION_SEEDS = registerSeedItem("red_onion_seeds", new Item.Settings(), ModBlocks.RED_ONION_CROP);
 
-        // Seed Items
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "lettuce_seeds"), LETTUCE_SEEDS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "tomato_seeds"), TOMATO_SEEDS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "garlic_seeds"), GARLIC_SEEDS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "brown_onion_seeds"), BROWN_ONION_SEEDS);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "red_onion_seeds"), RED_ONION_SEEDS);
+        // Functional Block Items - Updated to MC 1.21.5 compatible registration
+        OAK_DRYING_RACK = registerBlockItem("oak_drying_rack", new Item.Settings(), ModBlocks.OAK_DRYING_RACK);
+        SPRUCE_DRYING_RACK = registerBlockItem("spruce_drying_rack", new Item.Settings(), ModBlocks.SPRUCE_DRYING_RACK);
+        BIRCH_DRYING_RACK = registerBlockItem("birch_drying_rack", new Item.Settings(), ModBlocks.BIRCH_DRYING_RACK);
+        JUNGLE_DRYING_RACK = registerBlockItem("jungle_drying_rack", new Item.Settings(), ModBlocks.JUNGLE_DRYING_RACK);
+        DARK_OAK_DRYING_RACK = registerBlockItem("dark_oak_drying_rack", new Item.Settings(), ModBlocks.DARK_OAK_DRYING_RACK);
+        ACACIA_DRYING_RACK = registerBlockItem("acacia_drying_rack", new Item.Settings(), ModBlocks.ACACIA_DRYING_RACK);
+        CRIMSON_DRYING_RACK = registerBlockItem("crimson_drying_rack", new Item.Settings(), ModBlocks.CRIMSON_DRYING_RACK);
+        WARPED_DRYING_RACK = registerBlockItem("warped_drying_rack", new Item.Settings(), ModBlocks.WARPED_DRYING_RACK);
+        MANGROVE_DRYING_RACK = registerBlockItem("mangrove_drying_rack", new Item.Settings(), ModBlocks.MANGROVE_DRYING_RACK);
+        CHERRY_DRYING_RACK = registerBlockItem("cherry_drying_rack", new Item.Settings(), ModBlocks.CHERRY_DRYING_RACK);
+        PALE_OAK_DRYING_RACK = registerBlockItem("pale_oak_drying_rack", new Item.Settings(), ModBlocks.PALE_OAK_DRYING_RACK);
 
-        // Functional Block Items
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "oak_drying_rack"), OAK_DRYING_RACK);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "spruce_drying_rack"), SPRUCE_DRYING_RACK);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "birch_drying_rack"), BIRCH_DRYING_RACK);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "jungle_drying_rack"), JUNGLE_DRYING_RACK);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "dark_oak_drying_rack"), DARK_OAK_DRYING_RACK);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "acacia_drying_rack"), ACACIA_DRYING_RACK);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "crimson_drying_rack"), CRIMSON_DRYING_RACK);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "warped_drying_rack"), WARPED_DRYING_RACK);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "mangrove_drying_rack"), MANGROVE_DRYING_RACK);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "cherry_drying_rack"), CHERRY_DRYING_RACK);
+        // Ore Block Items - Updated to MC 1.21.5 compatible registration
+        SALT_ORE = registerBlockItem("salt_ore", new Item.Settings(), ModBlocks.SALT_ORE);
 
-        // Ore Block Items
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "salt_ore"), SALT_ORE);
-
-        // Tree Block Items
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "peppercorn_sapling"), PEPPERCORN_SAPLING);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "lemon_sapling"), LEMON_SAPLING);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "lime_sapling"), LIME_SAPLING);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "orange_sapling"), ORANGE_SAPLING);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "apple_sapling"), APPLE_SAPLING);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "mango_sapling"), MANGO_SAPLING);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "banana_sapling"), BANANA_SAPLING);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "peppercorn_leaves"), PEPPERCORN_LEAVES);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "lemon_leaves"), LEMON_LEAVES);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "lime_leaves"), LIME_LEAVES);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "orange_leaves"), ORANGE_LEAVES);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "apple_leaves"), APPLE_LEAVES);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "mango_leaves"), MANGO_LEAVES);
-        Registry.register(Registries.ITEM, new Identifier(Foodables.MOD_ID, "banana_leaves"), BANANA_LEAVES);
+        // Tree Block Items - Updated to MC 1.21.5 compatible registration
+        PEPPERCORN_SAPLING = registerBlockItem("peppercorn_sapling", new Item.Settings(), ModBlocks.PEPPERCORN_SAPLING);
+        LEMON_SAPLING = registerBlockItem("lemon_sapling", new Item.Settings(), ModBlocks.LEMON_SAPLING);
+        LIME_SAPLING = registerBlockItem("lime_sapling", new Item.Settings(), ModBlocks.LIME_SAPLING);
+        ORANGE_SAPLING = registerBlockItem("orange_sapling", new Item.Settings(), ModBlocks.ORANGE_SAPLING);
+        APPLE_SAPLING = registerBlockItem("apple_sapling", new Item.Settings(), ModBlocks.APPLE_SAPLING);
+        MANGO_SAPLING = registerBlockItem("mango_sapling", new Item.Settings(), ModBlocks.MANGO_SAPLING);
+        BANANA_SAPLING = registerBlockItem("banana_sapling", new Item.Settings(), ModBlocks.BANANA_SAPLING);
+        PEPPERCORN_LEAVES = registerBlockItem("peppercorn_leaves", new Item.Settings(), ModBlocks.PEPPERCORN_LEAVES);
+        LEMON_LEAVES = registerBlockItem("lemon_leaves", new Item.Settings(), ModBlocks.LEMON_LEAVES);
+        LIME_LEAVES = registerBlockItem("lime_leaves", new Item.Settings(), ModBlocks.LIME_LEAVES);
+        ORANGE_LEAVES = registerBlockItem("orange_leaves", new Item.Settings(), ModBlocks.ORANGE_LEAVES);
+        APPLE_LEAVES = registerBlockItem("apple_leaves", new Item.Settings(), ModBlocks.APPLE_LEAVES);
+        MANGO_LEAVES = registerBlockItem("mango_leaves", new Item.Settings(), ModBlocks.MANGO_LEAVES);
+        BANANA_LEAVES = registerBlockItem("banana_leaves", new Item.Settings(), ModBlocks.BANANA_LEAVES);
+    }
+    
+    // MC 1.21.5 compatible item registration using Items.register
+    private static Item registerItem(String id, Function<Item.Settings, Item> factory, Item.Settings settings) {
+        final Identifier identifier = Identifier.of(Foodables.MOD_ID, id);
+        final RegistryKey<Item> registryKey = RegistryKey.of(RegistryKeys.ITEM, identifier);
+        final Item item = Items.register(registryKey, factory, settings);
+        return item;
+    }
+    
+    // Helper for Drink items (custom class with container parameter)
+    private static Drink registerDrink(String id, Item.Settings settings, Item container) {
+        final Identifier identifier = Identifier.of(Foodables.MOD_ID, id);
+        final RegistryKey<Item> registryKey = RegistryKey.of(RegistryKeys.ITEM, identifier);
+        final Drink drink = (Drink) Items.register(registryKey, s -> new Drink(s, container), settings);
+        return drink;
+    }
+    
+    // Helper for Drink items (custom class without container)
+    private static Drink registerDrink(String id, Item.Settings settings) {
+        final Identifier identifier = Identifier.of(Foodables.MOD_ID, id);
+        final RegistryKey<Item> registryKey = RegistryKey.of(RegistryKeys.ITEM, identifier);
+        final Drink drink = (Drink) Items.register(registryKey, s -> new Drink(s), settings);
+        return drink;
+    }
+    
+    // Helper for RecipeRemainder items (custom class with container parameter)
+    private static RecipeRemainder registerRecipeRemainder(String id, Item.Settings settings, Item container) {
+        final Identifier identifier = Identifier.of(Foodables.MOD_ID, id);
+        final RegistryKey<Item> registryKey = RegistryKey.of(RegistryKeys.ITEM, identifier);
+        final RecipeRemainder item = (RecipeRemainder) Items.register(registryKey, s -> new RecipeRemainder(s, container), settings);
+        return item;
+    }
+    
+    // Helper for RecipeRemainder items (custom class without container)
+    private static RecipeRemainder registerRecipeRemainder(String id, Item.Settings settings) {
+        final Identifier identifier = Identifier.of(Foodables.MOD_ID, id);
+        final RegistryKey<Item> registryKey = RegistryKey.of(RegistryKeys.ITEM, identifier);
+        final RecipeRemainder item = (RecipeRemainder) Items.register(registryKey, s -> new RecipeRemainder(s), settings);
+        return item;
+    }
+    
+    // Helper for SeedItem items (custom class with block parameter)
+    private static SeedItem registerSeedItem(String id, Item.Settings settings, Block cropBlock) {
+        final Identifier identifier = Identifier.of(Foodables.MOD_ID, id);
+        final RegistryKey<Item> registryKey = RegistryKey.of(RegistryKeys.ITEM, identifier);
+        final SeedItem item = (SeedItem) Items.register(registryKey, s -> new SeedItem(cropBlock, s), settings);
+        return item;
+    }
+    
+    // Helper for BlockItem items (with block parameter)
+    private static BlockItem registerBlockItem(String id, Item.Settings settings, Block block) {
+        final Identifier identifier = Identifier.of(Foodables.MOD_ID, id);
+        final RegistryKey<Item> registryKey = RegistryKey.of(RegistryKeys.ITEM, identifier);
+        final BlockItem item = (BlockItem) Items.register(registryKey, s -> new BlockItem(block, s), settings);
+        return item;
     }
 }

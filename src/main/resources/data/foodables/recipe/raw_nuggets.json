@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "foodables:knife",
+    "$": "minecraft:chicken",
+    "%": "foodables:carton"
+  },
+  "pattern": ["#", "$", "%"],
+  "result": {
+    "count": 2,
+    "id": "foodables:raw_nuggets"
+  }
+}

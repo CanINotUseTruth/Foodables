@@ -19,10 +19,9 @@ public class Foodables implements ModInitializer {
     // TODO - Update Drying rack with custom recipe type and serializer
     // TODO - REI & EMI Support for Drying Rack
     // TODO - Villager Trading
-    // TODO - Update Wiki
+    // TODO - Update ReadMe
 
-    // TODO - Tomato Sauce, Cheese, Pizzas/Pizza Oven, Garlic Bread, Butter, Garlic
-    // Butter, Churn, Milk Bottle for cake recipes
+    // TODO - Tomato Sauce, Cheese, Pizzas/Pizza Oven, Garlic Bread, Butter, Butter Churn
     // TODO - Placeable Pies - MAYBE
 
     public static final String MOD_ID = "foodables";
@@ -32,8 +31,9 @@ public class Foodables implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        ModItems.registerItems();
         ModBlocks.registerBlocks();
+        ModBlocks.init(); // Register block entity types
+        ModItems.registerItems();
         ModPlacedFeatures.registerPlacedFeatures();
         ModRecipes.registerRecipes();
         ModGroups.registerItemGroups();

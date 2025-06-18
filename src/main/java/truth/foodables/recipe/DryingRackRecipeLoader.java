@@ -22,7 +22,7 @@ public class DryingRackRecipeLoader implements SimpleSynchronousResourceReloadLi
 
     @Override
     public Identifier getFabricId() {
-        return new Identifier(Foodables.MOD_ID, "rack_recipes");
+        return Identifier.of(Foodables.MOD_ID, "rack_recipes");
     }
 
     @Override
@@ -32,11 +32,19 @@ public class DryingRackRecipeLoader implements SimpleSynchronousResourceReloadLi
                 InputStream stream = resourceRef.getInputStream();
                 JsonObject data = JsonParser.parseReader(new InputStreamReader(stream)).getAsJsonObject();
 
-                if (Registries.ITEM.get(new Identifier(data.get("item").getAsString())).toString().equals("air")) {
+                String itemIdString = data.get("item").getAsString();
+                Identifier itemId = itemIdString.contains(":") ? 
+                    Identifier.of(itemIdString.split(":")[0], itemIdString.split(":")[1]) : 
+                    Identifier.of("minecraft", itemIdString);
+                if (Registries.ITEM.get(itemId).toString().equals("air")) {
                     LOGGER.info("{} is not a valid item identifier at resouce {}", data.get("item").getAsString(), id.toString());
                     return;
                 }
-                if (Registries.ITEM.get(new Identifier(data.get("result").getAsString())).toString().equals("air")) {
+                String resultIdString = data.get("result").getAsString();
+                Identifier resultId = resultIdString.contains(":") ? 
+                    Identifier.of(resultIdString.split(":")[0], resultIdString.split(":")[1]) : 
+                    Identifier.of("minecraft", resultIdString);
+                if (Registries.ITEM.get(resultId).toString().equals("air")) {
                     LOGGER.info("{} is not a valid item identifier at resouce {}", data.get("result").getAsString(), id.toString());
                     return;
                 }
@@ -45,8 +53,8 @@ public class DryingRackRecipeLoader implements SimpleSynchronousResourceReloadLi
                     return;
                 }
 
-                ModRecipes.RACK_ITEM_LIST.add((Item) Registries.ITEM.get(new Identifier(data.get("item").getAsString())));
-                ModRecipes.RACK_RESULT_ITEM_LIST.add((Item) Registries.ITEM.get(new Identifier(data.get("result").getAsString())));
+                ModRecipes.RACK_ITEM_LIST.add((Item) Registries.ITEM.get(itemId));
+                ModRecipes.RACK_RESULT_ITEM_LIST.add((Item) Registries.ITEM.get(resultId));
                 ModRecipes.RACK_RESULT_TIME_LIST.add(data.get("dryingtime").getAsInt());
 
             } catch (Exception e) {

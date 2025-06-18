@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "foodables:ground_salt",
+    "foodables:ground_pepper",
+    "foodables:wheat_flour",
+    "foodables:raw_nuggets"
+  ],
+  "result": {
+    "id": "foodables:battered_nuggets",
+    "count": 1
+  }
+}

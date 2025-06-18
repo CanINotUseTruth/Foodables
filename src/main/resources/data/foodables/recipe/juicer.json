@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:iron_ingot",
+    "$": "minecraft:iron_bars"
+  },
+  "pattern": [" # ", "#$#"],
+  "result": {
+    "count": 1,
+    "id": "foodables:juicer"
+  }
+}

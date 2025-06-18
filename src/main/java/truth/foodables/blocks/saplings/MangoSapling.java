@@ -1,6 +1,6 @@
 package truth.foodables.blocks.saplings;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.AbstractBlock;
 import java.util.Optional;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SaplingBlock;
@@ -10,10 +10,9 @@ import truth.foodables.registry.ModConfiguredFeatures;
 
 public class MangoSapling extends SaplingBlock {
 
-    public MangoSapling() {
+    public MangoSapling(Settings settings) {
         super(new SaplingGenerator("mango", Optional.empty(), Optional.of(ModConfiguredFeatures.MANGO_TREE_CF),
                 Optional.empty()),
-                FabricBlockSettings.copyOf(Blocks.OAK_SAPLING).sounds(BlockSoundGroup.GRASS)
-                        .noCollision().ticksRandomly().breakInstantly().nonOpaque());
+                settings);
     }
 }
