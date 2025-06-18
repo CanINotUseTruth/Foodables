@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "foodables:crusher",
+    "$": "foodables:garlic",
+    "^": "minecraft:glass_bottle",
+    "%": "foodables:mayonnaise",
+    "&": "foodables:lemon_juice",
+    "*": "foodables:ground_salt"
+  },
+  "pattern": ["# *", "$%&", " ^ "],
+  "result": {
+    "count": 1,
+    "id": "foodables:aioli"
+  }
+}

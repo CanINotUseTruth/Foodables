@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+      "minecraft:bread",
+      "foodables:knife"
+  ],
+  "result": {
+    "id": "foodables:sliced_bread",
+    "count": 4
+  }
+}

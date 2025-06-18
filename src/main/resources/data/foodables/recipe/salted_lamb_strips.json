@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "foodables:lamb_strips",
+    "foodables:ground_salt"
+  ],
+  "result": {
+    "id": "foodables:salted_lamb_strips",
+    "count": 1
+  }
+}

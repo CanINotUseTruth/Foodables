@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "foodables:raw_bacon",
+    "foodables:ground_salt"
+  ],
+  "result": {
+    "id": "foodables:salted_bacon_strips",
+    "count": 1
+  }
+}

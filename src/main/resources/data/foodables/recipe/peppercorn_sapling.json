@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:oak_sapling",
+    "foodables:peppercorn_item"
+  ],
+  "result": {
+    "id": "foodables:peppercorn_sapling",
+    "count": 1
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smoking",
-  "ingredient": {
-    "item": "foodables:pumpkin_slices"
-  },
-  "result": "foodables:baked_pumpkin",
-  "experience": 0.35,
-  "cookingtime": 100
-}

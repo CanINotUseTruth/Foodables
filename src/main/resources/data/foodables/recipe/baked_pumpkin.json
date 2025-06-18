@@ -1,0 +1,11 @@
+ {
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "pumpkin_slices",
+  "ingredient": "foodables:pumpkin_slices",
+  "result": {
+    "id": "foodables:baked_pumpkin"
+  }
+}

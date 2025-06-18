@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:honey_bottle",
+    "$": "foodables:plain_cake_mix",
+    "%": "foodables:whisk"
+  },
+  "pattern": [" % ", "###", " $ "],
+  "result": {
+    "count": 1,
+    "id": "foodables:honey_cake_mix"
+  }
+}

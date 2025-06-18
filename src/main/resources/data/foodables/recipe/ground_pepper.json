@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "foodables:dried_peppercorn",
+    "foodables:mortar_and_pestle"
+  ],
+  "result": {
+    "id": "foodables:ground_pepper",
+    "count": 2
+  }
+}

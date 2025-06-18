@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "ingredient": "foodables:berry_cake_mix",
+  "result": {
+    "id": "foodables:baked_berry_cake"
+  }
+}

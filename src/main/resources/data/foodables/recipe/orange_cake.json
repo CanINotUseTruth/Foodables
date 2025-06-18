@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "foodables:baked_orange_cake"
+  ],
+  "result": {
+    "id": "foodables:orange_cake",
+    "count": 1
+  }
+}

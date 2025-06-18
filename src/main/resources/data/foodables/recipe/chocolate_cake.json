@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "foodables:baked_chocolate_cake"
+  ],
+  "result": {
+    "id": "foodables:chocolate_cake",
+    "count": 1
+  }
+}

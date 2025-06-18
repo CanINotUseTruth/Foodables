@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "ingredient": "foodables:cooked_onion",
+  "result": {
+    "id": "foodables:caramelized_onion"
+  }
+}

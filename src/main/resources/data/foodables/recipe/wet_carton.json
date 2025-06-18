@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:paper",
+    "$": "minecraft:water_bucket"
+  },
+  "pattern": ["#$#", " # "],
+  "result": {
+    "count": 3,
+    "id": "foodables:wet_carton"
+  }
+}

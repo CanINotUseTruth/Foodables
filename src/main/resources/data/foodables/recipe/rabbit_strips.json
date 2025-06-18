@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:rabbit",
+    "foodables:knife"
+  ],
+  "result": {
+    "id": "foodables:rabbit_strips",
+    "count": 2
+  }
+}

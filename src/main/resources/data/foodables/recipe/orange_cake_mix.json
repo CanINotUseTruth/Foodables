@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "foodables:orange",
+    "$": "foodables:plain_cake_mix",
+    "%": "foodables:knife"
+  },
+  "pattern": [" % ", "###", " $ "],
+  "result": {
+    "count": 1,
+    "id": "foodables:orange_cake_mix"
+  }
+}

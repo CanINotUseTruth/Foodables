@@ -2,7 +2,7 @@ package truth.foodables.blocks;
 
 import java.util.List;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CropBlock;
@@ -26,8 +26,8 @@ public class FoodablesCropBlock extends CropBlock {
 
     private Item seed;
 
-    public FoodablesCropBlock() {
-        super(FabricBlockSettings.copyOf(Blocks.WHEAT).sounds(BlockSoundGroup.CROP).noCollision().ticksRandomly().breakInstantly().nonOpaque());
+    public FoodablesCropBlock(Settings settings) {
+        super(settings);
     }
 
     public void setSeedsItem(Item seed) {
@@ -40,9 +40,9 @@ public class FoodablesCropBlock extends CropBlock {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hitResult) {
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hitResult) {
         if(!world.isClient && isMature(state)){
-            List<ItemStack> dropList = getDroppedStacks(state, (ServerWorld)world, pos, null, player, player.getStackInHand(hand));
+            List<ItemStack> dropList = getDroppedStacks(state, (ServerWorld)world, pos, null, player, player.getMainHandStack());
             DefaultedList<ItemStack> drops = DefaultedList.of();
             for(ItemStack stack : dropList){
                 drops.add(stack);
@@ -61,7 +61,7 @@ public class FoodablesCropBlock extends CropBlock {
             world.setBlockState(pos, state.with(AGE, 0));
             ItemScatterer.spawn(world, pos, drops);
         }
-        return super.onUse(state, world, pos, player, hand, hitResult);
+        return super.onUse(state, world, pos, player, hitResult);
     }
 
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+      "foodables:brown_onion",
+      "foodables:knife"
+  ],
+  "result": {
+    "id": "foodables:sliced_brown_onion",
+    "count": 2
+  }
+}

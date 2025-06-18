@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+      "minecraft:sugar_cane",
+      "foodables:mortar_and_pestle"
+  ],
+  "result": {
+    "id": "minecraft:sugar",
+    "count": 2
+  }
+}

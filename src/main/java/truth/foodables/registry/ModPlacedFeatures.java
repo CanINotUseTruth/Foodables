@@ -54,11 +54,11 @@ public class ModPlacedFeatures {
 
 	private static void registerVegetalGeneration(Collection<RegistryKey<Biome>> biomeKeys, String name) {
 		Predicate<BiomeSelectionContext> biomeSelector = BiomeSelectors.includeByKey(biomeKeys);
-		BiomeModifications.addFeature(biomeSelector, GenerationStep.Feature.VEGETAL_DECORATION, RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(Foodables.MOD_ID, name)));
+		BiomeModifications.addFeature(biomeSelector, GenerationStep.Feature.VEGETAL_DECORATION, RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Foodables.MOD_ID, name)));
 	}
 
 	private static void registerUndergroundGeneration(String name) {
 		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES,
-        RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(Foodables.MOD_ID, name)));
+        RegistryKey.of(RegistryKeys.PLACED_FEATURE, Identifier.of(Foodables.MOD_ID, name)));
 	}
 }

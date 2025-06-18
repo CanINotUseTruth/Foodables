@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": "minecraft:dark_oak_slab"
+  },
+  "pattern": ["###"],
+  "result": {
+    "count": 1,
+    "id": "foodables:dark_oak_drying_rack"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": "minecraft:carrot",
+  "result": {
+    "id": "foodables:baked_carrot"
+  }
+}

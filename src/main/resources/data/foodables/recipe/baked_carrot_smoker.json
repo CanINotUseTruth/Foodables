@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "ingredient": "minecraft:carrot",
+  "result": {
+    "id": "foodables:baked_carrot"
+  }
+}

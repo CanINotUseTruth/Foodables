@@ -15,7 +15,6 @@ public class RecipeRemainder extends Item {
         ((ItemAccessor) this).clothesline$setRecipeRemainder(item);
     }
 
-    @Override
 	public boolean hasRecipeRemainder() {
         return true;
     }

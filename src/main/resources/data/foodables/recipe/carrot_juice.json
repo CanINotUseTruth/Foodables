@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "foodables:juicer",
+    "minecraft:carrot",
+    "minecraft:glass_bottle"
+  ],
+  "result": {
+    "id": "foodables:carrot_juice",
+    "count": 1
+  }
+}

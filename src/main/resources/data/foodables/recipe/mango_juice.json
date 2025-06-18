@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "foodables:juicer",
+    "foodables:mango",
+    "minecraft:glass_bottle"
+  ],
+  "result": {
+    "id": "foodables:mango_juice",
+    "count": 1
+  }
+}
