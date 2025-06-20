@@ -25,13 +25,13 @@ Transform your Minecraft culinary experience with **125+ new items**, advanced f
 - **7 Fruit Trees** - Apple, Banana, Lemon, Lime, Mango, Orange, and Peppercorn trees with natural generation
 - **5 New Crops** - Tomato, Lettuce, Brown Onion, Red Onion, and Garlic with full growth cycles
 - **2 Berry Bushes** - Blueberry and Blackberry bushes that generate naturally in forest biomes
-- **Seasonal Harvesting** - Trees drop fruits naturally over time, encouraging sustainable farming
+- **Tree Harvesting** - Trees drop fruits when the leaves are breaking over time
 
 ### Advanced Processing Systems
-- **Drying Rack Network** - 10 wood variants (including new Pale Oak) for food preservation and jerky production
+- **Drying Rack Network** - 10 wood variants (including new Pale Oak) for jerky production
 - **Food Preservation** - Create jerky and dried foods with enhanced saturation and storage benefits
 - **Multi-Stage Cooking** - Complex recipes requiring multiple ingredients and processing steps
-- **Tool Integration** - 5 specialized tools (Mortar & Pestle, Knife, Juicer, Whisk, Crusher) for advanced cooking
+- **Tool Integration** - 5 specialized tools (Mortar & Pestle, Knife, Juicer, Whisk, Crusher) for advanced crafting
 
 ### World Generation Integration
 - **Natural Tree Generation** - Fruit trees spawn organically in appropriate biomes
@@ -87,10 +87,10 @@ Access Foodables configuration through **Mod Menu → Foodables Config**
 ## 🎮 Getting Started
 
 ### Your First Foodables Experience
-1. **Explore and Gather** - Find fruit trees and berry bushes in forest and plains biomes
-2. **Basic Farming** - Craft seeds from fruits and vegetables to start your own crops
+1. **Explore and Gather** - Find fruit trees and berry bushes by adventuring through your world
+2. **Basic Farming** - Collect seeds by breaking short grass to start your own crops
 3. **Tool Crafting** - Create a Knife and Mortar & Pestle for basic food processing
-4. **Drying Rack Setup** - Build drying racks for food preservation and jerky production
+4. **Drying Rack Setup** - Build drying racks for jerky production
 5. **Advanced Cooking** - Progress to complex multi-ingredient recipes for maximum nutrition
 
 ### Food Progression Guide
@@ -161,11 +161,7 @@ Foodables follows a **"Vanilla Plus"** design philosophy:
 ### Contributing
 - **Bug Reports**: Help improve the mod by reporting issues with detailed information
 - **Feature Suggestions**: Share ideas that align with the vanilla-plus philosophy
-- **Community Contributions**: Join our Discord to collaborate with other players
 - **Translations**: Help make Foodables accessible to more players worldwide
-
-### Server Hosting
-[![Kinetic Hosting](https://i.imgur.com/4V80T1w.png)](https://billing.kinetichosting.net/aff.php?aff=103)
 
 ---
 
