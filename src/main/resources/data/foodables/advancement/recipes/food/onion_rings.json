@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_battered_onions": {
+      "conditions": {
+        "items": [
+          {
+            "items": "foodables:battered_onions"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "foodables:onion_rings"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_battered_onions"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "foodables:onion_rings"
+    ]
+  }
+}

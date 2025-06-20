@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mango": {
+      "conditions": {
+        "items": [
+          {
+            "items": "foodables:mango"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "foodables:mango_juice"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mango"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "foodables:mango_juice"
+    ]
+  }
+}
