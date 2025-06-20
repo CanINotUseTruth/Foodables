@@ -101,7 +101,7 @@ public class DryingRackEntity extends BlockEntity implements Inventory{
 
     private void resetProgress() {
         this.progress = Optional.of(0);
-        this.maxProgress = Optional.of(72);
+        this.maxProgress = Optional.of(2400);
     }
 
     private void craftItem() {
