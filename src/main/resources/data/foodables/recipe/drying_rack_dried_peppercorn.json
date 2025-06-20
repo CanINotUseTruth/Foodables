@@ -1,0 +1,7 @@
+{
+  "type": "foodables:drying_rack",
+  "ingredient": "foodables:peppercorn_item",
+  "result": {
+    "id": "foodables:dried_peppercorn"
+  }
+}

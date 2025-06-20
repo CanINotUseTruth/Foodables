@@ -1,12 +1,9 @@
 package truth.foodables.blocks;
 
+import net.minecraft.block.*;
+import net.minecraft.server.world.ServerWorld;
 import org.jetbrains.annotations.Nullable;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockWithEntity;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -39,12 +36,11 @@ import truth.foodables.Foodables;
 import truth.foodables.blocks.blockentities.DryingRackEntity;
 import truth.foodables.registry.ModBlocks;
 import truth.foodables.registry.ModRecipes;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.block.Waterloggable;
+
 import java.util.Optional;
 
 @SuppressWarnings("deprecation")
-public class DryingRack extends BlockWithEntity implements Waterloggable {
+public class DryingRack extends BlockWithEntity implements BlockEntityProvider, Waterloggable {
 
     public static final VoxelShape NORTH_SHAPE, SOUTH_SHAPE, EAST_SHAPE, WEST_SHAPE;
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
@@ -70,47 +66,42 @@ public class DryingRack extends BlockWithEntity implements Waterloggable {
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new DryingRackEntity(pos, state);
     }
-    
+
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlocks.DRYING_RACK_ENTITY, world.isClient ? null : DryingRackEntity::serverTick);
+        if(world.isClient()) {
+            return null;
+        }
+
+        return validateTicker(type, ModBlocks.DRYING_RACK_ENTITY,
+                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
-    
+
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
-        DryingRackEntity woodRackEntity = (DryingRackEntity) world.getBlockEntity(pos);
-        ItemStack stack = woodRackEntity.getStack(0);
-        if (stack.isEmpty()) {
-            // Hang item on rack
+        DryingRackEntity dryingRackEntity = (DryingRackEntity) world.getBlockEntity(pos);
+        ItemStack entityStack = dryingRackEntity.getStack(0);
+        if(entityStack.isEmpty()) {
             ItemStack heldItem = player.getMainHandStack();
-            if (!heldItem.isEmpty() && ModRecipes.RACK_ITEM_LIST.contains(heldItem.getItem()) && !state.get(WATERLOGGED)) {
-                if (!world.isClient) {
-                    int index = ModRecipes.RACK_ITEM_LIST.indexOf(heldItem.getItem());
-                    woodRackEntity.dryingTime = Optional.of(ModRecipes.RACK_RESULT_TIME_LIST.get(index));
-                    woodRackEntity.result = ModRecipes.RACK_RESULT_ITEM_LIST.get(index);
-                    woodRackEntity.index = Optional.of(index);
-                    if (player.isCreative()) {
-                        woodRackEntity.setStack(0, heldItem.copy());
-                    } else
-                        woodRackEntity.setStack(0, heldItem.split(1));
-                }
-                if (world.isClient) {
-                    return ActionResult.SUCCESS;
+            if (!heldItem.isEmpty()  && !state.get(WATERLOGGED)) {
+                if(!world.isClient){
+                    if(dryingRackEntity.hasRecipe(heldItem)) {
+                        if (player.isCreative()) {
+                            dryingRackEntity.setStack(0, heldItem.copyWithCount(1));
+                        } else {
+                            dryingRackEntity.setStack(0, heldItem.split(1));
+                        }
+                    }
                 }
             }
-            return ActionResult.CONSUME;
         } else {
-            // Remove hanging item
-            if (!world.isClient && !player.giveItemStack(stack.split(1))) {
-                player.dropItem(stack.split(1), false);
+            if(!world.isClient) {
+                player.giveOrDropStack(entityStack.split(1));
             }
-            woodRackEntity.clear();
-            if (world.isClient) {
-                return ActionResult.SUCCESS;
-            }
-            return ActionResult.SUCCESS;
+            dryingRackEntity.clear();
         }
+        return ActionResult.SUCCESS;
     }
 
     @Override
@@ -133,18 +124,6 @@ public class DryingRack extends BlockWithEntity implements Waterloggable {
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         Direction direction = (Direction) state.get(FACING);
         return this.canPlaceOn(world, pos.offset(direction.getOpposite()), direction);
-    }
-    
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos neighborBlockPos) {
-        if (direction.getOpposite() == state.get(FACING) && !state.canPlaceAt(world, pos)) {
-            return Blocks.AIR.getDefaultState();
-        } else {
-            if ((Boolean) state.get(WATERLOGGED)) {
-                world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
-            }
-
-            return Blocks.AIR.getDefaultState();
-        }
     }
 
     @Override
@@ -196,15 +175,15 @@ public class DryingRack extends BlockWithEntity implements Waterloggable {
     public FluidState getFluidState(BlockState state) {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
-    
-    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if (!state.isOf(newState.getBlock())) {
+
+    @Override
+    protected void onStateReplaced(BlockState state, ServerWorld world, BlockPos pos, boolean moved) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof Inventory) {
-                ItemScatterer.spawn(world, pos, (Inventory) blockEntity);
+            if(blockEntity instanceof DryingRackEntity) {
+                ItemScatterer.spawn(world, pos, ((DryingRackEntity) blockEntity));
                 world.updateComparators(pos, this);
             }
-        }
+            super.onStateReplaced(state, world, pos, moved);
     }
 
     @SuppressWarnings("unchecked")
