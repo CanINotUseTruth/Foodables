@@ -1,0 +1,7 @@
+{
+  "type": "foodables:drying_rack",
+  "ingredient": "foodables:wet_carton",
+  "result": {
+    "id": "foodables:carton"
+  }
+}

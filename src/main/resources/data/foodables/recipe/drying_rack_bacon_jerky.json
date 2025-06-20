@@ -1,0 +1,7 @@
+{
+  "type": "foodables:drying_rack",
+  "ingredient": "foodables:salted_bacon_strips",
+  "result": {
+    "id": "foodables:bacon_jerky"
+  }
+}

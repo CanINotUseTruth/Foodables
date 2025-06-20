@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_rabbit_strips": {
+      "conditions": {
+        "items": [
+          {
+            "items": "foodables:rabbit_strips"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "foodables:salted_rabbit_strips"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_rabbit_strips"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "foodables:salted_rabbit_strips"
+    ]
+  }
+}

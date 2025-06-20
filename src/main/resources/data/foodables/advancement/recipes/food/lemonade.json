@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lemon_juice": {
+      "conditions": {
+        "items": [
+          {
+            "items": "foodables:lemon_juice"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "foodables:lemonade"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lemon_juice"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "foodables:lemonade"
+    ]
+  }
+}
