@@ -9,79 +9,136 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.listener.ClientPlayPacketListener;
+import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.RegistryWrapper.WrapperLookup;
+import net.minecraft.screen.PropertyDelegate;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+import truth.foodables.recipe.DryingRackRecipe;
+import truth.foodables.recipe.DryingRackRecipeInput;
 import truth.foodables.registry.ModBlocks;
 import truth.foodables.registry.ModRecipes;
 
 import java.util.Optional;
 
 public class DryingRackEntity extends BlockEntity implements Inventory{
+    private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
+    private static final int INPUT_SLOT = 0;
+
+    protected final PropertyDelegate propertyDelegate;
+    private Optional<Integer> progress = Optional.of(0);
+    private Optional<Integer> maxProgress = Optional.of(2400);
 
     public Item result;
-    public Optional<Integer> index = Optional.of(-1);
-    public Optional<Integer> dryingTime = Optional.of(-1);
-    private int processTime;
-    private DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
     public DryingRackEntity(BlockPos pos, BlockState state) {
         super(ModBlocks.DRYING_RACK_ENTITY, pos, state);
-    }
-
-    @Override
-    public void readNbt(NbtCompound nbt, WrapperLookup registryLookup) {
-        super.readNbt(nbt, registryLookup);
-        this.dryingTime = nbt.getInt("Drying_Time");
-        this.index = nbt.getInt("Rack_Index");
-        this.inventory.clear();
-        Inventories.readNbt(nbt, inventory, registryLookup);
-        if (!isEmpty() && !ModRecipes.RACK_RESULT_ITEM_LIST.isEmpty() && index.get() >= 0 && ModRecipes.RACK_RESULT_ITEM_LIST.size() > index.get())
-            this.result = ModRecipes.RACK_RESULT_ITEM_LIST.get(index.get());
-    }
-
-    @Override
-    public void writeNbt(NbtCompound nbt, WrapperLookup registryLookup) {
-        super.writeNbt(nbt, registryLookup);
-        nbt.putInt("Drying_Time", dryingTime.get());
-        nbt.putInt("Rack_Index", index.get());
-        Inventories.writeNbt(nbt, inventory, registryLookup);
-    }
-
-    public static void serverTick(World world, BlockPos pos, BlockState state, DryingRackEntity blockEntity) {
-        blockEntity.update();
-    }
-
-    private void update() {
-        if (!this.world.isClient && !isEmpty() && ModRecipes.RACK_ITEM_LIST.contains(this.getStack(0).getItem()) && dryingTime.get() > 0) {
-            ++this.processTime;
-            if (this.processTime >= this.dryingTime.get()) {
-                this.setStack(0, new ItemStack(result));
-                this.processTime = 0;
+        this.propertyDelegate = new PropertyDelegate() {
+            @Override
+            public int get(int index) {
+                return switch (index) {
+                    case 0 -> DryingRackEntity.this.progress.orElseThrow();
+                    case 1 -> DryingRackEntity.this.maxProgress.orElseThrow();
+                    default -> 0;
+                };
             }
-        }
+
+            @Override
+            public void set(int index, int value) {
+                switch (index) {
+                    case 0: DryingRackEntity.this.progress = Optional.of(value);
+                    case 1: DryingRackEntity.this.maxProgress = Optional.of(value);
+                }
+            }
+
+            @Override
+            public int size() {
+                return 1;
+            }
+        };
+    }
+
+    public DefaultedList<ItemStack> getItems() {
+        return inventory;
     }
 
     @Override
-    public void markDirty() {
-        super.markDirty();
-        sendUpdate();
-    }
-
-    private void sendUpdate() {
-        if (this.world != null) {
-        BlockState state = this.world.getBlockState(this.pos);
-        (this.world).updateListeners(this.pos, state, state, 3);
-        }
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+        super.writeNbt(nbt, registryLookup);
+        Inventories.writeNbt(nbt, inventory, registryLookup);
+        nbt.putInt("drying_rack.progress", progress.orElseThrow());
+        nbt.putInt("drying_rack.max_progress", maxProgress.orElseThrow());
     }
 
     @Override
-    public void clear() {
-        this.inventory.clear();
-        this.markDirty();
+    protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+        Inventories.readNbt(nbt, inventory, registryLookup);
+        progress = nbt.getInt("drying_rack.progress");
+        maxProgress = nbt.getInt("drying_rack.max_progress");
+        super.readNbt(nbt, registryLookup);
+    }
+
+    public void tick(World world, BlockPos pos, BlockState state) {
+        if(hasRecipe()) {
+            increaseCraftingProgress();
+            markDirty(world, pos, state);
+
+            if(hasCraftingFinished()) {
+                craftItem();
+                resetProgress();
+            }
+        } else {
+            resetProgress();
+        }
+    }
+
+    private void resetProgress() {
+        this.progress = Optional.of(0);
+        this.maxProgress = Optional.of(72);
+    }
+
+    private void craftItem() {
+        Optional<RecipeEntry<DryingRackRecipe>> recipe = getCurrentRecipe();
+
+        ItemStack output = recipe.get().value().output();
+        this.removeStack(INPUT_SLOT, 1);
+        this.setStack(INPUT_SLOT, new ItemStack(output.getItem(),
+                this.getStack(INPUT_SLOT).getCount() + output.getCount()));
+    }
+
+    private boolean hasCraftingFinished() {
+        return this.progress.orElseThrow() >= this.maxProgress.orElseThrow();
+    }
+
+    private void increaseCraftingProgress() {
+        this.progress = Optional.of(this.progress.orElseThrow() + 1);
+    }
+
+    private boolean hasRecipe() {
+        Optional<RecipeEntry<DryingRackRecipe>> recipe = getCurrentRecipe();
+        return recipe.isPresent();
+    }
+
+    private Optional<RecipeEntry<DryingRackRecipe>> getCurrentRecipe() {
+        return ((ServerWorld) this.getWorld()).getRecipeManager()
+                .getFirstMatch(ModRecipes.DRYING_RACK_RECIPE_TYPE, new DryingRackRecipeInput(inventory.get(INPUT_SLOT)), this.getWorld());
+    }
+
+    public boolean hasRecipe(ItemStack heldItem) {
+        Optional<RecipeEntry<DryingRackRecipe>> recipe = checkHandheldRecipe(heldItem);
+        return recipe.isPresent();
+    }
+
+    private Optional<RecipeEntry<DryingRackRecipe>> checkHandheldRecipe(ItemStack heldItem) {
+        return ((ServerWorld) this.getWorld()).getRecipeManager()
+                .getFirstMatch(ModRecipes.DRYING_RACK_RECIPE_TYPE, new DryingRackRecipeInput(heldItem), this.getWorld());
     }
 
     @Override
@@ -96,7 +153,7 @@ public class DryingRackEntity extends BlockEntity implements Inventory{
 
     @Override
     public ItemStack getStack(int slot) {
-        return this.inventory.get(0);
+        return this.inventory.getFirst();
     }
 
     @Override
@@ -109,6 +166,12 @@ public class DryingRackEntity extends BlockEntity implements Inventory{
     }
 
     @Override
+    public ItemStack removeStack(int slot) {
+        this.markDirty();
+        return Inventories.removeStack(this.inventory, slot);
+    }
+
+    @Override
     public void setStack(int slot, ItemStack stack) {
         this.clear();
         this.inventory.set(0, stack);
@@ -116,16 +179,30 @@ public class DryingRackEntity extends BlockEntity implements Inventory{
     }
 
     @Override
-    public ItemStack removeStack(int slot) {
+    public void clear() {
+        this.inventory.clear();
         this.markDirty();
-        return Inventories.removeStack(this.inventory, slot);
     }
 
     @Override
-    public boolean canPlayerUse(PlayerEntity player) {
+    public void markDirty() {
+        sendUpdate();
+        super.markDirty();
+    }
+
+    @Override
+    public boolean canPlayerUse(PlayerEntity playerEntity) {
         return true;
     }
 
+    private void sendUpdate() {
+        if (this.world != null) {
+            BlockState state = this.world.getBlockState(this.pos);
+            (this.world).updateListeners(this.pos, state, state, 3);
+        }
+    }
+
+    @Nullable
     @Override
     public BlockEntityUpdateS2CPacket toUpdatePacket() {
         return BlockEntityUpdateS2CPacket.create(this);
@@ -133,7 +210,7 @@ public class DryingRackEntity extends BlockEntity implements Inventory{
 
     @Override
     public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registryLookup) {
-        return this.createNbt(registryLookup);
+        return createNbt(registryLookup);
     }
 
 }

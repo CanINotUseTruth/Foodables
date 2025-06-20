@@ -1,0 +1,7 @@
+{
+  "type": "foodables:drying_rack",
+  "ingredient": "foodables:salted_lamb_strips",
+  "result": {
+    "id": "foodables:lamb_jerky"
+  }
+}

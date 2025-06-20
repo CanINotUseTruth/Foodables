@@ -51,7 +51,7 @@ public class DryingRackRenderer implements BlockEntityRenderer<DryingRackEntity>
                 default:
                     
             }
-            itemRenderer.renderItem(itemStack, ItemDisplayContext.FIXED, light, overlay, matrixStack, vertexConsumers, entity.getWorld(), k);
+            itemRenderer.renderItem(itemStack, ItemDisplayContext.FIXED, light, overlay, matrixStack, vertexConsumers, entity.getWorld(), 1);
             matrixStack.pop();
         }
 
