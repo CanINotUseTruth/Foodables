@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cake_mix": {
+      "conditions": {
+        "items": [
+          {
+            "items": "foodables:apple_cake_mix"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "foodables:apple_cake"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cake_mix"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "foodables:apple_cake"
+    ]
+  }
+}

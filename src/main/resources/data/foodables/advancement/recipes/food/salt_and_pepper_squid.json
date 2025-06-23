@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_battered_squid": {
+      "conditions": {
+        "items": [
+          {
+            "items": "foodables:battered_squid"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "foodables:salt_and_pepper_squid"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_battered_squid"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "foodables:salt_and_pepper_squid"
+    ]
+  }
+}

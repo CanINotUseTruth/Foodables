@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_salted_strips": {
+      "conditions": {
+        "items": [
+          {
+            "items": "foodables:salted_lamb_strips"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "foodables:drying_rack_lamb_jerky"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_salted_strips"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "foodables:drying_rack_lamb_jerky"
+    ]
+  }
+}

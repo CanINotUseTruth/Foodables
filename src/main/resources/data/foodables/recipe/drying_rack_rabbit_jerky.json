@@ -1,0 +1,7 @@
+{
+  "type": "foodables:drying_rack",
+  "ingredient": "foodables:salted_rabbit_strips",
+  "result": {
+    "id": "foodables:rabbit_jerky"
+  }
+}

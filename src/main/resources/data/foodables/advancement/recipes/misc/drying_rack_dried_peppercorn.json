@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_peppercorn": {
+      "conditions": {
+        "items": [
+          {
+            "items": "foodables:peppercorn_item"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "foodables:drying_rack_dried_peppercorn"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_peppercorn"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "foodables:drying_rack_dried_peppercorn"
+    ]
+  }
+}

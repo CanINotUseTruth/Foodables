@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_lime": {
+      "conditions": {
+        "items": [
+          {
+            "items": "foodables:lime"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "foodables:lime_juice"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_lime"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "foodables:lime_juice"
+    ]
+  }
+}

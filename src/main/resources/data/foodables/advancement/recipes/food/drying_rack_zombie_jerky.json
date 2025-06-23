@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_salted_flesh": {
+      "conditions": {
+        "items": [
+          {
+            "items": "foodables:salted_zombie_flesh"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "foodables:drying_rack_zombie_jerky"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_salted_flesh"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "foodables:drying_rack_zombie_jerky"
+    ]
+  }
+}
