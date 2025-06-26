@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": "#foodables:berries",
+    "#": "#c:berries",
     "$": "foodables:plain_cake_mix",
     "%": "foodables:knife"
   },
